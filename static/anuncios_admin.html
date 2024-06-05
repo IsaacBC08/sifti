@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario de Anuncio</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 20px;
+    }
+    .formulario {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        width: 400px;
+        margin: 0 auto;
+    }
+    .formulario label,
+    .formulario input,
+    .formulario textarea {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .formulario input,
+    .formulario textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .formulario button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+    .formulario button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+    <div class="formulario">
+        <h2>Formulario de Anuncio</h2>
+        <form id="formularioAnuncio" action="#">
+            <label for="nombre">Nombre del Anuncio:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="asunto">Asunto:</label>
+            <input type="text" id="asunto" name="asunto" required>
+            
+            <label for="contenido">Contenido:</label>
+            <textarea id="contenido" name="contenido" rows="4" required></textarea>
+            
+            <label for="afectados">Afectados:</label>
+            <input type="text" id="afectados" name="afectados" required>
+            
+            <button type="button" onclick="subir_anuncio()">Enviar</button>
+        </form>
+    </div>
+
+    <script src="./js/anuncio.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios por Grupo</title>
+    <link rel="stylesheet" href="../css/horarios.css">
+</head>
+<body>
+    <!-- Contenedor del select -->
+    <div class="select-container">
+        <select id="grupoSelect" onchange="cargarHorario()">
+            <option value="default">Grupo...</option>
+            <optgroup label="Grupos 10°">
+                <option value="10-1-A">10-1 A</option>
+                <option value="10-1-B">10-1 B</option>
+                <option value="10-2-A">10-2 A</option>
+                <option value="10-2-B">10-2 B</option>            
+                <option value="10-3-A">10-3 A</option>
+                <option value="10-3-B">10-3 B</option>
+                <option value="10-4-A">10-4 A</option>
+                <option value="10-4-B">10-4 B</option>
+                <option value="10-5-A">10-5 A</option>
+                <option value="10-5-B">10-5 B</option>
+            </optgroup>
+            <optgroup label="Grupos 11°">
+                <option value="11-1-A">11-1 A</option>
+                <option value="11-1-B">11-1 B</option>
+                <option value="11-2-A">11-2 A</option>
+                <option value="11-2-B">11-2 B</option>            
+                <option value="11-3-A">11-3 A</option>
+                <option value="11-3-B">11-3 B</option>
+                <option value="11-4-A">11-4 A</option>
+                <option value="11-4-B">11-4 B</option>
+                <option value="11-5-A">11-5 A</option>
+                <option value="11-5-B">11-5 B</option>
+            </optgroup>
+            <optgroup label="Grupos 12°">
+                <option value="12-1-A">12-1 A</option>
+                <option value="12-1-B">12-1 B</option>
+                <option value="12-2-A">12-2 A</option>
+                <option value="12-2-B">12-2 B</option>            
+                <option value="12-3-A">12-3 A</option>
+                <option value="12-3-B">12-3 B</option>
+                <option value="12-4">12-4</option>
+                <option value="12-5">12-5</option>
+            </optgroup>
+        </select>
+    </div>
+
+    <!-- Contenedor de la tabla -->
+    <div class="table-container">
+        <table id="horarioTable">
+            <thead>
+                <tr>
+                    <th class="encabezado">Día</th>
+                    <th style="width: 100px;padding: 10px;">7:00  - 7:40 am</th>
+                    <th style="width: 100px;padding: 10px;">7:40  - 8:20 am</th>
+                    <th style="width: 100px; padding: 10px;">8:20  - 9:00 am</th>
+                    <th style="width: 100px; padding: 10px;">9:10  - 9:50 am</th>
+                    <th style="width: 100px; padding: 10px;">9:50  - 10:30 am</th>
+                    <th style="width: 100px; padding: 10px;">10:30 - 11:00 am</th>
+                    <th style="width: 100px; padding: 10px;">12:00 - 12:40 pm</th>
+                    <th style="width: 100px; padding: 10px;">12:40 - 1:20 pm</th>
+                    <th style="width: 100px; padding: 10px;">1:20  - 2:00 pm</th>
+                    <th style="width: 100px; padding: 10px;">2:10  - 2:50 pm</th>
+                    <th style="width: 100px; padding: 10px;">2:50  - 3:30 pm</th>
+                    <th style="width: 100px; padding: 10px;">3:30  - 4:10 pm</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Las filas de la tabla se generarán dinámicamente con JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Botón de atrás -->
+    <button class="boton" onclick="window.location.href='../inicio'">Atrás</button>
+
+    <script src="../js/horarios.js"></script>
+</body>
+</html>

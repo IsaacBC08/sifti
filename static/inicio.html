@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIFTI</title>
+    <link rel="stylesheet" href="/css/inicio.css"> <!-- Enlace al archivo CSS externo -->
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Logo con función de mostrar información al hacer clic -->
+    <img src="img/logo.jpg" alt="Logo" class="logo" onclick="mostrarInfo()">
+    <h2 style="text-align: center; color: #fff; ">Horarios</h2>
+    <hr>
+    <!-- Contenedor para los botones -->
+    <div class="boton-container">
+        <!-- Botones -->
+
+        <button class="boton" onclick="window.location.href='./horarios'">Estudiantes</button>
+        <button class="boton" onclick="window.location.href='./profes'">Profesores</button>
+        <button class="boton" onclick="window.location.href='./menu'">Comedor</button>
+    </div>
+    <!-- Contenedor del párrafo emergente -->
+    <div class="info" id="info">
+        <p>Somos SIFTI, una página para el apoyo de profesores y estudiantes del CTP, desarrollada especialmente para ver la información de horarios como el del comedor, o las clases que le tocan a respectivos estudiantes y/o profesores.
+            <hr>
+            <img src="./img/codigo_qr.png" alt="" style="width: 130px; height: 130px;">
+    
+        </p>
+    </div>
+</div>
+
+<script>
+    // Función para mostrar u ocultar el párrafo de información
+    function mostrarInfo() {
+        var info = document.getElementById('info');
+        info.classList.toggle('active'); // Alternar la clase para mostrar/ocultar
+    }
+</script>
+
+</body>
+</html>

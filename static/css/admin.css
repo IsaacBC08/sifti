@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fcebea; /* Fondo de página suave rosa */
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #2b2b2b;
+    margin-top: 20px;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff6f5; /* Fondo del formulario en tono rosa muy suave */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffad9f; /* Borde del formulario en tono anaranjado suave */
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ffb6c1; /* Borde suave rosa para los campos de entrada */
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #fe8161; /* Color de borde en tono anaranjado suave al enfocar */
+}
+
+input::placeholder {
+    color: #fe8161; /* Color de texto del marcador de posición en tono anaranjado suave */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.boton, .ver-button {
+    margin-right: 20px !important;
+    width: 100%; /* Ancho completo para los botones */
+    height: 50px; /* Altura fija para los botones */
+    margin-top: 10px; /* Margen superior ajustado */
+    background-color: #fe8161; /* Botones en tono anaranjado suave */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.boton:hover, .ver-button:hover {
+    opacity: 0.8;
+    background-color: #ff6347; /* Color de botones más brillante al pasar el mouse */
+}
+
+.boton:active, .ver-button:active {
+    transform: translateY(2px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.ver-button {
+    background-color: #c88e97; /* Botón 'Ver' en tono rosa suave */
+}
+
+.ver-button:hover {
+    background-color: #ff8c94; /* Color de botón 'Ver' más brillante al pasar el mouse */
+}
+
+@media screen and (max-width: 600px) {
+    form {
+        padding: 20px; /* Reducir el padding para pantallas pequeñas */
+    }
+
+    .boton, .ver-button {
+        margin: 15px;
+        height: 40px; /* Reducir altura de botones para pantallas pequeñas */
+        font-size: 16px; /* Reducir tamaño de fuente para botones */
+    }
+}

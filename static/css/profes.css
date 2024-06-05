@@ -1,0 +1,65 @@
+
+        /* Estilos generales */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('../img/FondoSIFTI.jpg'); /* Ruta de la imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+        }
+
+        /* Estilos para el contenedor de selectores */
+        .select-container {
+            margin-top: 20px; /* Espacio entre los selectores y la imagen */
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        /* Estilos para los selectores */
+        select {
+            width: 45%; /* Ajuste el ancho según sea necesario */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            appearance: none; /* Oculta la flecha del select en algunos navegadores */
+            background-color: #ffff;
+            cursor: pointer;
+        }
+
+        /* Estilos para la imagen */
+        .image-container {
+            text-align: center;
+            margin-top: 20px; /* Espacio entre los selectores y la imagen */
+        }
+
+        #selectedImage {
+            max-width: 100%;
+            max-height: 500px; /* Altura máxima de la imagen */
+            display: block; /* Para centrar la imagen */
+            margin: 0 auto; /* Para centrar la imagen */
+        }
+
+        .boton {
+            background-color: #4CAF50; /* Color de fondo verde */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+            position: absolute; /* Posicionamiento absoluto */
+            bottom: 10px; /* Distancia desde abajo */
+            left: 10px; /* Distancia desde la izquierda */
+        }
+    

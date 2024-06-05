@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Semanal</title>
+    <link rel="stylesheet" href="../css/menu.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Menú Semanal</h1>
+        <table id="tablaMenu">
+            <thead>
+                <tr>
+                    <th>Día</th>
+                    <th>Comida</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se insertarán dinámicamente las filas de la tabla -->
+            </tbody>
+        </table>
+    </div>
+
+    <button id="adminButton" onclick="window.location.href='menu_admin'">Administrar Menú</button>
+    <button id="backButton" onclick="window.location.href= '../inicio'">Volver</button>
+
+    <script src="../js/menu.js"></script>
+</body>
+</html>

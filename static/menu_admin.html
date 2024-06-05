@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Menú</title>
+    <link rel="stylesheet" href="../css/admin.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Editar Menú</h1>
+
+        <form id="menuForm">
+            <label for="Lunes">Lunes:</label>
+            <input type="text" id="lunes" name="Lunes" placeholder=""><br><br>
+
+            <label for="Martes">Martes:</label>
+            <input type="text" id="martes" name="Martes" placeholder=""><br><br>
+
+            <label for="Miercoles">Miércoles:</label>
+            <input type="text" id="miercoles" name="Miercoles" placeholder=""><br><br>
+
+            <label for="Jueves">Jueves:</label>
+            <input type="text" id="jueves" name="Jueves" placeholder=""><br><br>
+
+            <label for="Viernes">Viernes:</label>
+            <input type="text" id="viernes" name="Viernes" placeholder=""><br><br>
+            
+            <div class="button-container">
+                <button type="button" class="boton" id= "" onclick="validarYGuardar(event)">Guardar Cambios</button>
+                <button type="button" class="ver-button" onclick="window.location.href='menu'">Ver</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="../js/admin.js"></script>
+</body>
+
+</html>

@@ -66,6 +66,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-top: 20px; /* Espacio adicional entre el texto y los botones en móviles */
 }
 
 .boton {
@@ -88,14 +89,33 @@ body {
 }
 
 @media (max-width: 600px) {
+    body{
+        max-height: 100vh;
+        max-width: 100vw;
+    }
     .main-container {
         width: 100%; /* Ancho completo en dispositivos móviles */
         border-radius: 0; /* Quitar bordes redondeados en pantallas pequeñas */
         box-shadow: none; /* Quitar sombra en pantallas pequeñas */
+        padding: 10px; /* Reducir padding en móviles para más espacio */
+    }
+
+    .titulo {
+        font-size: 24px; /* Reducir tamaño del título en móviles */
+    }
+
+    .typing-text {
+        font-size: 14px; /* Reducir tamaño del texto animado en móviles */
+    }
+
+    .info {
+        padding: 15px; /* Reducir padding del contenedor de información en móviles */
+        margin-bottom: 15px; /* Reducir margen inferior en móviles */
     }
 
     .boton {
         padding: 12px 25px;
         font-size: 14px;
+        width: 100%; /* Ancho completo para los botones en móviles */
     }
 }

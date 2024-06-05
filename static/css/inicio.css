@@ -36,30 +36,61 @@ body {
     margin-bottom: 10px;
 }
 
-.typing-animation {
-    margin-bottom: 20px;
+/* Resto de estilos como ya tenías */
+.titulo-animado {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+    animation: animateTitle 2s infinite alternate,
+               changeColor 4s infinite;
 }
 
+@keyframes animateTitle {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes changeColor {
+    0% {
+        color: #000000; /* Primer color */
+    }
+    25% {
+        color: #ff6e4a; /* Segundo color */
+    }
+    50% {
+        color: #fcca46; /* Tercer color */
+    }
+    75% {
+        color: #ff6e4a; /* Cuarto color */
+    }
+    100% {
+        color: #000000; /* Quinto color, igual al inicial */
+    }
+
+}
+
+/* Resto de estilos como ya tenías */
 .typing-text {
-    display: inline-block;
-    overflow: hidden;
-    border-right: .15em solid orange;
-    white-space: nowrap;
+    opacity: 0; /* Inicialmente oculto */
+    animation: fadeIn 4s forwards; /* Animación de aparición gradual */
+    font-size: 18px;
     margin: 0 auto;
-    letter-spacing: .15em;
-    animation: typing 3.5s steps(40, end),
-               blink-caret .75s step-end infinite;
+    padding: 10px 0; /* Añadido para mejor separación del texto */
 }
 
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange; }
-}
 
 .boton-container {
     display: flex;

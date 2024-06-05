@@ -30,11 +30,11 @@ const horarios = {
 		'Viernes': ['EOTWD - Lab4V', 'EOTWD - Lab4V', 'EOTWD - Lab4V', 'Import y Export - Lab2V', 'Import y Export - Lab2V', 'Import y Export - Lab2V', 'Matemáticas - AV1', 'Matemáticas - AV1', 'Educación Física - Gimnasio', 'Educación Física - Gimnasio', 'Matemáticas - AV1', 'Guía - AV6'],
 	},
 		'10-3-A': {
-			'Lunes': ['FP - Lab1N', 'FP - Lab1N', 'FP - Lab1N', 'AySaC - Lab2N', 'AySaC - Lab2N', 'AySaC - Lab2N', 'Tdll - Lab3V', 'Tdll - Lab3V', 'Tdll - Lab3V', 'Matemática - AV6', 'Matemática - AV6', 'Guía - AV6'],
-			'Martes': ['AySaC - Lab2N', 'AySaC - Lab2N', 'AySaC - Lab2N', 'Español - AV2', 'Ética - AE', 'Matemática - AV6', 'Inglés academico - AV3', 'Inglés academico - AV3', 'Estudios Sociales - AV6', 'Estudios Sociales - AV6', 'Física', 'Física'],
-			'Miércoles': ['Música - AV3', 'Español - AV2', 'Español - AV2', 'Inglés Técnico - AV4', 'Inglés Técnico - AV4', 'Inglés Técnico - AV4', 'FP - Lab2N', 'FP - Lab2N', 'FP - Lab2N', 'Inglés Academico - AV6', 'Inglés Academico - AV6', 'Física'],
-			'Jueves': ['FP - Lab1N', 'FP - Lab1N', 'FP - Lab1N', 'Física', 'Física', 'Cívica - AV6', 'FP - Lab1N', 'FP - Lab1N', 'FP - Lab1N', 'AySaC - Lab2N', 'AySaC - Lab2N', 'AySaC - Lab2N'],
-			'Viernes': ['Educación Física - Gimnasio', 'Educación Física - Gimnasio', 'Física', 'Inglés técnico', 'Inglés técnico', 'Inglés técnico', 'Tdll - Lab4V', 'Tdll - Lab4V', 'Tdll - Lab4V', 'AySaC - Lab2N', 'AySaC - Lab2N', 'AySaC - Lab2N']
+			'Lunes': ['FP - Lab1N', 'FP - Lab1N', 'FP - Lab1N', 'AySaC - Lab2N', 'AySaC - Lab2N', 'AySaC - Lab2N', 'Tdll - Lab3V', 'Tdll - Lab3V', 'Tdll - Lab3V', 'Matemática - AV1', 'Matemática - AV1', 'Guía - AV6'],
+			'Martes' ['Lab2N AySaC', 'Lab2N AySaC', 'Lab2N AySaC', 'Español - AV2', 'Ética - AE', 'Matemática - AV1', 'Inglés Acad - AV6', 'Inglés Acad - AV6', 'Estudios Sociales - AV3', 'Estudios Sociales - AV3', 'Física - AV6', 'Física - AV6']
+			'Miércoles': ['Música - AV3', 'Español - AV2', 'Español - AV2', 'Inglés Técnico - LAB4V', 'Inglés Técnico - LAB4V', 'Inglés Técnico - LAB4V', 'FP - Lab1N', 'FP - Lab1N', 'FP - Lab1N', 'Inglés Academico - AV6', 'Inglés Academico - AV6', 'Física - AV4'],
+			'Jueves': ['FP - Lab1N', 'FP - Lab1N', 'FP - Lab1N', 'Física - AE', 'Física - AE', 'Cívica - AV4', 'FP - Lab1N', 'FP - Lab1N', 'FP - Lab1N', 'AySaC - Lab2N', 'AySaC - Lab2N', 'AySaC - Lab2N'],
+			'Viernes': ['Educación Física - Gimnasio', 'Educación Física - Gimnasio', 'Física - AV5', 'Inglés técnico - LAB4V', 'Inglés técnico - LAB4V', 'Inglés técnico LAB4V', 'Tdll - LAB2N', 'Tdll - LAB2N', 'Tdll - LAB2N', 'AySaC - Lab2N', 'AySaC - Lab2N', 'AySaC - Lab2N']
 	},
 	
 	'10-3-B' : {

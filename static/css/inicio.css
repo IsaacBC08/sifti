@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #f64865, #d90429, #f64865, #d90429); /* Gradiente de colores rojizos */
+    background: linear-gradient(135deg, #f64865, #d90429, #f64865, #d90429);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,11 +10,12 @@ body {
 }
 
 .main-container {
-    background-color: #f0f0f0; /* Fondo blanco/gris */
-    border-radius: 20px; /* Bordes redondeados */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     padding: 20px;
-    max-width: 600px;
+    width: 90%; /* Ancho máximo del contenedor principal */
+    max-width: 600px; /* Máximo ancho en pantallas grandes */
     text-align: center;
 }
 
@@ -23,10 +24,10 @@ body {
 }
 
 .info {
-    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
-    border-radius: 20px; /* Bordes redondeados */
-    margin-bottom: 20px; /* Espacio entre información y animación */
+    border-radius: 20px;
+    margin-bottom: 20px;
 }
 
 .titulo {
@@ -42,10 +43,10 @@ body {
 .typing-text {
     display: inline-block;
     overflow: hidden;
-    border-right: .15em solid orange; /* Borde simulando el cursor */
+    border-right: .15em solid orange;
     white-space: nowrap;
     margin: 0 auto;
-    letter-spacing: .15em; /* Espaciado entre caracteres */
+    letter-spacing: .15em;
     animation: typing 3.5s steps(40, end),
                blink-caret .75s step-end infinite;
 }
@@ -88,7 +89,9 @@ body {
 
 @media (max-width: 600px) {
     .main-container {
-        padding: 10px;
+        width: 100%; /* Ancho completo en dispositivos móviles */
+        border-radius: 0; /* Quitar bordes redondeados en pantallas pequeñas */
+        box-shadow: none; /* Quitar sombra en pantallas pequeñas */
     }
 
     .boton {

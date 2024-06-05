@@ -1,22 +1,24 @@
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #f0f0f0; /* Color de fondo general */
     margin: 0;
     padding: 0;
+    font-size: small; /* Tamaño de fuente general */
 }
 
 .container {
     max-width: 800px;
     margin: 20px auto;
-    background-color: #fff;
+    background-color: #fff; /* Color de fondo del contenedor */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra del contenedor */
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #333; /* Color del texto de encabezado */
 }
 
 /* Estiliza la tabla */
@@ -26,7 +28,7 @@ table {
     margin-top: 20px;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra de la tabla */
     border: 2px solid #333; /* Borde de la tabla */
     background-color: #fffbf2; /* Color de fondo de la tabla */
 }
@@ -39,8 +41,8 @@ table th, table td {
 }
 
 table th {
-    background: linear-gradient(90deg, #ff7e5f, #feb47b);
-    color: #fff;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Degradado de fondo del encabezado */
+    color: #fff; /* Color del texto del encabezado */
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-size: 20px; /* Tamaño de la fuente aumentado */
@@ -49,7 +51,7 @@ table th {
 
 table td {
     font-size: 18px; /* Tamaño de la fuente aumentado */
-    color: #555;
+    color: #555; /* Color del texto de las celdas */
 }
 
 table tr:nth-child(even) {
@@ -63,7 +65,7 @@ table tr:hover {
 /* Resaltar los días */
 table td:first-child {
     font-weight: bold;
-    color: #ff7e5f;
+    color: #ff7e5f; /* Color especial para los primeros elementos */
 }
 
 /* Estiliza las celdas */
@@ -86,47 +88,56 @@ table td::before, table th::before {
 table td:hover::before, table th:hover::before {
     opacity: 1;
 }
-
+/* Botones */
 #adminButton, #backButton {
     position: fixed;
-    bottom: 20px;
-    padding: 12px 24px;
-    background-color: #ff7e5f;
+    bottom: 20px; /* Posición fija desde abajo */
+    padding: 12px 24px; /* Tamaño del padding */
+    background-color: #ff7e5f; /* Color primario */
     color: #fff;
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 18px; /* Tamaño de fuente */
     font-family: 'Roboto', sans-serif;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra */
     transition: all 0.3s ease;
     z-index: 1;
 }
 
+@media (max-width: 768px) {
+    /* Ajustes para dispositivos móviles */
+    #adminButton, #backButton {
+        font-size: 16px; /* Reducir tamaño de fuente */
+        padding: 10px 20px; /* Ajustar padding */
+    }
+}
+
 #adminButton {
-    right: 20px;
+    right: 20px; /* Posición desde la derecha */
 }
 
 #adminButton:hover {
-    background-color: #d90429;
-    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4);
+    background-color: #d90429; /* Cambio de color al pasar el ratón */
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
 }
 
 #adminButton:active {
-    transform: translateY(2px);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(2px); /* Efecto de presionado */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más suave */
 }
 
 #backButton {
-    left: 20px;
+    left: 20px; /* Posición desde la izquierda */
 }
 
 #backButton:hover {
-    background-color: #d90429;
-    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4);
+    background-color: #d90429; /* Cambio de color al pasar el ratón */
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
 }
 
 #backButton:active {
-    transform: translateY(2px);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(2px); /* Efecto de presionado */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más suave */
 }
+

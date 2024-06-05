@@ -100,13 +100,8 @@ body {
     
     body {
         margin: 6%; /* Margen del 6% alrededor del cuerpo en dispositivos móviles */
+        font-size: smaller;
     }
 
-    .boton {
-        font-size: 40%; /* Reducción del tamaño de fuente al 40% */
-    }
 
-    .select-container select {
-        font-size: 40%; /* Reducción del tamaño de fuente al 40% */
-    }
 }

@@ -1,217 +1,83 @@
-/* Estilos generales */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-image: url('../img/FondoSIFTI.jpg'); /* Ruta de la imagen de fondo */
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(135deg, #f64865, #d90429, #f64865, #d90429); /* Gradiente de colores rojizos */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px; /* Añadido espacio interno para evitar el desbordamiento */
-    box-sizing: border-box; /* Para que el padding se incluya en el ancho y alto total */
-}
-
-/* Estilos para el logo */
-.logo {
-    width: 150px; /* Ajusta el tamaño del logo según tus preferencias */
-    height: auto;
+.main-container {
+    background-color: #fff; /* Fondo blanco */
     border-radius: 20px; /* Bordes redondeados */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15); /* Sombra suave */
-    transition: all 0.3s ease; /* Transición suave */
-    cursor: pointer; /* Cursor apuntador al pasar por encima */
-    position: absolute;
-    top: 20%; /* Centrado vertical */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100; /* Asegura que esté por encima del contenido */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    padding: 20px;
+    max-width: 600px;
 }
 
-.logo:hover {
-    transform: translate(-50%, -50%) scale(1.1); /* Movimiento y escala al hacer hover */
-    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+.container {
+    text-align: center;
 }
 
-/* Contenedor para los botones */
+.header {
+    margin-bottom: 20px;
+}
+
+.titulo {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.typing-animation {
+    margin-bottom: 20px;
+}
+
+.typing-text {
+    display: inline-block;
+    overflow: hidden;
+    border-right: .15em solid orange; /* Borde simulando el cursor */
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em; /* Espaciado entre caracteres */
+    animation: typing 3.5s steps(40, end),
+               blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+}
+
 .boton-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px; /* Espacio entre el contenedor de botones y el párrafo */
-    flex-wrap: wrap; /* Permite que los botones se envuelvan en múltiples líneas en pantallas pequeñas */
+    flex-wrap: wrap;
 }
 
-/* Estilos para los botones */
 .boton {
-    position: relative;
-    overflow: hidden;
-    background-color: #f64865;
+    background-color: #ff7e5f;
     color: #fff;
     padding: 15px 40px;
-    text-align: center;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
     margin: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
     cursor: pointer;
-    border: 2px solid transparent; /* Borde inicialmente transparente */
-    border-radius: 50px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
-    z-index: 1;
-}
-
-.boton:before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    background: linear-gradient(45deg, #f73859, #d90429, #f73859); /* Gradiente de colores rojizos */
-    border-radius: 50px;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.boton:hover:before {
-    opacity: 1;
-}
-
-.boton span {
-    position: relative;
-    z-index: 2;
 }
 
 .boton:hover {
-    color: #ffffff; /* Cambia el color del texto al hacer hover */
-    transform: translateY(4px) scale(1.05); /* Movimiento hacia abajo y escala al hacer hover */
-    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4); /* Sombra más intensa */
-    border-color: #c54f63; /* Color del borde al hacer hover */
-}
-
-.boton:active {
-    transform: translateY(2px);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Sombra reducida en el clic */
-}
-
-/* Estilos para el párrafo emergente */
-.info {
-    position: absolute;
-    top: 70%; /* Aparece debajo de los botones */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 400px;
-    background-color: rgba(58, 68, 99, 0.9); /* Color de fondo semi-transparente */
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.4);
-    display: none;
-    z-index: 0; /* Asegura que esté detrás del contenido */
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Estilos cuando el párrafo está activo */
-.info.active {
-    display: block;
-    opacity: 1;
-    transform: translateX(-50%) translateY(0); /* Movimiento hacia abajo cuando está activo */
-}
-
-/* Estilos para el contenido dentro del párrafo */
-.info p {
-    color: #fff;
-    font-size: 18px;
-    line-height: 1.6;
-    margin: 0;
-    position: relative; /* Para poder añadir un fondo decorativo */
-    z-index: 1; /* Asegura que el texto esté por encima del fondo */
-}
-
-/* Estilos para el fondo decorativo del párrafo */
-.info p::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent);
-    background-size: 20px 20px; /* Tamaño y espaciado del patrón */
-    opacity: 0.7; /* Opacidad del patrón */
-    z-index: -1; /* Detrás del texto */
-    border-radius: 20px; /* Redondez para coincidir con el contenedor */
-}
-
-/* Consultas de medios para hacer el diseño responsivo */
-@media (max-width: 1200px) {
-    .logo {
-        width: 120px; /* Ajustar tamaño del logo para pantallas medianas */
-    }
-
-    .boton {
-        padding: 12px 35px;
-        font-size: 18px;
-    }
-
-    .info p {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 768px) {
-    .logo {
-        width: 100px; /* Ajustar tamaño del logo para pantallas pequeñas */
-        top: 15%; /* Ajustar posición */
-    }
-
-    .boton {
-        padding: 10px 30px;
-        font-size: 16px;
-    }
-
-    .info {
-        top: 65%; /* Ajustar posición del párrafo emergente */
-    }
-
-    .info p {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo {
-        width: 80px; /* Ajustar tamaño del logo para pantallas muy pequeñas */
-        top: 10%; /* Ajustar posición */
-    }
-
-    .boton {
-        padding: 8px 25px;
-        font-size: 14px;
-    }
-
-    .info {
-        top: 60%; /* Ajustar posición del párrafo emergente */
-        padding: 20px;
-    }
-
-    .info p {
-        font-size: 12px;
-    }
+    background-color: #d90429;
+    transform: translateY(4px) scale(1.05);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4);
 }

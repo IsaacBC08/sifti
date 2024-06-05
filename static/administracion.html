@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="css/administracion.css">
+</head>
+<body>
+    <header>
+        <h1>Panel de Administración</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" id="menu-link">Administrar Menú</a></li>
+            <li><a href="#" id="announcement-link">Publicar un Anuncio</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="menu-section">
+            <h2>Administrar Menú</h2>
+			<div class="container">
+				<h1>Editar Menú</h1>
+		
+				<form id="menuForm">
+					<label for="Lunes">Lunes:</label>
+					<input type="text" id="lunes" name="Lunes" placeholder=""><br><br>
+		
+					<label for="Martes">Martes:</label>
+					<input type="text" id="martes" name="Martes" placeholder=""><br><br>
+		
+					<label for="Miercoles">Miércoles:</label>
+					<input type="text" id="miercoles" name="Miercoles" placeholder=""><br><br>
+		
+					<label for="Jueves">Jueves:</label>
+					<input type="text" id="jueves" name="Jueves" placeholder=""><br><br>
+		
+					<label for="Viernes">Viernes:</label>
+					<input type="text" id="viernes" name="Viernes" placeholder=""><br><br>
+					
+					<div class="button-container">
+						<button type="button" class="boton" id= "" onclick="guardar_menu(event)">Guardar Cambios</button>
+					</div>
+				</form>
+			</div>
+		
+        </section>
+        <section id="announcement-section" style="display: none;">
+            <h2>Publicar un Anuncio</h2>
+            <!-- Contenido para publicar un anuncio -->
+			<div class="container">
+				<h2>Anuncios de último momento</h2>
+				<form action="" method="POST">
+					<div class="form-group">
+						<label for="nombre">Nombre:</label>
+						<input type="text" id="nombre" name="nombre" required>
+					</div>
+					<div class="form-group">
+						<label for="asunto">Asunto:</label>
+						<input type="text" id="asunto" name="asunto" required>
+					</div>
+					<div class="form-group">
+						<label for="contenido">Contenido:</label>
+						<textarea id="contenido" name="contenido" required></textarea>
+					</div>
+					<div class="form-group">
+						<label for="afectados">Afectados:</label>
+						<input type="text" id="afectados" name="afectados" required>
+					</div>
+					<div class="form-group">
+						<button type="button" class="boton" onclick="subir_anuncio()">Publicar</button>
+					</div>
+				</form>
+			</div>
+        </section>
+    </main>
+    <script src="js/administracion.js"></script>
+</body>
+</html>

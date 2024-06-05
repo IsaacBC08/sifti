@@ -3,7 +3,8 @@ import socketserver
 import os
 import json
 
-PORT = 27
+
+PORT = 8080
 PASSWORD = "sifti4321"
 STATIC_DIR = os.path.join(os.path.dirname(__file__), 'static')
 ANUNCIOS_JSON_FILE = os.path.join(os.path.dirname(__file__), 'static/db/anuncios.json')
@@ -44,6 +45,10 @@ class Handler(http_server.SimpleHTTPRequestHandler):
             return super().do_GET()
 
     def do_POST(self):
+        # Obtener la dirección IP del cliente
+        client_ip = self.client_address[0]
+        print(f"Solicitud POST recibida de {client_ip}")
+        
         # Verificar si la ruta de la solicitud POST es '/update_menu'
         if self.path == '/update_menu':
             # Llamar al método que maneja la actualización del menú
@@ -132,5 +137,6 @@ class Handler(http_server.SimpleHTTPRequestHandler):
         
 # Crear el servidor con el manejador personalizado
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print("Todo Correcto")
     print(f"Servidor iniciado en el puerto {PORT}")
     httpd.serve_forever()

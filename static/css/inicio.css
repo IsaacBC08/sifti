@@ -10,19 +10,23 @@ body {
 }
 
 .main-container {
-    background-color: #fff; /* Fondo blanco */
+    background-color: #f0f0f0; /* Fondo blanco/gris */
     border-radius: 20px; /* Bordes redondeados */
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra suave */
     padding: 20px;
     max-width: 600px;
+    text-align: center;
 }
 
 .container {
     text-align: center;
 }
 
-.header {
-    margin-bottom: 20px;
+.info {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    padding: 20px;
+    border-radius: 20px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Espacio entre información y animación */
 }
 
 .titulo {
@@ -66,9 +70,9 @@ body {
 .boton {
     background-color: #ff7e5f;
     color: #fff;
-    padding: 15px 40px;
+    padding: 15px 30px;
     margin: 10px;
-    font-size: 18px;
+    font-size: 16px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
@@ -80,4 +84,15 @@ body {
     background-color: #d90429;
     transform: translateY(4px) scale(1.05);
     box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 600px) {
+    .main-container {
+        padding: 10px;
+    }
+
+    .boton {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
 }

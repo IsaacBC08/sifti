@@ -1,34 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIFTI - Inicio</title>
-    <link rel="stylesheet" href="css/inicio.css"> <!-- Ruta al archivo CSS externo -->
-</head>
-<body>
+    <!-- Agrega enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="css/inicio.css">
 
-<div class="main-container">
-    <div class="container">
-        <!-- Animación de bienvenida -->
-        <div class="welcome-animation">
-            <h1 class="titulo-animado">Bienvenido a SIFTI</h1>
-            <div class="typing-animation">
-                <p class="typing-text">Plataforma diseñada para estudiantes <br>y profesores del CTP de Pavas.</p>
+    <!-- Etiquetas meta para optimización SEO -->
+    <meta name="description" content="Plataforma diseñada para estudiantes y profesores del CTP de Pavas.">
+    <meta name="keywords"
+        content="SIFTI, CTP Pavas, estudiantes ctp, profesores ctp, comedor, administración, ctp comedor, ctp horarios, ctp sifti, sifti, ctp horarios, ctp expotecnica, expotecnica">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="container">
+            <!-- Animación de bienvenida -->
+            <div class="welcome-animation">
+                <h1 class="titulo-animado">Bienvenido a SIFTI</h1>
+                <div class="typing-animation">
+                    <p class="typing-text">Plataforma diseñada para estudiantes <br>y profesores del CTP de Pavas.</p>
+                </div>
+            </div>
+
+            <!-- Contenedor para los botones -->
+            <div class="boton-container">
+                <!-- Botones -->
+                <button class="boton" onclick="window.location.href='./anuncios'">Anuncios</button>
+                <button class="boton" onclick="window.location.href='./estudiantes'">Estudiantes</button>
+                <button class="boton" onclick="window.location.href='./profes'">Profesores</button>
+                <button class="boton" onclick="window.location.href='./menu'">Comedor</button>
+                <button class="boton" onclick="window.location.href='./administracion'">Admin</button>
             </div>
         </div>
-
-        <!-- Contenedor para los botones -->
-        <div class="boton-container">
-            <!-- Botones -->
-            <button class="boton" onclick="window.location.href='./anuncios'">Anuncios</button>
-            <button class="boton" onclick="window.location.href='./estudiantes'">Estudiantes</button>
-            <button class="boton" onclick="window.location.href='./profes'">Profesores</button>
-            <button class="boton" onclick="window.location.href='./menu'">Comedor</button>
-            <button class="boton" onclick="window.location.href='./administracion'">Admin</button>
-        </div>
     </div>
-</div>
+
+    <!-- Scripts de seguimiento de análisis y SEO -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXXXXXX-X');
+    </script>
 
 </body>
+
 </html>

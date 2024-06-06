@@ -3,7 +3,7 @@ import socketserver
 import os
 import json
 
-PORT = 10001
+PORT = 10000
 PASSWORD = "sifti4321"
 STATIC_DIR = os.path.join(os.path.dirname(__file__), 'static')
 ANUNCIOS_JSON_FILE = os.path.join(os.path.dirname(__file__), 'static/db/anuncios.json')
@@ -80,13 +80,13 @@ class Handler(http_server.SimpleHTTPRequestHandler):
                 with open(ANUNCIOS_JSON_FILE, 'r') as json_file:
                     anuncios = json.load(json_file)
 
-                # Eliminar el anuncio 3 si existe
-                if 'anuncio-3' in anuncios:
-                    del anuncios['anuncio-3']
-
-                # Mover el anuncio 2 al anuncio 1
+                # Mover el anuncio 2 al anuncio 3 si existe
                 if 'anuncio-2' in anuncios:
-                    anuncios['anuncio-1'] = anuncios['anuncio-2']
+                    anuncios['anuncio-3'] = anuncios['anuncio-2']
+
+                # Mover el anuncio 1 al anuncio 2 si existe
+                if 'anuncio-1' in anuncios:
+                    anuncios['anuncio-2'] = anuncios['anuncio-1']
 
                 # Agregar el nuevo anuncio como anuncio 1
                 anuncios['anuncio-1'] = data['anuncio']

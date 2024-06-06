@@ -1,20 +1,20 @@
 {
     "anuncio-1": {
-        "nombre": "n1",
-        "asunto": "a1",
-        "contenido": "c1",
-        "afectados": "af1"
+        "nombre": "05-06-24",
+        "asunto": "Salida anticipada",
+        "contenido": "tontos todos los que salen temprano",
+        "afectados": "todos"
     },
     "anuncio-2": {
-        "nombre": "n2",
-        "asunto": "a2",
-        "contenido": "c2",
-        "afectados": "af2"
+        "fecha": "05-06-24",
+        "asunto": "Salida anticipada",
+        "contenido": "Los estudiantes de la 10-5 A salen temprano por falta de lecciones de el profesor de electr\u00f3nica",
+        "afectados": "10-5-A"
     },
     "anuncio-3": {
-        "nombre": "n2",
-        "asunto": "a2",
-        "contenido": "c2",
-        "afectados": "af2"
+        "fecha": "05-06-24",
+        "asunto": "Salida anticipada",
+        "contenido": "Las profesoras: Thelma de ingl\u00e9s y Gabriela de f\u00edsica mate no impartir\u00e1n lecciones por reuni\u00f3n de APSE",
+        "afectados": "10-3 A, 10-3 B"
     }
 }

@@ -3,12 +3,10 @@ import socketserver
 import os
 import json
 
-
 PORT = 10001
 PASSWORD = "sifti4321"
 STATIC_DIR = os.path.join(os.path.dirname(__file__), 'static')
 ANUNCIOS_JSON_FILE = os.path.join(os.path.dirname(__file__), 'static/db/anuncios.json')
-MENU_JSON_FILE = os.path.join(os.path.dirname(__file__), 'static/db/menu.json')
 
 # Define una nueva clase llamada `Handler` que hereda de `http.server.SimpleHTTPRequestHandler`
 class Handler(http_server.SimpleHTTPRequestHandler):
@@ -66,44 +64,6 @@ class Handler(http_server.SimpleHTTPRequestHandler):
             self.end_headers()  # Finalizar los encabezados de la respuesta
             self.wfile.write(b'Error 404: Not Found')  # Escribir el mensaje de error en el cuerpo de la respuesta
 
-    # Método para manejar la actualización del menú
-    def handle_menu_update(self):
-        # Obtener la longitud del contenido de los datos POST
-        content_length = int(self.headers['Content-Length'])
-        
-        # Leer los datos POST del cuerpo de la solicitud y decodificarlos a una cadena UTF-8
-        post_data = self.rfile.read(content_length).decode('utf-8')
-        
-        try:
-            # Intentar cargar los datos POST como JSON
-            data = json.loads(post_data)
-
-            # Validar la contraseña antes de procesar la actualización
-            if 'password' in data and data['password'] == PASSWORD:
-                # Eliminar la contraseña antes de actualizar el archivo JSON
-                del data["password"]
-
-                # Actualizar el archivo JSON con los nuevos datos en menu.json
-                with open(MENU_JSON_FILE, 'w') as json_file:
-                    json.dump(data, json_file, indent=4)
-
-                # Preparar la respuesta exitosa
-                response = {'status': 'success', 'message': 'Datos del menú guardados correctamente'}
-            else:
-                # Preparar la respuesta de error si la contraseña es incorrecta
-                response = {'status': 'error', 'message': 'Contraseña incorrecta para actualizar el menú'}
-
-        except json.JSONDecodeError as e:
-            # Preparar la respuesta de error si ocurre un error al procesar los datos JSON
-            response = {'status': 'error', 'message': 'Error al procesar datos JSON'}
-
-        # Enviar la respuesta al cliente
-        self.send_response(200)
-        self.send_header('Content-type', 'application/json')
-        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')  # Indicar al navegador que no almacene en caché la respuesta
-        self.end_headers()
-        self.wfile.write(json.dumps(response).encode('utf-8'))
-        
     # Método para manejar la actualización de anuncios
     def handle_anuncio_update(self):
         content_length = int(self.headers['Content-Length'])
@@ -115,10 +75,25 @@ class Handler(http_server.SimpleHTTPRequestHandler):
             # Validar la contraseña antes de procesar la actualización
             if 'password' in data and data['password'] == PASSWORD:
                 del data['password']
-                # Aquí podrías validar la contraseña, si es necesario
-                # Procesar los datos recibidos, por ejemplo, actualizar anuncios.json
+
+                # Cargar los datos actuales de anuncios.json
+                with open(ANUNCIOS_JSON_FILE, 'r') as json_file:
+                    anuncios = json.load(json_file)
+
+                # Eliminar el anuncio 3 si existe
+                if 'anuncio-3' in anuncios:
+                    del anuncios['anuncio-3']
+
+                # Mover el anuncio 2 al anuncio 1
+                if 'anuncio-2' in anuncios:
+                    anuncios['anuncio-1'] = anuncios['anuncio-2']
+
+                # Agregar el nuevo anuncio como anuncio 1
+                anuncios['anuncio-1'] = data['anuncio']
+
+                # Actualizar anuncios.json con los nuevos datos
                 with open(ANUNCIOS_JSON_FILE, 'w') as json_file:
-                    json.dump(data, json_file, indent=4)
+                    json.dump(anuncios, json_file, indent=4)
 
                 response = {'status': 'success', 'message': 'Datos del anuncio guardados correctamente'}
             else:
@@ -133,10 +108,8 @@ class Handler(http_server.SimpleHTTPRequestHandler):
         self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')  # Indicar al navegador que no almacene en caché la respuesta
         self.end_headers()
         self.wfile.write(json.dumps(response).encode('utf-8'))
-
         
 # Crear el servidor con el manejador personalizado
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print("Todo Correcto")
-    print(f"Servidor iniciado en el puerto {PORT}")
+    print("Servidor iniciado en el puerto", PORT)
     httpd.serve_forever()

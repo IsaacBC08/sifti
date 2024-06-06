@@ -44,32 +44,92 @@ const horarios = {
         'Viernes': ['Educación Física - Gimnasio', 'Educación Física - Gimnasio', 'Física - AV5', 'GCyCpeSaC - Lab5N', 'GCyCpeSaC - Lab5N', 'GCyCpeSaC - Lab5N', 'GCyCpeSaC - Lab5N', 'GCyCpeSaC - Lab5N', 'GCyCpeSaC - Lab5N', 'DDpGlIyeCE - Lab3N', 'DDpGlIyeCE - Lab3N', 'DDpGlIyeCE - Lab3N']
     },
     '10-4-A': {
-        'Lunes': ['GeTDC', 'GeTDC', 'GeTDC', 'GeTDC', 'GeTDC', 'GeTDC', 'GeTDC', 'GeTDC', 'GeTDC', 'Cívica', 'Español', 'Matemática'],
-        'Martes': ['Física', 'Física', 'ética', 'GC', 'GC', 'GC', 'GC', 'GC', 'GC', 'GC', 'GC', 'GC'],
-        'Miércoles': ['GC', 'GC', 'GC', 'Música', 'Estudios Sociales', 'Estudios Sociales', 'Inglés academico', 'Matemáticas', 'Matemáticas', 'Física', 'Física', 'Inglés academico'],
-        'Jueves': ['EOtA', 'EOtA', 'EOtA', 'GeTDC', 'GeTDC', 'GeTDC', 'Física', 'Inglés Academico', 'Inglés Academico', 'EOtA', 'EOtA', 'EOtA'],
-        'Viernes': ['Español', 'Español', 'Educación Física', 'Educación Física', 'Física', 'Guía', 'GC', 'GC', 'GC', 'GC', 'GC', 'GC'],
+        'Lunes': [
+            'GeTDC - AN4', 'GeTDC - AN4', 'GeTDC - AN4', 'GeTDC - AN4', 'GeTDC - AN4', 'GeTDC - AN4',
+            'GeTDC - AN4', 'GeTDC - AN4', 'GeTDC - AN4', 'Cívica - AV3', 'Español - AV2', 'Matemática - AV1'
+        ],
+        'Martes': [
+            'Física - AV2', 'Física - AV2', 'ética - AE', 'GC - AN4', 'GC - AN4', 'GC - AN4',
+            'GC - AN4', 'GC - AN4', 'GC - AN4', 'GC - AN4', 'GC - AN4', 'GC - AN4'
+        ],
+        'Miércoles': [
+            'GC - AN4', 'GC - AN4', 'GC - AN4', 'Música - AE', 'Estudios Sociales - AV3', 'Estudios Sociales - AV3',
+            'Inglés academico - AV6', 'Matemáticas - AV1', 'Matemáticas - AV1', 'Física - AV4', 'Física - AV4', 'Inglés academico - AV6'
+        ],
+        'Jueves': [
+            'EOtA - LAB2V', 'EOtA - LAB2V', 'EOtA - LAB2V', 'GeTDC - AN4', 'GeTDC - AN4', 'GeTDC - AN4',
+            'Física - AV5', 'Inglés Academico - AV6', 'Inglés Academico - AV6', 'EOtA - AE', 'EOtA - AE', 'EOtA - AE'
+        ],
+        'Viernes': [
+            'Español - AV2', 'Español - AV2', 'Educación Física - GIMNASIO', 'Educación Física - GIMNASIO',
+            'Física - AV4', 'Guía - AV5', 'GC - AN4', 'GC - AN4', 'GC - AN4', 'GC - AN4', 'GC - AN4', 'GC - AN4'
+        ]
     },
     '10-4-B': {
-        'Lunes': ['GCyCpeSaC', 'GCyCpeSaC', 'GCyCpeSaC', 'EOtBaCSE', 'EOtBaCSE', 'EOtBaCSE', 'EOtBaCSE', 'EOtBaCSE', 'EOtBaCSE', 'Cívica', 'Español', 'Matemáticas'],
-        'Martes': ['Física', 'Física', 'Ética', 'EOtBaCSE', 'EOtBaCSE', 'EOtBaCSE', 'DDpGlIyeCE', 'DDpGlIyeCE', 'DDpGlIyeCE', 'DDpGlIyeCE', 'DDpGlIyeCE', 'DDpGlIyeCE'],
-        'Miércoles': ['DDpGlIyeCE', 'DDpGlIyeCE', 'DDpGlIyeCE', 'Música', 'Estudios Sociales', 'Estudios Sociales', 'Inglés Academico', 'Matemáticas', 'Matemáticas', 'Física', 'Física', 'Inglés Academico'],
-        'Jueves': ['GCyCpeSaC', 'GCyCpeSaC', 'GCyCpeSaC', 'GCyCpeSaC', 'GCyCpeSaC', 'GCyCpeSaC', 'Física', 'Inglés Academico', 'Inglés Academico', 'EOtBaCSE', 'EOtBaCSE', 'EOtBaCSE'],
-        'Viernes': ['Español', 'Español', 'Educación Física', 'Educación Física', 'Física', 'Guía', 'DDpGlIyeCE', 'DDpGlIyeCE', 'DDpGlIyeCE', 'GCyCpeSaC', 'GCyCpeSaC', 'GCyCpeSaC'],
+        'Lunes': [
+            'GCyCpeSaC - LAB3N', 'GCyCpeSaC - LAB3N', 'GCyCpeSaC - LAB3N', 'EOtBaCSE - LAB4V', 'EOtBaCSE - LAB4V', 'EOtBaCSE - LAB4V',
+            'EOtBaCSE - LAB4V', 'EOtBaCSE - LAB4V', 'EOtBaCSE - LAB4V', 'Cívica - AV3', 'Español - AV2', 'Matemáticas - AV1'
+        ],
+        'Martes': [
+            'Física - AV2', 'Física - AV2', 'Ética - AE', 'EOtBaCSE - LAB4V', 'EOtBaCSE - LAB4V', 'EOtBaCSE - LAB4V',
+            'DDpGlIyeCE - LAB3N', 'DDpGlIyeCE - LAB3N', 'DDpGlIyeCE - LAB3N', 'DDpGlIyeCE - LAB3N', 'DDpGlIyeCE - LAB3N', 'DDpGlIyeCE - LAB3N'
+        ],
+        'Miércoles': [
+            'DDpGlIyeCE - LAB5N', 'DDpGlIyeCE - LAB5N', 'DDpGlIyeCE - LAB5N', 'Música - AE', 'Estudios Sociales - AV3', 'Estudios Sociales - AV3',
+            'Inglés Academico - AV6', 'Matemáticas - AV1', 'Matemáticas - AV1', 'Física - AV4', 'Física - AV4', 'Inglés Academico - AV6'
+        ],
+        'Jueves': [
+            'GCyCpeSaC - AN5', 'GCyCpeSaC - AN5', 'GCyCpeSaC - AN5', 'GCyCpeSaC - AN5', 'GCyCpeSaC - AN5', 'GCyCpeSaC - AN5',
+            'Física - AV5', 'Inglés Academico - AV6', 'Inglés Academico - AV6', 'EOtBaCSE - LAB4V', 'EOtBaCSE - LAB4V', 'EOtBaCSE - LAB4V'
+        ],
+        'Viernes': [
+            'Español - AV2', 'Español - AV2', 'Educación Física - GIMNASIO', 'Educación Física - GIMNASIO', 'Física - AV4', 'Guía - AV5',
+            'DDpGlIyeCE - LAB3N', 'DDpGlIyeCE - LAB3N', 'DDpGlIyeCE - LAB3N', 'GCyCpeSaC - LAB5N', 'GCyCpeSaC - LAB5N', 'GCyCpeSaC - LAB5N'
+        ]
     },
     '10-5-A': {
-        'Lunes': ['Fundamentos Electro', 'Fundamentos Electro', 'Fundamentos Electro', 'Inglés Academico', 'Ética', 'Español', 'Guía', 'Cívica', 'Educación Física', 'Educación Física', 'Estudios Sociales', 'Estudios Sociales'],
-        'Martes': ['IE', 'IE', 'IE', 'EOtIE', 'EOtIE', 'EOtIE', 'Fundamentos Electro', 'Fundamentos Electro', 'Fundamentos Electro', 'Fundamentos Electro', 'Fundamentos Electro', 'Fundamentos Electro'],
-        'Miércoles': ['Fundamentos Electro', 'Fundamentos Electro', 'Fundamentos Electro', 'EOtIE', 'EOtIE', 'EOtIE', 'Física', 'Español', 'Español', 'IE', 'IE', 'IE'],
-        'Jueves': ['TdIAalEI', 'TdIAalEI', 'TdIAalEI', 'TdIAalEI', 'TdIAalEI', 'TdIAalEI', 'Matemáticas', 'Matemáticas', 'Música', 'Física', 'Física', 'Física'],
-        'Viernes': ['Física', 'Física', 'Matemáticas', 'Inglés Academico', 'Inglés Academico', 'Inglés Academico', 'IE', 'IE', 'IE', 'IE', 'IE', 'IE'],
+        'Lunes': [
+            'Fundamentos Electro - TALLER', 'Fundamentos Electro - TALLER', 'Fundamentos Electro - TALLER', 'Inglés Academico - AV6', 'Ética - AE', 'Español - AV2',
+            'Guía - AV3', 'Cívica - AV3', 'Educación Física - GIMNASIO', 'Educación Física - GIMNASIO', 'Estudios Sociales - AV3', 'Estudios Sociales - AV3'
+        ],
+        'Martes': [
+            'IE - TALLER', 'IE - TALLER', 'IE - TALLER', 'EOtIE - LAB6V', 'EOtIE - LAB6V', 'EOtIE - LAB6V', 'Fundamentos Electro - TALLER', 'Fundamentos Electro - TALLER',
+            'Fundamentos Electro - TALLER', 'Fundamentos Electro - TALLER', 'Fundamentos Electro - TALLER', 'Fundamentos Electro - TALLER'
+        ],
+        'Miércoles': [
+            'Fundamentos Electro - TALLER', 'Fundamentos Electro - TALLER', 'Fundamentos Electro - TALLER', 'EOtIE - AV5', 'EOtIE - AV5', 'EOtIE - AV5',
+            'Física - AV4', 'Español - AV2', 'Español - AV2', 'IE - TALLER', 'IE - TALLER', 'IE - TALLER'
+        ],
+        'Jueves': [
+            'TdIAalEI - TALLER', 'TdIAalEI - TALLER', 'TdIAalEI - TALLER', 'TdIAalEI - TALLER', 'TdIAalEI - TALLER', 'TdIAalEI - TALLER',
+            'Matemáticas - AV1', 'Matemáticas - AV1', 'Música - AE', 'Física - AV3', 'Física - AV3', 'Física - AV3'
+        ],
+        'Viernes': [
+            'Física - AV5', 'Física - AV5', 'Matemáticas - AV1', 'Inglés Academico - AV6', 'Inglés Academico - AV6', 'Inglés Academico - AV6',
+            'IE - TALLER', 'IE - TALLER', 'IE - TALLER', 'IE - TALLER', 'IE - TALLER', 'IE - TALLER'
+        ]
     },
     '10-5-B': {
-        'Lunes': ['CEySaCI', 'CEySaCI', 'CEySaCI', 'Inglés Academico', 'Ética', 'Español', 'Guía', 'Cívica', 'Educación Física', 'Educación Física', 'Estudios Sociales', 'Estudios Sociales'],
-        'Martes': ['DDpePyAdIF', 'DDpePyAdIF', 'DDpePyAdIF', 'DDpePyAdIF', 'DDpePyAdIF', 'DDpePyAdIF', 'GCC', 'GCC', 'GCC', 'EOtS', 'EOtS', 'EOtS'],
-        'Miércoles': ['CEySaCI', 'CEySaCI', 'CEySaCI', 'CEySaCI', 'CEySaCI', 'CEySaCI', 'Física', 'Español', 'Español', 'CEySaCI', 'CEySaCI', 'CEySaCI'],
-        'Jueves': ['GCC', 'GCC', 'GCC', 'EOtS', 'EOtS', 'EOtS', 'Matemáticas', 'Matemáticas', 'Música', 'Física', 'Física', 'Física'],
-        'Viernes': ['Física', 'Física', 'Matemáticas', 'Inglés Academico', 'Inglés Academico', 'Inglés Academico', 'DDpePyAdIF', 'DDpePyAdIF', 'DDpePyAdIF', 'DDpePyAdIF', 'DDpePyAdIF', 'DDpePyAdIF'],
+        'Lunes': [
+            'CEySaCI - AN1', 'CEySaCI - AN1', 'CEySaCI - AN1', 'Inglés Academico - AV6', 'Ética - AE', 'Español - AV2',
+            'Guía - AV3', 'Cívica - AV3', 'Educación Física - GIMNASIO', 'Educación Física - GIMNASIO', 'Estudios Sociales - AV3', 'Estudios Sociales - AV3'
+        ],
+        'Martes': [
+            'DDpePyAdIF - LAB5N', 'DDpePyAdIF - LAB5N', 'DDpePyAdIF - LAB5N', 'DDpePyAdIF - LAB5N', 'DDpePyAdIF - LAB5N', 'DDpePyAdIF - LAB5N',
+            'GCC - AN1', 'GCC - AN1', 'GCC - AN1', 'EOtS - LAB5V', 'EOtS - LAB5V', 'EOtS - LAB5V'
+        ],
+        'Miércoles': [
+            'CEySaCI - AN1', 'CEySaCI - AN1', 'CEySaCI - AN1', 'CEySaCI - AN1', 'CEySaCI - AN1', 'CEySaCI - AN1',
+            'Física - AV1', 'Español - AV1', 'Español - AE', 'CEySaCI - AV3', 'CEySaCI - AV3', 'CEySaCI - AV3'
+        ],
+        'Jueves': [
+            'GCC - AN1', 'GCC - AN1', 'GCC - AN1', 'EOtS - LAB5V', 'EOtS - LAB5V', 'EOtS - LAB5V',
+            'Matemáticas - AV1', 'Matemáticas - AV1', 'Música - AE', 'Física - AV3', 'Física - AV3', 'Física - AV3'
+        ],
+        'Viernes': [
+            'Física - AV5', 'Física - AV5', 'Matemáticas - AV1', 'Inglés Academico - AV6', 'Inglés Academico - AV6', 'Inglés Academico - AV6',
+            'DDpePyAdIF - AN1', 'DDpePyAdIF - AN1', 'DDpePyAdIF - AN1', 'DDpePyAdIF - AN1', 'DDpePyAdIF - AN1', 'DDpePyAdIF - AN1'
+        ]
     },
     '11-1-A': {
         'Lunes': [

@@ -4,7 +4,7 @@ import os
 import json
 
 
-PORT = 10000
+PORT = 10001
 PASSWORD = "sifti4321"
 STATIC_DIR = os.path.join(os.path.dirname(__file__), 'static')
 ANUNCIOS_JSON_FILE = os.path.join(os.path.dirname(__file__), 'static/db/anuncios.json')

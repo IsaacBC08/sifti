@@ -44,7 +44,7 @@ body {
 }
 
 #horarioTable th {
-    background-color: #feb47b; /* Fondo color secundario */
+    background-color: #16DBA5; /* Fondo color secundario */
     color: #fff; /* Texto blanco */
     width: 100px; /* Ancho fijo para cada bloque del encabezado */
     border-radius: 8px 8px 0 0; /* Borde redondeado solo en la parte superior */

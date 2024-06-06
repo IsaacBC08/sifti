@@ -1,18 +1,18 @@
 // Definición de los horarios por grupo
 const horarios = {
     '10-1-B': {
-        'Lunes': ['Ética - AE', 'Español - AV2', 'Español - AV2', 'Física - AV5', 'Física - AV5', 'Física - AV5', 'Educación Física GIMNASIO', 'Educación Física GIMNASIO', 'Español - AV2', 'PpW - LAB1N', 'PpW - LAB1N', 'PpW - LAB1N'],
+        'Lunes': ['Ética - AE', 'Español - AV2', 'Español - AV2', 'Física - AV5', 'Física - AV5', 'Física - AV5', 'Educación Física - GIMNASIO', 'Educación Física - GIMNASIO', 'Español - AV2', 'PpW - LAB1N', 'PpW - LAB1N', 'PpW - LAB1N'],
         'Martes': ['Física - AV5', 'Física - AV5', 'Física - AV5', 'PpW - LAB1N', 'PpW - LAB1N', 'PpW - LAB1N', 'PpW - LAB1N', 'PpW - LAB1N', 'PpW - LAB1N', 'ST - LAB3V', 'ST - LAB3V', 'ST - LAB3V'],
         'Miércoles': ['PpW - LAB1N', 'PpW - LAB1N', 'PpW - LAB1N', 'DS - LAB1N', 'DS - LAB1N', 'DS - LAB1N', 'EOTWD - LAB4V', 'EOTWD - LAB4V', 'EOTWD - LAB4V', 'DS - LAB1N', 'DS - LAB1N', 'DS - LAB1N'],
-        'Jueves': ['Estudios Sociales - AV4', 'Estudios Sociales - AV4', 'Música - Lab2N', 'ST - Lab2N', 'ST - Lab2N', 'ST - Lab2N', 'Guía', 'Cívica - AV5', 'Matemática - AV1', 'Matemática - AV1', 'Inglés Academico - AV6', 'Inglés Academico - AV6'],
+        'Jueves': ['Estudios Sociales - AV4', 'Estudios Sociales - AV4', 'Música - Lab2N', 'ST - Lab2N', 'ST - Lab2N', 'ST - Lab2N', 'Guía - AV2', 'Cívica - AV5', 'Matemática - AV1', 'Matemática - AV1', 'Inglés Academico - AV6', 'Inglés Academico - AV6'],
         'Viernes': ['TICs - Lab2N', 'TICs - Lab2N', 'TICs - Lab2N', 'TICs - Lab2N', 'TICs - Lab2N', 'TICs - Lab4V', 'EOTWD - Lab4V', 'EOTWD - Lab4V', 'EOTWD - Lab4V', 'Inglés Academico - AV1', 'Inglés Academico - AV1', 'Matemática - AV1']
 
     },
     '10-1-A': {
         'Lunes': ['Ética - AE', 'Español - AV2', 'Español - AV2', 'Física - AV5', 'Física - AV5', 'Física - AV5', 'Educación Física - Gimnasio', 'Educación Física - Gimnasio', 'Español - AV2', 'DP - Lab4N', 'DP - Lab4N', 'DP - Lab4N'],
         'Martes': ['Física - AV5', 'Física - AV5', 'Física - AV5', 'DP - Lab4N', 'DP - Lab4N', 'DP - Lab4N', 'DP - Lab4N', 'DP - Lab4N', 'DP - Lab4N', 'DP - Lab4N', 'DP - Lab4N', 'DP - Lab4N'],
-        'Miércoles': ['DP - AN5', 'DP - AN5', 'DP - AN5', 'DP - AN5', 'DP - AN5', 'DP - AN5', 'EOtA', 'EOtA', 'EOtA', 'DT - AV5', 'DT - AV5', 'DT - AV5'],
-        'Jueves': ['Estudios Sociales - AV4', 'Estudios Sociales - AV4', 'Música - Lab4N', 'DP - AV2', 'DP - AV2', 'DP - AV2', 'Guía', 'Cívica - AV5', 'Matemática - AV1', 'Matemática - AV1', 'Inglés Academico - AV6', 'Inglés Academico - AV6'],
+        'Miércoles': ['DP - AN5', 'DP - AN5', 'DP - AN5', 'DP - AN5', 'DP - AN5', 'DP - AN5', 'EOtA - AV5 ', 'EOtA - AV5', 'EOtA - AV5', 'DT - AV5', 'DT - AV5', 'DT - AV5'],
+        'Jueves': ['Estudios Sociales - AV4', 'Estudios Sociales - AV4', 'Música - Lab4N', 'DP - AV2', 'DP - AV2', 'DP - AV2', 'Guía - AV2', 'Cívica - AV5', 'Matemática - AV1', 'Matemática - AV1', 'Inglés Academico - AV6', 'Inglés Academico - AV6'],
         'Viernes': ['Foto - Lab4N', 'Foto - Lab4N', 'Foto - Lab4N', 'Foto - Lab4N', 'Foto - Lab4N', 'FOTO - Lab4N', 'DP - AV6', 'DP - AV6', 'DP - AV6', 'Inglés Academico - AV1', 'Inglés Academico - AV1', 'Matemática - AV1'],
     },
     '10-2-A': {
@@ -668,7 +668,6 @@ const horarios = {
     }
 };
 
-// Función para cargar el horario del grupo seleccionado
 function cargarHorario() {
     const grupoSelect = document.getElementById('grupoSelect');
     const grupoSeleccionado = grupoSelect.value;
@@ -696,7 +695,8 @@ function cargarHorario() {
             } else {
                 if (celdaAnterior !== null) {
                     const celdaHorario = document.createElement('td');
-                    celdaHorario.textContent = celdaAnterior;
+                    celdaHorario.innerHTML = aplicarEstilosAV(horario);
+
                     if (colspan > 1) {
                         celdaHorario.setAttribute('colspan', colspan);
                     }
@@ -709,7 +709,8 @@ function cargarHorario() {
             // Añadir la última celda si es necesario
             if (index === horariosDia.length - 1) {
                 const celdaHorario = document.createElement('td');
-                celdaHorario.textContent = celdaAnterior;
+                celdaHorario.innerHTML = aplicarEstilosAV(celdaAnterior);
+
                 if (colspan > 1) {
                     celdaHorario.setAttribute('colspan', colspan);
                 }
@@ -722,3 +723,7 @@ function cargarHorario() {
     });
 }
 
+function aplicarEstilosAV(texto) {
+    // Aplicar estilos a las aulas 
+    return texto.replace(/\b(AV1|AV2|AV3|AV4|AV5|AV6|AN1|AN2|AN3|AN4|AN5|Lab1N|Lab2N|Lab3N|Lab4N|Lab5N|Lab1V|Lab2V|Lab3V|Lab4V|Lab5V|AE|Gimnasio|TALLER|TALLER|LAB6V)\b/gi, '<span style="color: #FF7165; font-weight: bold;">$&</span>');
+}   

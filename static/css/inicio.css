@@ -6,9 +6,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #f64865, #d90429, #f64865, #fff);
+    background: linear-gradient(135deg, #fff, #f64865, #d90429, #f64865, #fff);
     background-size: 200% 200%;
-    animation: backgroundAnimation 5s ease infinite;
+    animation: backgroundAnimation 10s ease infinite;
 }
 
 @keyframes backgroundAnimation {
@@ -57,26 +57,11 @@ body {
     animation: animateTitle 2s infinite alternate, changeColor 4s infinite;
 }
 
-@keyframes animateTitle {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.1);
-    }
-}
-
 @keyframes changeColor {
     0% {
         color: #000000;
     }
-    25% {
-        color: #ff6e4a;
-    }
     50% {
-        color: #fcca46;
-    }
-    75% {
         color: #ff6e4a;
     }
     100% {

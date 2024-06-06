@@ -1,8 +1,20 @@
 {
-    "anuncio": {
-        "nombre": "Tontos todos",
-        "asunto": "Tontos todos",
-        "contenido": "Tontos todos",
-        "afectados": "Tontos todos"
+    "anuncio-1": {
+        "nombre": "n1",
+        "asunto": "a1",
+        "contenido": "c1",
+        "afectados": "af1"
+    },
+    "anuncio-2": {
+        "nombre": "n2",
+        "asunto": "a2",
+        "contenido": "c2",
+        "afectados": "af2"
+    },
+    "anuncio-3": {
+        "nombre": "n2",
+        "asunto": "a2",
+        "contenido": "c2",
+        "afectados": "af2"
     }
 }

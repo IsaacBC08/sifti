@@ -1,9 +1,9 @@
 // Definición de los horarios por grupo
 const horarios = {
     '10-1-B': {
-        'Lunes': ['Ética AE', 'Español AV2', 'Español AV2', 'Física AV5', 'Física AV5', 'Física AV5', 'Educación Física GIM', 'Educación Física GIM', 'Español AV2', 'PpW LAB1N', 'PpW LAB1N', 'PpW LAB1N'],
-        'Martes': ['Física AV5', 'Física AV5', 'Física AV5', 'PpW LAB1N', 'PpW LAB1N', 'PpW LAB1N', 'PpW LAB1N', 'PpW LAB1N', 'PpW LAB1N', 'ST LAB3V', 'ST LAB3V', 'ST LAB3V'],
-        'Miércoles': ['PpW LAB1N', 'PpW LAB1N', 'PpW LAB1N', 'DS  LAB1N', 'DS LAB1N', 'DS LAB1N', 'EOTWD LAB4V', 'EOTWD LAB4V', 'EOTWD LAB4V', 'DS LAB1N', 'DS LAB1N', 'DS LAB1N'],
+        'Lunes': ['Ética - AE', 'Español - AV2', 'Español - AV2', 'Física - AV5', 'Física - AV5', 'Física - AV5', 'Educación Física GIMNASIO', 'Educación Física GIMNASIO', 'Español - AV2', 'PpW - LAB1N', 'PpW - LAB1N', 'PpW - LAB1N'],
+        'Martes': ['Física - AV5', 'Física - AV5', 'Física - AV5', 'PpW - LAB1N', 'PpW - LAB1N', 'PpW - LAB1N', 'PpW - LAB1N', 'PpW - LAB1N', 'PpW - LAB1N', 'ST - LAB3V', 'ST - LAB3V', 'ST - LAB3V'],
+        'Miércoles': ['PpW - LAB1N', 'PpW - LAB1N', 'PpW - LAB1N', 'DS - LAB1N', 'DS - LAB1N', 'DS - LAB1N', 'EOTWD - LAB4V', 'EOTWD - LAB4V', 'EOTWD - LAB4V', 'DS - LAB1N', 'DS - LAB1N', 'DS - LAB1N'],
         'Jueves': ['Estudios Sociales - AV4', 'Estudios Sociales - AV4', 'Música - Lab2N', 'ST - Lab2N', 'ST - Lab2N', 'ST - Lab2N', 'Guía', 'Cívica - AV5', 'Matemática - AV1', 'Matemática - AV1', 'Inglés Academico - AV6', 'Inglés Academico - AV6'],
         'Viernes': ['TICs - Lab2N', 'TICs - Lab2N', 'TICs - Lab2N', 'TICs - Lab2N', 'TICs - Lab2N', 'TICs - Lab4V', 'EOTWD - Lab4V', 'EOTWD - Lab4V', 'EOTWD - Lab4V', 'Inglés Academico - AV1', 'Inglés Academico - AV1', 'Matemática - AV1']
 

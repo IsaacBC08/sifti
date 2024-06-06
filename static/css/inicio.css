@@ -6,7 +6,21 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #f64865, #d90429, #f64865, #d90429);
+    background: linear-gradient(135deg, #f64865, #d90429, #f64865, #fff);
+    background-size: 200% 200%;
+    animation: backgroundAnimation 5s ease infinite;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .main-container {
@@ -106,7 +120,7 @@ body {
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    overflow: hidden; /* Oculta el brillo que se desborda */
+    overflow: hidden;
 }
 
 .boton:before {
@@ -119,7 +133,7 @@ body {
     border-radius: 50px;
     border: 2px solid transparent;
     background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), transparent);
-    animation: shine 4s infinite linear;
+    animation: shine 2.5s infinite linear;
 }
 
 @keyframes shine {

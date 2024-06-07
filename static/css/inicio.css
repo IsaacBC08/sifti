@@ -109,8 +109,8 @@ body {
     overflow: hidden;
 }
 .img_qr{
-    width: 30%;
-    height: 30%;
+    width: 20%;
+    height: 20%;
 }
 .boton:before {
     content: '';

@@ -3,7 +3,7 @@ import socketserver
 import os
 import json
 
-PORT = 2424
+PORT = 8080
 PASSWORD = "sifti4321"
 STATIC_DIR = os.path.join(os.path.dirname(__file__), 'static')
 ANUNCIOS_JSON_FILE = os.path.join(os.path.dirname(__file__), 'static/db/anuncios.json')

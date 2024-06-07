@@ -3,12 +3,12 @@ import socketserver
 import os
 import json
 
-PORT = 2424
+PORT = 8027
 PASSWORD = "sifti4321"
 STATIC_DIR = os.path.join(os.path.dirname(__file__), 'static')
 ANUNCIOS_JSON_FILE = os.path.join(os.path.dirname(__file__), 'static/db/anuncios.json')
 MENU_JSON_FILE = os.path.join(os.path.dirname(__file__), 'static/db/menu.json')
-
+REPORTES_JSON_FILE = os.path.join(os.path.dirname(__file__), 'static/db/reportes.json')
 
 
 # Define una nueva clase llamada `Handler` que hereda de `http.server.SimpleHTTPRequestHandler`
@@ -59,6 +59,9 @@ class Handler(http_server.SimpleHTTPRequestHandler):
         elif self.path == '/update_anuncio':
             # Llamar al método que maneja la actualización del anuncio
             self.handle_anuncio_update()
+        elif self.path == '/send_report':
+            print("reporte")
+            self.handle_send_report()
         
         else:
             # Si la ruta no coincide con /update_menu o /update_anuncio, responder con 404
@@ -67,39 +70,57 @@ class Handler(http_server.SimpleHTTPRequestHandler):
             self.end_headers()  # Finalizar los encabezados de la respuesta
             self.wfile.write(b'Error 404: Not Found')  # Escribir el mensaje de error en el cuerpo de la respuesta
 
-    def handre_send_report(self):
+    def handle_send_report(self):
         content_length = int(self.headers['Content-Length'])
         post_data = self.rfile.read(content_length).decode('utf-8')
         try:
             data = json.loads(post_data)
+            # Cargar los datos actuales de anuncios.json
+            with open(REPORTES_JSON_FILE, 'r') as json_file:
+                reportes = json.load(json_file)
 
-            # Validar la contraseña antes de procesar la actualización
-            if 'password' in data and data['password'] == PASSWORD:
-                del data['password']
+            # Mover el report 9 al report 10 si existe
+            if 'report-10' in reportes:
+                reportes['report-9'] = reportes['report-10']
 
-                # Cargar los datos actuales de anuncios.json
-                with open(ANUNCIOS_JSON_FILE, 'r') as json_file:
-                    anuncios = json.load(json_file)
+            # Mover el report 8 al report 9 si existe
+            if 'report-9' in reportes:
+                reportes['report-8'] = reportes['report-9']
+            # Mover el report 7 al 8 si existe
+            if 'report-7' in reportes:
+                reportes['report-7'] = reportes['report-8']
+            # Mover el report 6 al report 7 si existe
+            if 'report-6' in reportes:
+                reportes['report-6'] = reportes['report-7']
 
-                # Mover el anuncio 2 al anuncio 3 si existe
-                if 'anuncio-2' in anuncios:
-                    anuncios['anuncio-3'] = anuncios['anuncio-2']
+            # Mover el report 5 al report 6 si existe
+            if 'report-5' in reportes:
+                reportes['report-5'] = reportes['report-6']
 
-                # Mover el anuncio 1 al anuncio 2 si existe
-                if 'anuncio-1' in anuncios:
-                    anuncios['anuncio-2'] = anuncios['anuncio-1']
+            # Mover el report 4 al report 5 si existe
+            if 'report-4' in reportes:
+                reportes['report-4'] = reportes['report-5']
 
-                # Agregar el nuevo anuncio como anuncio 1
-                anuncios['anuncio-1'] = data['anuncio']
+            # Mover el report 3 al report 4 si existe
+            if 'report-3' in reportes:
+                reportes['report-3'] = reportes['report-4']
 
-                # Actualizar anuncios.json con los nuevos datos
-                with open(ANUNCIOS_JSON_FILE, 'w') as json_file:
-                    json.dump(anuncios, json_file, indent=4)
+            # Mover el report 2 al report 3 si existe
+            if 'report-2' in reportes:
+                reportes['report-2'] = reportes['report-3']
+
+            # Mover el report 1 al report 2 si existe
+            if 'report-1' in reportes:
+                reportes['report-1'] = reportes['report-2']
+                
+            # Agregar el nuevo reporte como reporte 1
+            reportes['report-1'] = data['report']
+
+            # Actualizar reports.json con los nuevos datos
+            with open(REPORTES_JSON_FILE, 'w') as json_file:
+                json.dump(reportes, json_file, indent=4)
 
                 response = {'status': 'success', 'message': 'Datos del anuncio guardados correctamente'}
-            else:
-                response = {'status': 'error', 'message': 'Datos incompletos o incorrectos recibidos'}
-       
         except json.JSONDecodeError as e:
             # Preparar la respuesta de error si ocurre un error al procesar los datos JSON
             response = {'status': 'error', 'message': 'Error al procesar datos JSON'}

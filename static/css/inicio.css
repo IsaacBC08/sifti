@@ -24,7 +24,6 @@ body {
 }
 
 .main-container {
-    margin-top: 15%;
     background-color: #f0f0f0;
     border-radius: 20px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
@@ -149,6 +148,10 @@ body {
     }
 }
 @media (max-width: 600px) {
+    .img_qr{
+        width: 40%;
+        height: 40%;
+    }
     .main-container {
         width: 100%;
         border-radius: 0;

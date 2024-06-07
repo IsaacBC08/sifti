@@ -113,3 +113,33 @@ textarea {
     margin-bottom: 1rem;
     width: 100%;
 }
+
+.nombre {
+    font-weight: bold;
+    color: #4a4a4a; /* Gris oscuro */
+    text-align: center;
+    font-size: 2rem;
+}
+
+.container-report {
+    background-color: #f2f2f2; /* Gris claro */
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.categoria {
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #ff6a4d; /* Naranja */
+    margin-bottom: 10px;
+}
+
+.descripcion {
+    text-align: justify;
+    font-size: 1.1rem;
+    color: #333; /* Gris oscuro */
+    line-height: 1.6; /* Interlineado */
+}

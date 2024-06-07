@@ -1,18 +1,18 @@
 {
     "report-1": {
-        "nombre": "a",
-        "categoria": "b",
-        "descripcion": "c"
+        "nombre": "newton",
+        "categoria": "error",
+        "decripcion": "a"
     },
     "report-2": {
-        "nombre": "d",
-        "categoria": "e",
-        "descripcion": "f"
+        "nombre": "",
+        "categoria": "",
+        "descripcion": ""
     },
     "report-3": {
-        "nombre": "g",
-        "categoria": "h",
-        "descripcion": "i "
+        "nombre": "",
+        "categoria": "",
+        "descripcion": ""
     },
     "report-4": {
         "nombre": "",

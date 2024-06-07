@@ -160,6 +160,7 @@ function subir_anuncio() {
 }
 
 function cargar_reportes() {
+    prompt("Ingresa la contraseña: ")
     console.log("La función se llamó correctamente");
     const timestamp = new Date().getTime();
     const url = `../db/reportes.json?timestamp=${timestamp}`;
@@ -180,43 +181,43 @@ function cargar_reportes() {
 
             document.getElementById('nombre-1').textContent = report1.nombre;
             document.getElementById('categoria-1').textContent = "Categoría: " + report1.categoria;
-            document.getElementById('descripcion-1').textContent = "Descripción del error: " + report1.descripcion;
+            document.getElementById('descripcion-1').textContent = "Descripción: " + report1.descripcion;
 
             document.getElementById('nombre-2').textContent = report2.nombre;
             document.getElementById('categoria-2').textContent = "Categoría: " + report2.categoria;
-            document.getElementById('descripcion-2').textContent = "Descripción del error: " + report2.descripcion;
+            document.getElementById('descripcion-2').textContent = "Descripción: " + report2.descripcion;
 
             document.getElementById('nombre-3').textContent = report3.nombre;
             document.getElementById('categoria-3').textContent = "Categoría: " + report3.categoria;
-            document.getElementById('descripcion-3').textContent = "Descripción del error: " + report3.descripcion;
+            document.getElementById('descripcion-3').textContent = "Descripción: " + report3.descripcion;
 
             document.getElementById('nombre-4').textContent = report4.nombre;
             document.getElementById('categoria-4').textContent = "Categoría: " + report4.categoria;
-            document.getElementById('descripcion-4').textContent = "Descripción del error: " + report4.descripcion;
+            document.getElementById('descripcion-4').textContent = "Descripción: " + report4.descripcion;
 
             document.getElementById('nombre-5').textContent = report5.nombre;
             document.getElementById('categoria-5').textContent = "Categoría: " + report5.categoria;
-            document.getElementById('descripcion-5').textContent = "Descripción del error: " + report5.descripcion;
+            document.getElementById('descripcion-5').textContent = "Descripción: " + report5.descripcion;
 
             document.getElementById('nombre-6').textContent = report6.nombre;
             document.getElementById('categoria-6').textContent = "Categoría: " + report6.categoria;
-            document.getElementById('descripcion-6').textContent = "Descripción del error: " + report6.descripcion;
+            document.getElementById('descripcion-6').textContent = "Descripción: " + report6.descripcion;
 
             document.getElementById('nombre-7').textContent = report7.nombre;
             document.getElementById('categoria-7').textContent = "Categoría: " + report7.categoria;
-            document.getElementById('descripcion-7').textContent = "Descripción del error: " + report7.descripcion;
+            document.getElementById('descripcion-7').textContent = "Descripción: " + report7.descripcion;
 
             document.getElementById('nombre-8').textContent = report8.nombre;
             document.getElementById('categoria-8').textContent = "Categoría: " + report8.categoria;
-            document.getElementById('descripcion-8').textContent = "Descripción del error: " + report8.descripcion;
+            document.getElementById('descripcion-8').textContent = "Descripción: " + report8.descripcion;
 
             document.getElementById('nombre-9').textContent = report9.nombre;
             document.getElementById('categoria-9').textContent = "Categoría: " + report9.categoria;
-            document.getElementById('descripcion-9').textContent = "Descripción del error: " + report9.descripcion;
+            document.getElementById('descripcion-9').textContent = "Descripción: " + report9.descripcion;
 
             document.getElementById('nombre-10').textContent = report10.nombre;
             document.getElementById('categoria-10').textContent = "Categoría: " + report10.categoria;
-            document.getElementById('descripcion-10').textContent = "Descripción del error: " +  report10.descripcion;
+            document.getElementById('descripcion-10').textContent = "Descripción: " +  report10.descripcion;
         })
         .catch(error => console.error('Error al cargar los reportes:', error));
 }

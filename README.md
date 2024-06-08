@@ -34,23 +34,23 @@ Para utilizar este servidor en tu entorno local, sigue estos pasos:
 
 1. Clona este repositorio:
 
-git clone https://github.com/tu-usuario/sifti-server.git
-cd sifti-server
+`git clone https://github.com/tu-usuario/sifti-server.git`
+`cd sifti-server`
 
 2. Instala las dependencias necesarias (si las hay):
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 3. Configura el servidor ajustando las variables `PORT`, `PASSWORD`, y `USERNAME` según sea necesario en el archivo `server.py`.
 
 4. Inicia el servidor:
 
-python server.py
+`python server.py`
 
 
 ### Contribución
 
-Si deseas contribuir a este proyecto, por favor sigue estos pasos:
+`Si deseas contribuir a este proyecto, por favor sigue estos pasos:`
 
 1. Realiza un fork del repositorio.
 2. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
@@ -67,4 +67,3 @@ Si deseas contribuir a este proyecto, por favor sigue estos pasos:
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
-

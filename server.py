@@ -7,7 +7,7 @@ from base64 import b64decode
 # Configuración del puerto y credenciales de autenticación
 PORT = 8081
 PASSWORD = "sifti4321"
-USERNAME = "Team Sifti"
+USERNAME = "Team Sifti" # Nombre de usuario temporal
 
 # Rutas a los directorios y archivos estáticos
 STATIC_DIR = os.path.join(os.path.dirname(__file__), 'static')

@@ -1,88 +1,99 @@
+/* Estilos generales para el cuerpo del documento */
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: 'Roboto', sans-serif; /* Fuente principal */
+    margin: 0; /* Elimina el margen predeterminado */
+    padding: 0; /* Elimina el relleno predeterminado */
+    background-color: #f2f2f2; /* Color de fondo */
+    color: #333; /* Color de texto */
+    display: flex; /* Modelo de caja flexible */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Altura completa de la ventana */
 }
 
+/* Contenedor principal */
 .container {
-    width: 90%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 30px;
-    background-color: #fff;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    border-radius: 12px;
-    animation: fadeIn 1s ease-in-out;
+    width: 90%; /* Ancho del contenedor */
+    max-width: 600px; /* Ancho máximo */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 30px; /* Relleno interior */
+    background-color: #fff; /* Color de fondo */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Sombra */
+    border-radius: 12px; /* Bordes redondeados */
+    animation: fadeIn 1s ease-in-out; /* Animación de entrada */
 }
 
+/* Animación de entrada */
 @keyframes fadeIn {
     from {
-        opacity: 0;
-        transform: translateY(-20px);
+        opacity: 0; /* Opacidad inicial */
+        transform: translateY(-20px); /* Desplazamiento hacia arriba */
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1; /* Opacidad final */
+        transform: translateY(0); /* Sin desplazamiento */
     }
 }
 
+/* Encabezado secundario */
 h2 {
-    text-align: center;
-    color: #4A148C;
-    margin-bottom: 20px;
+    text-align: center; /* Alineación centrada */
+    color: #4A148C; /* Color del texto */
+    margin-bottom: 20px; /* Espacio inferior */
 }
 
+/* Grupo de formulario */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Espacio inferior */
 }
 
+/* Etiqueta del formulario */
 label {
-    display: block;
-    margin-bottom: 8px;
-    color: #4A148C;
-    font-weight: bold;
-    font-size: 14px;
+    display: block; /* Bloque de visualización */
+    margin-bottom: 8px; /* Espacio inferior */
+    color: #4A148C; /* Color del texto */
+    font-weight: bold; /* Negrita */
+    font-size: 14px; /* Tamaño de fuente */
 }
 
+/* Estilos generales para los campos de entrada */
 input, textarea, select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    background-color: #f9f9f9;
-    transition: all 0.3s ease;
+    width: 100%; /* Ancho completo */
+    padding: 12px; /* Relleno interior */
+    border: 1px solid #ccc; /* Borde delgado */
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    background-color: #f9f9f9; /* Color de fondo */
+    transition: all 0.3s ease; /* Transición suave */
 }
 
+/* Estilos al enfocar los campos de entrada */
 input:focus, textarea:focus, select:focus {
-    border-color: #4A148C;
-    outline: none;
-    box-shadow: 0 0 10px rgba(74, 20, 140, 0.2);
+    border-color: #4A148C; /* Color del borde al enfocar */
+    outline: none; /* Sin contorno */
+    box-shadow: 0 0 10px rgba(74, 20, 140, 0.2); /* Sombra suave */
 }
 
+/* Estilos para el botón */
 button {
-    width: 100%;
-    padding: 15px;
-    background-color: #4A148C;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    width: 100%; /* Ancho completo */
+    padding: 15px; /* Relleno interior */
+    background-color: #4A148C; /* Color de fondo */
+    color: #fff; /* Color de texto */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor tipo puntero */
+    font-size: 18px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
 }
 
+/* Estilos al pasar el ratón por encima del botón */
 button:hover {
-    background-color: #6A1B9A;
+    background-color: #6A1B9A; /* Color de fondo al pasar el ratón */
 }
 
+/* Estilos al presionar el botón */
 button:active {
-    background-color: #38006b;
+    background-color: #38006b; /* Color de fondo al presionar */
 }

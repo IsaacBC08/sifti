@@ -1,19 +1,19 @@
 function enviar_reporte() {
-    alert("Ten cuidado con lo que publicas, Sifti mantiene el registro de las IP's de estos envíos, por lo que podrías tener repercusiones a nivel institucional.")
+    // Mostrar advertencia al usuario
+    alert("Ten cuidado con lo que publicas, Sifti mantiene el registro de las IP's de estos envíos, por lo que podrías tener repercusiones a nivel institucional.");
+
     // Obtener valores de los campos del formulario
     const nombre = document.getElementById('nombre').value;
     const categoria = document.getElementById('categoria').value;
     const descripcion = document.getElementById('descripcion').value;
 
-
     // Crear un objeto con los datos a enviar
     var data = {
-		report: {
-        "nombre": nombre,
-        "categoria": categoria,
-        "decripcion": descripcion,
-
-	}
+        report: {
+            "nombre": nombre,
+            "categoria": categoria,
+            "descripcion": descripcion
+        }
     };
 
     // Enviar los datos utilizando fetch
@@ -25,6 +25,7 @@ function enviar_reporte() {
         body: JSON.stringify(data)
     })
     .then(response => {
+        // Verificar si la respuesta del servidor es exitosa
         if (!response.ok) {
             throw new Error('Error al enviar el reporte.');
         }
@@ -41,7 +42,8 @@ function enviar_reporte() {
         }
     })
     .catch(error => {
-        console.error('Error al enviar el reporte :', error);
-        alert('Hubo un error enviar el reporte.');
+        // Capturar y manejar errores durante el envío del reporte
+        console.error('Error al enviar el reporte:', error);
+        alert('Hubo un error al enviar el reporte.');
     });
 }

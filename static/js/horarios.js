@@ -668,61 +668,74 @@ const horarios = {
     }
 };
 
+// Función para cargar el horario en la tabla HTML según el grupo seleccionado
 function cargarHorario() {
+    // Obtener el elemento select con id 'grupoSelect'
     const grupoSelect = document.getElementById('grupoSelect');
+    // Obtener el valor seleccionado en el select (grupo seleccionado)
     const grupoSeleccionado = grupoSelect.value;
+    // Obtener el horario correspondiente al grupo seleccionado desde el objeto horarios
     const horarioGrupo = horarios[grupoSeleccionado];
 
+    // Obtener el cuerpo de la tabla donde se va a insertar el horario
     const tablaBody = document.querySelector('#horarioTable tbody');
-    tablaBody.innerHTML = ''; // Limpiar contenido anterior
+    // Limpiar cualquier contenido anterior en la tabla
+    tablaBody.innerHTML = '';
 
-    // Iterar sobre cada día y sus horarios
+    // Iterar sobre cada día y sus horarios en el horario del grupo seleccionado
     Object.keys(horarioGrupo).forEach(dia => {
-        const horariosDia = horarioGrupo[dia];
-        const nuevaFila = document.createElement('tr');
+        const horariosDia = horarioGrupo[dia]; // Obtener los horarios para el día actual
+        const nuevaFila = document.createElement('tr'); // Crear una nueva fila para la tabla
 
-        // Crear celda para el día
+        // Crear celda para el día y añadirla a la fila
         const celdaDia = document.createElement('td');
         celdaDia.textContent = dia;
         nuevaFila.appendChild(celdaDia);
 
-        // Crear celdas para los horarios, combinando celdas repetidas
+        // Variables para manejar celdas repetidas
         let celdaAnterior = null;
         let colspan = 1;
+
+        // Iterar sobre los horarios del día actual
         horariosDia.forEach((horario, index) => {
+            // Verificar si el horario es igual al anterior
             if (horario === celdaAnterior) {
-                colspan++;
+                colspan++; // Incrementar el colspan si es igual al anterior
             } else {
+                // Crear una nueva celda para el horario anterior
                 if (celdaAnterior !== null) {
                     const celdaHorario = document.createElement('td');
-                    celdaHorario.innerHTML = aplicarEstilosAU(celdaAnterior); // Aplicar estilos al texto
+                    // Aplicar estilos al texto del horario usando la función aplicarEstilosAU
+                    celdaHorario.innerHTML = aplicarEstilosAU(celdaAnterior);
+                    // Añadir colspan si es mayor a 1
                     if (colspan > 1) {
                         celdaHorario.setAttribute('colspan', colspan);
                     }
-                    nuevaFila.appendChild(celdaHorario);
+                    nuevaFila.appendChild(celdaHorario); // Añadir la celda a la fila
                 }
+                // Actualizar celdaAnterior y resetear colspan
                 celdaAnterior = horario;
                 colspan = 1;
             }
 
-            // Añadir la última celda si es necesario
+            // Añadir la última celda si es necesario al final del horario
             if (index === horariosDia.length - 1) {
                 const celdaHorario = document.createElement('td');
                 celdaHorario.innerHTML = aplicarEstilosAU(celdaAnterior); // Aplicar estilos al texto
                 if (colspan > 1) {
                     celdaHorario.setAttribute('colspan', colspan);
                 }
-                nuevaFila.appendChild(celdaHorario);
+                nuevaFila.appendChild(celdaHorario); // Añadir la celda a la fila
             }
         });
 
-        // Agregar fila a la tabla
+        // Añadir la fila creada a la tabla
         tablaBody.appendChild(nuevaFila);
     });
 }
 
-
+// Función para aplicar estilos al texto de las aulas
 function aplicarEstilosAU(texto) {
-    // Aplicar estilos a las aulas 
+    // Aplicar estilos a las aulas usando una expresión regular y retornando el texto modificado
     return texto.replace(/\b(AV1|AV2|AV3|AV4|AV5|AV6|AN1|AN2|AN3|AN4|AN5|Lab1N|Lab2N|Lab3N|Lab4N|Lab5N|Lab1V|Lab2V|Lab3V|Lab4V|Lab5V|AE|Gimnasio|TALLER|TALLER|LAB6V|AN6)\b/gi, '<span style="color: #FF7165; font-weight: bold;">$&</span>');
-}   
+}

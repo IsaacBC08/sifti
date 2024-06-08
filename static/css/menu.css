@@ -1,129 +1,128 @@
-/* Estilos generales */
+/* Estilos generales para el documento */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* Color de fondo general */
-    margin: 0;
-    padding: 0;
-    
+    font-family: Arial, sans-serif; /* Fuente y familia de fuentes para todo el cuerpo del documento */
+    background-color: #f0f0f0; /* Color de fondo general del cuerpo */
+    margin: 0; /* Elimina el margen predeterminado */
+    padding: 0; /* Elimina el relleno predeterminado */
 }
 
 .container {
-    font-weight: bold;
-    font-size: 2rem;
-    max-width: 90%;
-    max-height: 80%;
-    margin: 20px auto;
+    font-weight: bold; /* Texto en negrita para el contenido del contenedor */
+    font-size: 2rem; /* Tamaño de fuente grande para el contenido del contenedor */
+    max-width: 90%; /* Ancho máximo del contenedor */
+    max-height: 80%; /* Altura máxima del contenedor */
+    margin: 20px auto; /* Margen superior e inferior automático y centrado horizontalmente */
     background-color: #fff; /* Color de fondo del contenedor */
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra del contenedor */
+    padding: 30px; /* Relleno interno del contenedor */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
 h1 {
-    text-align: center;
-    color: #333; /* Color del texto de encabezado */
+    text-align: center; /* Alineación centrada para los títulos h1 */
+    color: #333; /* Color del texto del encabezado */
 }
 
-/* Estiliza la tabla */
+/* Estilos para la tabla */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra de la tabla */
+    width: 100%; /* Ancho completo de la tabla */
+    border-collapse: collapse; /* Colapsar bordes de la tabla */
+    margin-top: 20px; /* Margen superior */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Ocultar el desbordamiento */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
     border: 2px solid #333; /* Borde de la tabla */
     background-color: #fffbf2; /* Color de fondo de la tabla */
 }
 
 table th, table td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    font-size: 18px; /* Tamaño de la fuente aumentado */
+    padding: 12px 15px; /* Relleno interno de celdas */
+    text-align: left; /* Alineación del texto a la izquierda */
+    border-bottom: 1px solid #ddd; /* Borde inferior de las celdas */
+    font-size: 18px; /* Tamaño de fuente para encabezados y celdas */
 }
 
 table th {
-    background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Degradado de fondo del encabezado */
-    color: #fff; /* Color del texto del encabezado */
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 20px; /* Tamaño de la fuente aumentado */
-    font-weight: bold; /* Negrita */
+    background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Degradado de fondo para los encabezados */
+    color: #fff; /* Color del texto de los encabezados */
+    text-transform: uppercase; /* Transformación a mayúsculas */
+    letter-spacing: 0.1em; /* Espaciado entre letras */
+    font-size: 20px; /* Tamaño de fuente para los encabezados */
+    font-weight: bold; /* Texto en negrita para los encabezados */
 }
 
 table td {
-    font-size: 18px; /* Tamaño de la fuente aumentado */
+    font-size: 18px; /* Tamaño de fuente para las celdas */
     color: #555; /* Color del texto de las celdas */
 }
 
 table tr:nth-child(even) {
-    background-color: #fff0e0; /* Color alternativo para filas pares */
+    background-color: #fff0e0; /* Color de fondo alternativo para filas pares */
 }
 
 table tr:hover {
-    background-color: #ffe0c7; /* Color de fondo al pasar el ratón */
+    background-color: #ffe0c7; /* Color de fondo al pasar el ratón sobre las filas */
 }
 
-/* Resaltar los días */
+/* Resaltar los días en la tabla */
 table td:first-child {
-    font-weight: bold;
-    color: #ff7e5f; /* Color especial para los primeros elementos */
+    font-weight: bold; /* Texto en negrita para la primera columna (días) */
+    color: #ff7e5f; /* Color especial para los días */
 }
 
-/* Estiliza las celdas */
+/* Estilos adicionales para las celdas y encabezados de la tabla */
 table td, table th {
-    position: relative;
+    position: relative; /* Posición relativa */
 }
 
 table td::before, table th::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    content: ""; /* Contenido generado */
+    position: absolute; /* Posición absoluta */
+    top: 0; /* Desde arriba */
+    bottom: 0; /* Hasta abajo */
+    left: 0; /* Desde la izquierda */
+    right: 0; /* Hasta la derecha */
+    background-color: rgba(0, 0, 0, 0.1); /* Color de fondo semitransparente */
+    opacity: 0; /* Opacidad inicial */
+    transition: opacity 0.3s ease; /* Transición suave de opacidad */
 }
 
 table td:hover::before, table th:hover::before {
-    opacity: 1;
-}
-/* Botones */
-#backButton {
-    margin-top: 10%;
-    padding: 20px 24px; /* Tamaño del padding */
-    background-color: #ff7e5f; /* Color primario */
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 18px; /* Tamaño de fuente */
-    font-family: 'Roboto', sans-serif;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra */
-    transition: all 0.3s ease;
-    z-index: 1;
+    opacity: 1; /* Opacidad al pasar el ratón */
 }
 
+/* Estilos para el botón de retroceso */
+#backButton {
+    margin-top: 10%; /* Margen superior */
+    padding: 20px 24px; /* Relleno del botón */
+    background-color: #ff7e5f; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    border-radius: 50px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a puntero */
+    font-size: 18px; /* Tamaño de fuente */
+    font-family: 'Roboto', sans-serif; /* Familia de fuentes */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: all 0.3s ease; /* Transición suave */
+    z-index: 1; /* Z-index para superponer sobre otros elementos */
+}
+
+/* Media queries para dispositivos móviles */
 @media (max-width: 768px) {
-    /* Ajustes para dispositivos móviles */
     #adminButton, #backButton {
-        font-size: 16px; /* Reducir tamaño de fuente */
-        padding: 10px 20px; /* Ajustar padding */
+        font-size: 16px; /* Reducción del tamaño de fuente para dispositivos móviles */
+        padding: 10px 20px; /* Ajuste del padding */
     }
 }
 
-
-
+/* Estilos al pasar el ratón sobre el botón de retroceso */
 #backButton:hover {
-    background-color: #d90429; /* Cambio de color al pasar el ratón */
+    background-color: #d90429; /* Cambio de color de fondo al pasar el ratón */
     box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
 }
 
+/* Estilos al presionar el botón de retroceso */
 #backButton:active {
-    transform: translateY(2px); /* Efecto de presionado */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+    transform: translateY(2px); /* Efecto de desplazamiento al presionar */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
-

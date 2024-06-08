@@ -1,65 +1,64 @@
+/* Estilos generales para el cuerpo del documento */
+body {
+    margin: 0; /* Elimina el margen predeterminado */
+    padding: 0; /* Elimina el relleno predeterminado */
+    font-family: Arial, sans-serif; /* Familia de fuentes para todo el documento */
+    background-image: url('../img/FondoSIFTI.jpg'); /* Imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+    background-position: center; /* Centra la imagen de fondo */
+    display: flex; /* Activa el modelo de caja flexible */
+    flex-direction: column; /* Dirección de apilamiento de los elementos */
+    align-items: center; /* Centra horizontalmente los elementos */
+    justify-content: flex-start; /* Alinea los elementos al inicio verticalmente */
+    height: 100vh; /* Altura del viewport */
+}
 
-        /* Estilos generales */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-image: url('../img/FondoSIFTI.jpg'); /* Ruta de la imagen de fondo */
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            height: 100vh;
-        }
+/* Estilos para el contenedor de selectores */
+.select-container {
+    margin-top: 20px; /* Espacio entre los selectores y la imagen */
+    display: flex; /* Activa el modelo de caja flexible */
+    justify-content: space-around; /* Distribución equitativa de los elementos */
+    width: 100%; /* Ancho completo del contenedor */
+}
 
-        /* Estilos para el contenedor de selectores */
-        .select-container {
-            margin-top: 20px; /* Espacio entre los selectores y la imagen */
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-        }
+/* Estilos para los selectores */
+select {
+    width: 45%; /* Ancho del selector */
+    padding: 10px; /* Relleno interno */
+    border: 1px solid #ccc; /* Borde del selector */
+    border-radius: 5px; /* Bordes redondeados */
+    appearance: none; /* Oculta la flecha del selector en algunos navegadores */
+    background-color: #ffff; /* Color de fondo */
+    cursor: pointer; /* Cursor tipo puntero */
+}
 
-        /* Estilos para los selectores */
-        select {
-            width: 45%; /* Ajuste el ancho según sea necesario */
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            appearance: none; /* Oculta la flecha del select en algunos navegadores */
-            background-color: #ffff;
-            cursor: pointer;
-        }
+/* Estilos para la imagen */
+.image-container {
+    text-align: center; /* Alineación centrada del contenido */
+    margin-top: 20px; /* Espacio entre los selectores y la imagen */
+}
 
-        /* Estilos para la imagen */
-        .image-container {
-            text-align: center;
-            margin-top: 20px; /* Espacio entre los selectores y la imagen */
-        }
+#selectedImage {
+    max-width: 100%; /* Ancho máximo de la imagen */
+    max-height: 500px; /* Altura máxima de la imagen */
+    display: block; /* Para centrar la imagen */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
 
-        #selectedImage {
-            max-width: 100%;
-            max-height: 500px; /* Altura máxima de la imagen */
-            display: block; /* Para centrar la imagen */
-            margin: 0 auto; /* Para centrar la imagen */
-        }
-
-        .boton {
-            background-color: #4CAF50; /* Color de fondo verde */
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 10px;
-            position: absolute; /* Posicionamiento absoluto */
-            bottom: 10px; /* Distancia desde abajo */
-            left: 10px; /* Distancia desde la izquierda */
-        }
-    
+/* Estilos para el botón */
+.boton {
+    background-color: #4CAF50; /* Color de fondo del botón */
+    border: none; /* Sin borde */
+    color: white; /* Color del texto */
+    padding: 15px 32px; /* Relleno del botón */
+    text-align: center; /* Alineación centrada del texto */
+    text-decoration: none; /* Sin subrayado en el texto */
+    display: inline-block; /* Elemento en línea */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 4px 2px; /* Márgenes */
+    cursor: pointer; /* Cursor tipo puntero */
+    border-radius: 10px; /* Bordes redondeados */
+    position: absolute; /* Posicionamiento absoluto */
+    bottom: 10px; /* Distancia desde la parte inferior */
+    left: 10px; /* Distancia desde la izquierda */
+}

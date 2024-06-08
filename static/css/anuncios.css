@@ -1,65 +1,68 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;  /* Fuente principal */
+    background-color: #f0f0f0;  /* Color de fondo */
     margin: 0;
     padding: 0;
 }
+
 .container {
-    max-width: 90%;  /* Reducir el ancho del contenedor */
-    margin: 30px auto;  /* Centrar el contenedor */
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-size: 0.9rem;  /* Reducir tamaño de fuente */
-    line-height: 1.6;
+    max-width: 90%;  /* Ancho máximo del contenedor */
+    margin: 30px auto;  /* Margen superior e inferior automático para centrar */
+    background-color: #fff;  /* Color de fondo del contenedor */
+    padding: 20px;  /* Relleno interior */
+    border-radius: 8px;  /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+    font-size: 0.9rem;  /* Tamaño de fuente reducido */
+    line-height: 1.6;  /* Altura de línea */
 }
 
 h3 {
-    text-align: left;
-    color: #e67e22;  /* Naranja */
+    text-align: left;  /* Alinear texto a la izquierda */
+    color: #e67e22;  /* Color naranja */
     font-size: 1.2rem;  /* Tamaño de fuente */
-    margin-bottom: 10px;
+    margin-bottom: 10px;  /* Margen inferior */
 }
 
 h1 {
-    text-align: center;
+    text-align: center;  /* Alinear texto al centro */
     color: #d35400;  /* Naranja oscuro */
     font-size: 2rem;  /* Tamaño de fuente */
-    margin-bottom: 10px;
+    margin-bottom: 10px;  /* Margen inferior */
 }
 
-.contenido { 
-    text-align: left;
-    font-weight: bold;
+.contenido {
+    text-align: left;  /* Alinear texto a la izquierda */
+    font-weight: bold;  /* Texto en negrita */
     color: #333;  /* Color de texto principal */
     font-size: 1.2rem;  /* Tamaño de fuente */
-    margin-bottom: 8px;
+    margin-bottom: 8px;  /* Margen inferior */
 }
 
 .container p:last-child {
-    margin-bottom: 0;  /* Eliminar margen inferior del último párrafo */
+    margin-bottom: 0;  /* Eliminar margen inferior del último párrafo dentro del contenedor */
 }
 
 .bold-text {
-    font-weight: bold;  /* Hace que el texto sea negrita */
+    font-weight: bold;  /* Texto en negrita */
     color: #e67e22;  /* Color naranja para el texto en negrita */
 }
+
 .back-button {
-    background-color: #e67e22;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 20px;
+    background-color: #e67e22;  /* Color de fondo naranja */
+    color: #fff;  /* Color del texto blanco */
+    border: none;  /* Quitar borde */
+    padding: 10px 20px;  /* Relleno interior */
+    font-size: 1rem;  /* Tamaño de fuente */
+    cursor: pointer;  /* Cambiar cursor al pasar el ratón */
+    border-radius: 5px;  /* Bordes redondeados */
+    margin-top: 20px;  /* Margen superior */
 }
 
 .back-button:hover {
-    background-color: #d35400;
+    background-color: #d35400;  /* Color de fondo naranja oscuro al pasar el ratón */
 }
-.afectados{
-    font-size: 1.5rem;
-    color: #ff7417;
+
+.afectados {
+    font-size: 1.5rem;  /* Tamaño de fuente grande */
+    color: #ff7417;  /* Color naranja más claro */
 }

@@ -1,180 +1,183 @@
+/* Estilos generales para el documento */
+* {
+    box-sizing: border-box; /* Box-sizing para incluir padding y border en el tamaño total */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina rellenos por defecto */
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #fff, #f64865, #d90429, #f64865, #fff);
-    background-size: 200% 200%;
-    animation: backgroundAnimation 10s ease infinite;
+    font-family: 'Arial', sans-serif; /* Fuente principal para el cuerpo del documento */
+    display: flex; /* Usa Flexbox para diseño flexible */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    height: 100vh; /* Establece la altura del cuerpo al 100% del viewport */
+    background: linear-gradient(135deg, #fff, #f64865, #d90429, #f64865, #fff); /* Fondo con degradado */
+    background-size: 200% 200%; /* Tamaño del fondo de degradado */
+    animation: backgroundAnimation 10s ease infinite; /* Animación de fondo continua */
 }
 
 @keyframes backgroundAnimation {
     0% {
-        background-position: 0% 50%;
+        background-position: 0% 50%; /* Posición inicial del fondo */
     }
     50% {
-        background-position: 100% 50%;
+        background-position: 100% 50%; /* Posición intermedia del fondo */
     }
     100% {
-        background-position: 0% 50%;
+        background-position: 0% 50%; /* Posición final del fondo */
     }
 }
 
+/* Contenedor principal */
 .main-container {
-    background-color: #f0f0f0;
-    border-radius: 20px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    width: 90%;
-    max-width: 600px;
-    text-align: center;
+    background-color: #f0f0f0; /* Color de fondo */
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    padding: 20px; /* Relleno interno */
+    width: 90%; /* Ancho del contenedor */
+    max-width: 600px; /* Ancho máximo del contenedor */
+    text-align: center; /* Alineación del texto al centro */
 }
 
 .container {
-    text-align: center;
+    text-align: center; /* Alineación del texto al centro */
 }
 
 .info {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 20px;
-    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente blanco */
+    padding: 20px; /* Relleno interno */
+    border-radius: 20px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Margen inferior */
 }
 
 .titulo {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 36px; /* Tamaño de fuente del título */
+    color: #333; /* Color de texto */
+    margin-bottom: 10px; /* Margen inferior */
 }
 
 .titulo-animado {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 10px;
-    animation: animateTitle 2s infinite alternate, changeColor 4s infinite;
+    font-size: 36px; /* Tamaño de fuente del título */
+    color: #333; /* Color de texto */
+    margin-bottom: 10px; /* Margen inferior */
+    animation: animateTitle 2s infinite alternate, changeColor 4s infinite; /* Animaciones para el título */
 }
 
 @keyframes changeColor {
     0% {
-        color: #000000;
+        color: #000000; /* Color inicial */
     }
     50% {
-        color: #ff6e4a;
+        color: #ff6e4a; /* Color intermedio */
     }
     100% {
-        color: #000000;
+        color: #000000; /* Color final */
     }
 }
 
 .typing-text {
-    opacity: 0;
-    animation: fadeIn 4s forwards;
-    font-size: 18px;
-    margin: 0 auto;
-    padding: 10px 0;
+    opacity: 0; /* Inicialmente invisible */
+    animation: fadeIn 4s forwards; /* Animación de aparecer */
+    font-size: 18px; /* Tamaño de fuente */
+    margin: 0 auto; /* Margen automático */
+    padding: 10px 0; /* Relleno */
 }
 
 @keyframes fadeIn {
     0% {
-        opacity: 0;
+        opacity: 0; /* Opacidad inicial */
     }
     100% {
-        opacity: 1;
+        opacity: 1; /* Opacidad al 100% */
     }
 }
 
+/* Contenedor de botones */
 .boton-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
+    display: flex; /* Usa Flexbox para diseño flexible */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    flex-wrap: wrap; /* Permite que los botones se envuelvan */
+    margin-top: 20px; /* Margen superior */
 }
 
+/* Estilos para el botón */
 .boton {
-    position: relative;
-    background-color: #ff7e5f;
-    color: #fff;
-    padding: 15px 30px;
-    margin: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
+    position: relative; /* Posición relativa */
+    background-color: #ff7e5f; /* Color de fondo del botón */
+    color: #fff; /* Color de texto del botón */
+    padding: 15px 30px; /* Relleno interno */
+    margin: 10px; /* Margen */
+    font-size: 16px; /* Tamaño de fuente */
+    border: none; /* Sin borde */
+    border-radius: 50px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a puntero */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    overflow: hidden; /* Oculta el contenido que desborda */
 }
-.img_qr{
-    width: 20%;
-    height: 20%;
-}
+
 .boton:before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    border-radius: 50px;
-    border: 2px solid transparent;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.358), transparent);
-    animation: shine 2s infinite linear;
+    content: ''; /* Contenido generado */
+    position: absolute; /* Posición absoluta */
+    top: -2px; /* Distancia desde arriba */
+    left: -2px; /* Distancia desde la izquierda */
+    right: -2px; /* Distancia desde la derecha */
+    bottom: -2px; /* Distancia desde abajo */
+    border-radius: 50px; /* Bordes redondeados */
+    border: 2px solid transparent; /* Borde transparente */
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.358), transparent); /* Degradado diagonal */
+    animation: shine 2s infinite linear; /* Animación de brillo */
 }
 
 @keyframes shine {
     0% {
-        transform: translateX(-100%);
+        transform: translateX(-100%); /* Inicio del brillo */
     }
     100% {
-        transform: translateX(100%);
+        transform: translateX(100%); /* Fin del brillo */
     }
 }
 
 .boton:hover {
-    background-color: #d90429;
-    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4);
-    animation: expand 0.4s forwards;
+    background-color: #d90429; /* Color de fondo al pasar el mouse */
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4); /* Sombra más intensa */
+    animation: expand 0.4s forwards; /* Animación de expandir */
 }
 
 @keyframes expand {
     0% {
-        scale: 1;
+        scale: 1; /* Escala inicial */
     }
     100% {
-        scale: 1.1;
+        scale: 1.1; /* Escala al 110% */
     }
 }
+
+/* Media queries para dispositivos móviles */
 @media (max-width: 600px) {
-    .img_qr{
-        width: 40%;
-        height: 40%;
-    }
     .main-container {
-        width: 100%;
-        border-radius: 0;
-        box-shadow: none;
-        padding: 10px;
+        width: 100%; /* Ancho completo en dispositivos móviles */
+        border-radius: 0; /* Sin bordes redondeados */
+        box-shadow: none; /* Sin sombra */
+        padding: 10px; /* Relleno más pequeño */
     }
 
     .titulo {
-        font-size: 24px;
+        font-size: 24px; /* Tamaño de fuente más pequeño */
     }
 
     .typing-text {
-        font-size: 14px;
+        font-size: 14px; /* Tamaño de fuente más pequeño */
     }
 
     .info {
-        padding: 15px;
-        margin-bottom: 15px;
+        padding: 15px; /* Relleno más pequeño */
+        margin-bottom: 15px; /* Margen inferior más pequeño */
     }
 
     .boton {
-        padding: 12px 25px;
-        font-size: 14px;
-        width: 100%;
+        padding: 12px 25px; /* Relleno más pequeño */
+        font-size: 14px; /* Tamaño de fuente más pequeño */
+        width: 100%; /* Ancho completo */
     }
 }

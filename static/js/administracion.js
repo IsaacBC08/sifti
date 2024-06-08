@@ -104,6 +104,7 @@ function subir_anuncio() {
     const afectados = document.getElementById('afectados').value;
     const fecha = document.getElementById('fecha').value;
 
+
     // Crear un objeto con los datos del anuncio a enviar
     var data = {
         anuncio: {

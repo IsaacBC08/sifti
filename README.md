@@ -63,7 +63,9 @@ Para utilizar este servidor en tu entorno local, sigue estos pasos:
 - **Python**: Para la implementación del servidor HTTP.
 - **JSON**: Para el almacenamiento y manejo de datos.
 - **Base64**: Para la decodificación de credenciales de autenticación.
-
+- **JavaSxript**: Para las peticiones al servidor
+- **HTML**: Para la estructura general de la página
+- **CSS**: Para el diseño y color de la página
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.

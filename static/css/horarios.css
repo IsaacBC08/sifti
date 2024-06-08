@@ -102,3 +102,32 @@ body {
         font-size: smaller; /* Reducir tamaño de fuente */
     }
 }
+@keyframes fondoAnimado {
+    0% {
+        background-color: #5eeec8;
+    }
+    25% {
+        background-color: #13C8B3;
+    }
+    50% {
+        background-color: #16DBA5;
+    }
+    100% {
+        background-color: #5eeec8 ;
+    }
+}
+
+@keyframes tamanoAnimado {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.current {
+    animation: fondoAnimado 4s infinite, tamanoAnimado 4s infinite;
+    transition: transform 0.2s;
+}

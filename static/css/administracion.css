@@ -154,7 +154,7 @@ textarea {
 
 /* Estilos para descripción */
 .descripcion {
-    text-align: justify; /* Justificar texto */
+    text-align: left; /* Justificar texto */
     font-size: 1.1rem; /* Tamaño de fuente */
     color: #333; /* Color gris oscuro */
     line-height: 1.6; /* Interlineado */

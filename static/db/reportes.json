@@ -1,8 +1,8 @@
 {
     "report-1": {
-        "nombre": "newton",
-        "categoria": "error",
-        "decripcion": "Not undefined"
+        "nombre": "Newton",
+        "categoria": "sugerencia",
+        "descripcion": "M\u00e1s paga para el programador"
     },
     "report-2": {
         "nombre": "",

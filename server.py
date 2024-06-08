@@ -5,7 +5,7 @@ import json
 from base64 import b64decode
 
 # Configuración del puerto y credenciales de autenticación
-PORT = 8081
+PORT = 8080
 PASSWORD = "sifti4321"
 USERNAME = "Team Sifti" # Nombre de usuario temporal
 
@@ -59,7 +59,6 @@ class Handler(http_server.SimpleHTTPRequestHandler):
         elif self.path == '/update_anuncio':
             self.handle_anuncio_update()
         elif self.path == '/send_report':
-            print("reporte")
             self.handle_send_report()
         else:
             self.send_response(404)
@@ -124,7 +123,7 @@ class Handler(http_server.SimpleHTTPRequestHandler):
             with open(REPORTES_JSON_FILE, 'w') as json_file:
                 json.dump(reportes, json_file, indent=4)
 
-                response = {'status': 'success', 'message': 'Datos del anuncio guardados correctamente'}
+                response = {'status': 'success', 'message': 'Datos del reporte enviados correctamente'}
         except json.JSONDecodeError as e:
             response = {'status': 'error', 'message': 'Error al procesar datos JSON'}
 
@@ -142,18 +141,12 @@ class Handler(http_server.SimpleHTTPRequestHandler):
         
         try:
             data = json.loads(post_data)
+            
+            # Guarda los datos actualizados en el archivo JSON del menú
+            with open(MENU_JSON_FILE, 'w') as json_file:
+                json.dump(data, json_file, indent=4)
 
-            # Verifica la contraseña para permitir la actualización
-            if 'password' in data and data['password'] == PASSWORD:
-                del data["password"]
-
-                # Guarda los datos actualizados en el archivo JSON del menú
-                with open(MENU_JSON_FILE, 'w') as json_file:
-                    json.dump(data, json_file, indent=4)
-
-                response = {'status': 'success', 'message': 'Datos del menú guardados correctamente'}
-            else:
-                response = {'status': 'error', 'message': 'Contraseña incorrecta para actualizar el menú'}
+            response = {'status': 'success', 'message': 'Datos del menú guardados correctamente'}
 
         except json.JSONDecodeError as e:
             response = {'status': 'error', 'message': 'Error al procesar datos JSON'}
@@ -172,28 +165,21 @@ class Handler(http_server.SimpleHTTPRequestHandler):
         
         try:
             data = json.loads(post_data)
+            with open(ANUNCIOS_JSON_FILE, 'r') as json_file:
+                anuncios = json.load(json_file)
 
-            # Verifica la contraseña para permitir la actualización
-            if 'password' in data and data['password'] == PASSWORD:
-                del data['password']
+            # Actualiza el archivo de anuncios manteniendo solo los 3 más recientes
+            if 'anuncio-2' in anuncios:
+                anuncios['anuncio-3'] = anuncios['anuncio-2']
+            if 'anuncio-1' in anuncios:
+                anuncios['anuncio-2'] = anuncios['anuncio-1']
+            anuncios['anuncio-1'] = data['anuncio']
 
-                with open(ANUNCIOS_JSON_FILE, 'r') as json_file:
-                    anuncios = json.load(json_file)
+            # Guarda los anuncios actualizados en el archivo JSON
+            with open(ANUNCIOS_JSON_FILE, 'w') as json_file:
+                json.dump(anuncios, json_file, indent=4)
 
-                # Actualiza el archivo de anuncios manteniendo solo los 3 más recientes
-                if 'anuncio-2' in anuncios:
-                    anuncios['anuncio-3'] = anuncios['anuncio-2']
-                if 'anuncio-1' in anuncios:
-                    anuncios['anuncio-2'] = anuncios['anuncio-1']
-                anuncios['anuncio-1'] = data['anuncio']
-
-                # Guarda los anuncios actualizados en el archivo JSON
-                with open(ANUNCIOS_JSON_FILE, 'w') as json_file:
-                    json.dump(anuncios, json_file, indent=4)
-
-                response = {'status': 'success', 'message': 'Datos del anuncio guardados correctamente'}
-            else:
-                response = {'status': 'error', 'message': 'Datos incompletos o incorrectos recibidos'}
+            response = {'status': 'success', 'message': 'Datos del anuncio guardados correctamente'}
 
         except json.JSONDecodeError as e:
             response = {'status': 'error', 'message': 'Error al procesar datos JSON'}

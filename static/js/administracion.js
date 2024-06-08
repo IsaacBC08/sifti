@@ -38,16 +38,7 @@ function guardar_menu(event) {
     var inputs = form.querySelectorAll('input[type="text"], input[type="password"]');
     var formValido = true;
 
-    // Obtener la contraseña del usuario mediante un prompt
-    var password = prompt("Introduce la contraseña:");
-
-    // Validación básica para asegurarse de que se proporcionó una contraseña
-    if (!password) {
-        alert("Debes proporcionar una contraseña.");
-        return;
-    }
-
-    // Validar cada campo del formulario, excepto el de contraseña
+    // Validar cada campo del formulario
     inputs.forEach(function (input) {
         if (input.type !== 'password') {
             if (!input.value.trim()) {
@@ -61,15 +52,11 @@ function guardar_menu(event) {
 
     // Si el formulario es válido, preparar los datos a enviar al servidor
     if (formValido) {
-        const jsonData = {
-            password: password  // Incluir la contraseña en el objeto JSON
-        };
+        const jsonData = {};
 
         // Agregar los valores de los campos del formulario al objeto JSON
         inputs.forEach(function (input) {
-            if (input.type !== 'password') {
-                jsonData[input.name] = input.value.trim();
-            }
+            jsonData[input.name] = input.value.trim();
         });
 
         // Enviar los datos del formulario al servidor usando fetch
@@ -91,8 +78,6 @@ function guardar_menu(event) {
                 alert('Menú actualizado correctamente.');
                 console.log('Respuesta del servidor:', data);
                 // Aquí puedes manejar la respuesta del servidor si lo necesitas
-            } else if (data.status === 'error' && data.message === 'Contraseña incorrecta') {
-                alert('Contraseña incorrecta.');
             } else {
                 throw new Error('Error desconocido en la respuesta del servidor.');
             }
@@ -119,18 +104,8 @@ function subir_anuncio() {
     const afectados = document.getElementById('afectados').value;
     const fecha = document.getElementById('fecha').value;
 
-    // Solicitar la contraseña al usuario mediante un prompt
-    const password = prompt("Introduce la contraseña:");
-
-    // Validación básica para asegurarse de que se proporcionó una contraseña
-    if (!password) {
-        alert("Debes proporcionar una contraseña.");
-        return;
-    }
-
     // Crear un objeto con los datos del anuncio a enviar
     var data = {
-        password: password,
         anuncio: {
             "fecha": fecha,
             "asunto": asunto,
@@ -169,10 +144,7 @@ function subir_anuncio() {
     });
 }
 
-function cargar_reportes() {
-    prompt("Ingresa la contraseña: ");  // Solicitar la contraseña al usuario
-    console.log("La función se llamó correctamente");  // Registro en la consola para depuración
-
+function cargar_reportes() { 
     const timestamp = new Date().getTime();  // Obtener una marca de tiempo única
     const url = `../db/reportes.json?timestamp=${timestamp}`;  // URL del archivo JSON
 

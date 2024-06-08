@@ -116,6 +116,11 @@ body {
     overflow: hidden; /* Oculta el contenido que desborda */
 }
 
+.img_qr {
+    max-width: 30%;
+    max-height: 30%;
+}
+
 .boton:before {
     content: ''; /* Contenido generado */
     position: absolute; /* Posición absoluta */

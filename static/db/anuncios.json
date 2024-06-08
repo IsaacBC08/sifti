@@ -1,20 +1,20 @@
 {
     "anuncio-1": {
+        "fecha": "07-06-24",
+        "asunto": "prueba",
+        "contenido": "comprobaci\u00f3n de correci\u00f3n",
+        "afectados": "Team Sifti"
+    },
+    "anuncio-2": {
         "fecha": "05-06-24",
         "asunto": "Salida anticipada",
         "contenido": "todos salen a las 2pm por consejo de profesores",
         "afectados": "todos"
     },
-    "anuncio-2": {
+    "anuncio-3": {
         "fecha": "05-06-24",
         "asunto": "Salida anticipada",
         "contenido": "Los estudiantes de la 10-5 A salen temprano por falta de lecciones de el profesor de electr\u00f3nica",
         "afectados": "10-5-A"
-    },
-    "anuncio-3": {
-        "fecha": "05-06-24",
-        "asunto": "Salida anticipada",
-        "contenido": "Las profesoras: Thelma de ingl\u00e9s y Gabriela de f\u00edsica mate no impartir\u00e1n lecciones por reuni\u00f3n de APSE",
-        "afectados": "10-3 A, 10-3 B"
     }
 }

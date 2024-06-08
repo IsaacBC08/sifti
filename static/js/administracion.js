@@ -117,7 +117,7 @@ function subir_anuncio() {
     const asunto = document.getElementById('asunto').value;
     const contenido = document.getElementById('contenido').value;
     const afectados = document.getElementById('afectados').value;
-    const nombre = document.getElementById('nombre').value;
+    const fecha = document.getElementById('fecha').value;
 
     // Solicitar la contraseña al usuario mediante un prompt
     const password = prompt("Introduce la contraseña:");
@@ -132,7 +132,7 @@ function subir_anuncio() {
     var data = {
         password: password,
         anuncio: {
-            "nombre": nombre,
+            "fecha": fecha,
             "asunto": asunto,
             "contenido": contenido,
             "afectados": afectados

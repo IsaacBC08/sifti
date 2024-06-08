@@ -1,58 +1,70 @@
-Sistema de Información y Gestión de Tareas Integradas (SIFTI)
-El Sistema de Información y Gestión de Tareas Integradas (SIFTI) es una plataforma diseñada para facilitar la gestión y organización eficiente de tareas y proyectos dentro de una organización educativa. Esta aplicación permite a los usuarios administrar tareas, asignaciones, y comunicaciones relevantes de manera centralizada.
+# Servidor SIFTI
 
-Características Principales
-Gestión de Tareas: Permite la creación, asignación, y seguimiento de tareas tanto para estudiantes como para personal educativo.
-Comunicación: Facilita la comunicación interna a través de anuncios y mensajes directos entre usuarios.
-Calendario Integrado: Incluye un calendario para programar eventos, recordatorios y fechas importantes.
-Informes y Estadísticas: Proporciona herramientas para generar informes y visualizar estadísticas sobre el progreso de las tareas y el rendimiento general.
-Capturas de Pantalla
+Este servidor implementa una aplicación web básica utilizando el módulo `http.server` de Python junto con `socketserver` para manejar solicitudes HTTP y proporcionar funcionalidad para actualizar menús, anuncios y enviar reportes dentro de la plataforma SIFTI.
 
-Panel de control de SIFTI mostrando una visión general de tareas y eventos.
+## Configuración del Servidor
+
+El servidor está configurado para escuchar en el puerto **8081** y requiere autenticación básica para ciertas rutas mediante un nombre de usuario y contraseña:
+
+- **Usuario**: `Team Sifti`
+- **Contraseña**: `sifti4321`
+
+## Archivos y Directorios
+
+- **Directorio Estático**: Contiene archivos estáticos como HTML, CSS, JavaScript y otras assets necesarias para la interfaz de usuario.
+- **Base de Datos JSON**: Utiliza archivos JSON para almacenar y gestionar datos cruciales como menús, anuncios y reportes.
+
+## Funcionalidades
+
+### Rutas Disponibles
+
+- **GET `/host`**: Protegida por autenticación básica, esta ruta permite acceder a la funcionalidad principal del servidor.
+  
+- **POST `/update_menu`**: Permite actualizar el menú del sistema. Requiere una contraseña válida definida en la solicitud POST.
+
+- **POST `/update_anuncio`**: Permite actualizar los anuncios del sistema. Requiere una contraseña válida definida en la solicitud POST.
+
+- **POST `/send_report`**: Permite enviar reportes al sistema, manteniendo un historial limitado de los 10 reportes más recientes.
+
+## Uso y Contribución
+
+### Uso
+
+Para utilizar este servidor en tu entorno local, sigue estos pasos:
+
+1. Clona este repositorio:
+
+git clone https://github.com/tu-usuario/sifti-server.git
+cd sifti-server
+
+2. Instala las dependencias necesarias (si las hay):
+
+pip install -r requirements.txt
+
+3. Configura el servidor ajustando las variables `PORT`, `PASSWORD`, y `USERNAME` según sea necesario en el archivo `server.py`.
+
+4. Inicia el servidor:
+
+python server.py
 
 
-Gestión de tareas en SIFTI, incluyendo asignaciones y fechas límite.
+### Contribución
 
-Instalación y Uso
-Para utilizar SIFTI en tu entorno local, sigue estos pasos:
+Si deseas contribuir a este proyecto, por favor sigue estos pasos:
 
-Clona el Repositorio:
+1. Realiza un fork del repositorio.
+2. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
+3. Realiza tus cambios y confirma (`git commit -am 'Añade nueva funcionalidad'`).
+4. Empuja la rama (`git push origin feature/nueva-funcionalidad`).
+5. Abre un Pull Request.
 
-bash
-Copiar código
-git clone https://github.com/tu-usuario/sifti.git
-Instala las Dependencias:
+## Tecnologías Utilizadas
 
-bash
-Copiar código
-cd sifti
-npm install
-Configura la Base de Datos:
+- **Python**: Para la implementación del servidor HTTP.
+- **JSON**: Para el almacenamiento y manejo de datos.
+- **Base64**: Para la decodificación de credenciales de autenticación.
 
-Crea una base de datos MySQL llamada sifti_db.
-Importa el archivo database.sql para inicializar las tablas necesarias.
-Configuración del Entorno:
+## Licencia
 
-Crea un archivo .env en la raíz del proyecto con las variables de entorno necesarias (por ejemplo, configuración de la base de datos).
-Inicia la Aplicación:
+Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
 
-sql
-Copiar código
-npm start
-Tecnologías Utilizadas
-Frontend: HTML, CSS, JavaScript (React.js)
-Backend: Node.js, Express.js
-Base de Datos: MySQL
-Otros: Git, npm
-Contribución
-Si deseas contribuir a SIFTI, por favor sigue estos pasos:
-
-Realiza un fork del repositorio.
-Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
-Realiza tus cambios y confirma (git commit -am 'Añade nueva funcionalidad').
-Empuja la rama (git push origin feature/nueva-funcionalidad).
-Abre un Pull Request.
-Licencia
-Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
-
-Este README.md proporciona una visión general del proyecto SIFTI, incluyendo sus características principales, instrucciones de instalación y uso, tecnologías utilizadas, cómo contribuir al proyecto, y la información de la licencia. Puedes ajustar y expandir esta estructura según las necesidades específicas de tu proyecto y público objetivo.

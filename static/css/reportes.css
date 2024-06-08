@@ -76,6 +76,7 @@ input:focus, textarea:focus, select:focus {
 
 /* Estilos para el botón */
 button {
+    margin-top: 5%;
     width: 100%; /* Ancho completo */
     padding: 15px; /* Relleno interior */
     background-color: #4A148C; /* Color de fondo */

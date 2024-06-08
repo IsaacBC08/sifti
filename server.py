@@ -31,8 +31,6 @@ class Handler(http_server.SimpleHTTPRequestHandler):
             if not self.is_authenticated():
                 self.send_auth_request()
                 return
-            else:
-                return super().do_GET()
 
         file_path = os.path.join(STATIC_DIR, self.path.lstrip('/'))
 

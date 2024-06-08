@@ -29,9 +29,6 @@
                 <button class="boton" onclick="window.location.href='./app/reportes'">Reportes</button>
                 <button class="boton-admin" onclick="window.location.href='./host'">Administrar</button>
             </div>
-
-            <!-- Imagen del código QR -->
-            <img src="./img/codigo_qr.png" class="img_qr">
         </div>
 
         <!-- Sección de noticias -->
@@ -70,63 +67,80 @@
                 eventos
                 y generación de reportes.</p>
         </div>
+        <!-- Imagen del código QR -->
+        <img src="./img/codigo_qr.png" class="img_qr">
     </div>
-   <!-- Pie de Página -->
-   <footer class="footer">
-    <div class="footer-container">
-        <p>&copy; 2024 SIFTI. Todos los derechos reservados.</p>
-        <p><a href="" id="politica-link">Política de Privacidad</a></p>
+
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2024 SIFTI. Todos los derechos reservados.</p>
+            <p><a href="" id="politica-link">Política de Privacidad</a></p>
+        </div>
+    </footer>
+
+    <!-- Ventana Emergente de Política de Privacidad -->
+    <div class="modal" id="politica-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h1 class="h1-politica">Política de Privacidad</h1>
+
+            <p class="p-politica">Bienvenido a <strong>SIFTI</strong>, la plataforma diseñada para facilitar la gestión
+                y comunicación entre estudiantes y profesores del CTP de Pavas. Al utilizar nuestros servicios,
+                entendemos y aceptamos que se recopilen y almacenen ciertos datos personales y de uso para mejorar la
+                experiencia de usuario y garantizar el funcionamiento adecuado de la plataforma.</p>
+
+            <h2 class="h2-politica">Recopilación y Uso de Información</h2>
+
+            <p>Cuando accedes a <strong>SIFTI</strong>, automáticamente recopilamos cierta información técnica como
+                direcciones IP, tipo de navegador, idioma preferido, páginas visitadas y la fecha y hora de cada
+                solicitud. Estos datos nos ayudan a diagnosticar problemas técnicos, administrar la plataforma y mejorar
+                nuestros servicios.</p>
+
+            <h2 class="h2-politica">Uso de Direcciones IP</h2>
+
+            <p>Las direcciones IP son utilizadas para identificar y diagnosticar problemas técnicos en nuestros
+                servidores y para administrar la plataforma. También podemos utilizarlas para recopilar información
+                demográfica general para mejorar nuestros servicios y personalizar la experiencia del usuario.</p>
+
+            <h2 class="h2-politica">Seguridad de la Información</h2>
+
+            <p>Tomamos medidas razonables para proteger la información personal recopilada contra acceso no autorizado,
+                uso indebido o divulgación. Sin embargo, ningún método de transmisión por Internet o almacenamiento
+                electrónico es completamente seguro, por lo que no podemos garantizar su seguridad absoluta.</p>
+
+            <h2 class="h2-politica">Consentimiento</h2>
+
+            <p>Al utilizar nuestros servicios, aceptas expresamente la recopilación, uso y almacenamiento de tu
+                información personal según se describe en esta política de privacidad.</p>
+
+            <h2 class="h2-politica">Actualizaciones</h2>
+
+            <p>Esta política de privacidad puede ser actualizada periódicamente y todas las modificaciones serán
+                efectivas al ser publicadas en esta página. Te recomendamos revisar esta política regularmente para
+                estar informado sobre cómo protegemos tu información.</p>
+
+            <p>Fecha de última actualización: <strong>08-06-2024</strong>.</p>
+        </div>
     </div>
-</footer>
 
-<!-- Ventana Emergente de Política de Privacidad -->
-<div class="modal" id="politica-modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h1 class="h1-politica">Política de Privacidad</h1>
+    <script>
+        // Función para abrir la ventana modal
+        function openModal() {
+            document.getElementById('politica-modal').style.display = 'block';
+        }
 
-        <p class="p-politica">Bienvenido a <strong>SIFTI</strong>, la plataforma diseñada para facilitar la gestión y comunicación entre estudiantes y profesores del CTP de Pavas. Al utilizar nuestros servicios, entendemos y aceptamos que se recopilen y almacenen ciertos datos personales y de uso para mejorar la experiencia de usuario y garantizar el funcionamiento adecuado de la plataforma.</p>
-    
-        <h2 class="h2-politica">Recopilación y Uso de Información</h2>
-    
-        <p>Cuando accedes a <strong>SIFTI</strong>, automáticamente recopilamos cierta información técnica como direcciones IP, tipo de navegador, idioma preferido, páginas visitadas y la fecha y hora de cada solicitud. Estos datos nos ayudan a diagnosticar problemas técnicos, administrar la plataforma y mejorar nuestros servicios.</p>
-    
-        <h2 class="h2-politica">Uso de Direcciones IP</h2>
-    
-        <p>Las direcciones IP son utilizadas para identificar y diagnosticar problemas técnicos en nuestros servidores y para administrar la plataforma. También podemos utilizarlas para recopilar información demográfica general para mejorar nuestros servicios y personalizar la experiencia del usuario.</p>
-    
-        <h2 class="h2-politica">Seguridad de la Información</h2>
-    
-        <p>Tomamos medidas razonables para proteger la información personal recopilada contra acceso no autorizado, uso indebido o divulgación. Sin embargo, ningún método de transmisión por Internet o almacenamiento electrónico es completamente seguro, por lo que no podemos garantizar su seguridad absoluta.</p>
-    
-        <h2 class="h2-politica">Consentimiento</h2>
-    
-        <p>Al utilizar nuestros servicios, aceptas expresamente la recopilación, uso y almacenamiento de tu información personal según se describe en esta política de privacidad.</p>
-    
-        <h2 class="h2-politica">Actualizaciones</h2>
-    
-        <p>Esta política de privacidad puede ser actualizada periódicamente y todas las modificaciones serán efectivas al ser publicadas en esta página. Te recomendamos revisar esta política regularmente para estar informado sobre cómo protegemos tu información.</p>
-    
-        <p>Fecha de última actualización: <strong>08-06-2024</strong>.</p>
-    </div>
-</div>
+        // Función para cerrar la ventana modal
+        function closeModal() {
+            document.getElementById('politica-modal').style.display = 'none';
+        }
 
-<script>
-    // Función para abrir la ventana modal
-    function openModal() {
-        document.getElementById('politica-modal').style.display = 'block';
-    }
-
-    // Función para cerrar la ventana modal
-    function closeModal() {
-        document.getElementById('politica-modal').style.display = 'none';
-    }
-
-    // Event listener para abrir la ventana modal al hacer clic en el enlace
-    document.getElementById('politica-link').addEventListener('click', function(event) {
-        event.preventDefault();
-        openModal();
-    });
-</script>
+        // Event listener para abrir la ventana modal al hacer clic en el enlace
+        document.getElementById('politica-link').addEventListener('click', function (event) {
+            event.preventDefault();
+            openModal();
+        });
+    </script>
 </body>
+
 </html>

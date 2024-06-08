@@ -1,1 +1,48 @@
-	
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIFTI - Calendario</title>
+    <link rel="stylesheet" href="../css/calendario.css">
+
+    <!-- Etiquetas meta para optimización SEO -->
+    <meta name="description" content="Plataforma diseñada para estudiantes y profesores del CTP de Pavas.">
+    <meta name="keywords" content="SIFTI, CTP Pavas, estudiantes ctp, profesores ctp, comedor, administración, ctp comedor, ctp horarios, ctp sifti, sifti, ctp expotecnica, expotecnica">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="container">
+            <h1>Calendario</h1>
+            <div id="calendar-container">
+                <div id="calendar-header">
+                    <button onclick="prevMonth()">&#9664;</button>
+                    <span id="month-year"></span>
+                    <button onclick="nextMonth()">&#9654;</button>
+                </div>
+                <table id="calendar">
+                    <thead>
+                        <tr>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miércoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
+                            <th>Sábado</th>
+                            <th>Domingo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendar-body">
+                        <!-- Las celdas del calendario se generarán dinámicamente con JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/calendario.js"></script>
+</body>
+
+</html>

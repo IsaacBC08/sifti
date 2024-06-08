@@ -106,18 +106,41 @@ textarea {
 
 /* Estilos del botón */
 .boton {
-    background-color: #8a2be2; /* Color de fondo morado */
+    background-color: #f67091; /* Color de fondo morado */
     color: white; /* Color del texto */
     padding: 0.5rem 1rem; /* Relleno interior */
     border: none; /* Quitar borde */
     border-radius: 4px; /* Bordes redondeados */
     cursor: pointer; /* Cambiar cursor al pasar el ratón */
     margin: 0 0.5rem; /* Margen entre botones */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Transición para fondo, sombra y transformación */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
-.boton:hover,
-.ver-button:hover {
+/* Estilo al pasar el ratón */
+.boton:hover {
     background-color: #ba55d3; /* Color de fondo morado claro al pasar el ratón */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    transform: translateY(-2px); /* Levantar botón ligeramente */
+}
+
+/* Estilo al hacer clic */
+.boton:active {
+    background-color: #7a1dc0; /* Color de fondo más oscuro al hacer clic */
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    transform: translateY(0); /* Revertir levantamiento */
+}
+
+/* Estilos adicionales */
+.boton:focus {
+    outline: none; /* Quitar el borde de enfoque */
+    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.5); /* Añadir sombra de enfoque */
+}
+
+.boton.disabled {
+    background-color: #cccccc; /* Color de fondo gris para estado deshabilitado */
+    cursor: not-allowed; /* Cambiar cursor a no permitido */
+    box-shadow: none; /* Quitar sombra */
 }
 
 /* Estilos para grupo de formularios */

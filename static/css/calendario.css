@@ -1,0 +1,110 @@
+/* Estilos generales para el documento */
+* {
+    box-sizing: border-box; /* Box-sizing para incluir padding y border en el tamaño total */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina rellenos por defecto */
+}
+
+body {
+    background: linear-gradient(135deg, #fff, #f64865, #d90429, #f64865, #fff); /* Fondo con degradado */
+    background-size: 200% 200%; /* Tamaño del fondo de degradado */
+    animation: backgroundAnimation 10s ease infinite; /* Animación de fondo continua */
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 50%; /* Posición inicial del fondo */
+    }
+    50% {
+        background-position: 100% 50%; /* Posición intermedia del fondo */
+    }
+    100% {
+        background-position: 0% 50%; /* Posición final del fondo */
+    }
+}
+
+#calendar-container {
+    text-align: center;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #007BFF;
+    color: white;
+}
+
+#calendar-header button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#calendar-header button:hover {
+    color: #ffd700;
+}
+
+#calendar-header span {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+#calendar {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#calendar th, #calendar td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 1em;
+}
+
+#calendar th {
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+}
+
+#calendar td {
+    height: 100px;
+    vertical-align: top;
+    position: relative;
+}
+
+#calendar td.current-month {
+    background-color: #ffffff;
+}
+
+#calendar td.other-month {
+    background-color: #f0f0f0;
+    color: #999;
+}
+
+#calendar td:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+#calendar td::before {
+    content: attr(data-day);
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 0.8em;
+    color: #333;
+    font-weight: bold;
+}

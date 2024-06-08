@@ -11,18 +11,16 @@
 <body>
     <header>
         <h1>Panel de Administración</h1>
-        <!-- Botón para volver atrás -->
-        <button class="boton" onclick="window.location.href='/'">Inicio</button>
-
     </header>
     <nav>
         <ul>
-            <li><a href="#" id="menu-link">Administrar Menú</a></li>
+            <li><a href="/">Inicio</a></li>
             <hr>
-            <li><a href="#" id="announcement-link">Publicar Anuncio</a></li>
+            <li><a id="menu-link">Administrar Menú</a></li>
+            <hr>
+            <li><a id="announcement-link">Publicar Anuncio</a></li>
             <hr>
             <li><a id="reports-link" onclick="cargar_reportes()">Leer Reportes</a></li>
-        
         </ul>
     </nav>
     <main>
@@ -57,87 +55,4 @@
         <section id="announcement-section" style="display: none;">
             <h2>Publicar un Anuncio</h2>
             <!-- Contenido para publicar un anuncio -->
-            <div class="container">
-                <h2>Anuncios de último momento</h2>
-                <form action="" method="POST">
-                    <div class="form-group">
-                        <label for="nombre">Fecha:</label>
-                        <input type="text" id="nombre" name="nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="asunto">Asunto:</label>
-                        <input type="text" id="asunto" name="asunto" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contenido">Contenido:</label>
-                        <textarea id="contenido" name="contenido" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="afectados">Afectados:</label>
-                        <input type="text" id="afectados" name="afectados" required>
-                    </div>
-                    <div class="form-group">
-                        <button type="button" class="boton" onclick="subir_anuncio()">Publicar</button>
-                    </div>
-                </form>
-            </div>
-        </section>
-        <section id="read_reports-section" style="display: none;">
-            <h2>Reportes de la última semana</h2>
-            <!-- reportes -->
-            <div class="container-report">
-                <h1 id="nombre-1" class="nombre"></h1>
-                <h3 id="categoria-1" class="categoria"></h3>
-                <p id="descripcion-1" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-2" class="nombre"></h1>
-                <h3 id="categoria-2" class="categoria"></h3>
-                <p id="descripcion-2" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-3" class="nombre"></h1>
-                <h3 id="categoria-3" class="categoria"></h3>
-                <p id="descripcion-3" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-4" class="nombre"></h1>
-                <h3 id="categoria-4" class="categoria"></h3>
-                <p id="descripcion-4" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-5" class="nombre"></h1>
-                <h3 id="categoria-5" class="categoria"></h3>
-                <p id="descripcion-5" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-6" class="nombre"></h1>
-                <h3 id="categoria-6" class="categoria"></h3>
-                <p id="descripcion-6" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-7" class="nombre"></h1>
-                <h3 id="categoria-7" class="categoria"></h3>
-                <p id="descripcion-7" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-8" class="nombre"></h1>
-                <h3 id="categoria-8" class="categoria"></h3>
-                <p id="descripcion-8" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-9" class="nombre"></h1>
-                <h3 id="categoria-9" class="categoria"></h3>
-                <p id="descripcion-9" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-10" class="nombre"></h1>
-                <h3 id="categoria-10" class="categoria"></h3>
-                <p id="descripcion-10" class="contenido"></p>
-            </div>
-        </section>
-    </main>
-    <script src="../js/administracion.js"></script>
-</body>
-
-</html>
+            <div class="container

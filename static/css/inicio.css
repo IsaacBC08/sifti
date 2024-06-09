@@ -6,7 +6,7 @@
 }
 
 body {
-    color: #fff !important;
+    color: #000000 !important;
     font-family: 'Arial', sans-serif; /* Fuente principal para el cuerpo del documento */
     display: flex; /* Usa Flexbox para diseño flexible */
     flex-direction: column; /* Diseño en columna */
@@ -15,6 +15,7 @@ body {
     background-image: url("../img/bg.png");
     background-size: 200% 200%; /* Tamaño del fondo de degradado */
     animation: backgroundAnimation 60s infinite; /* Animación de fondo continua */
+
 }
 
 /* Animaciones */
@@ -25,6 +26,7 @@ body {
     100% {
         background-position: 0% -200%;
     }
+
 }
 
 @keyframes changeColor {
@@ -83,13 +85,14 @@ body {
     border-radius: 4%;
 }
 
+
 .container {
     text-align: center; /* Alineación del texto al centro */
 }
 
 .titulo-animado {
     font-size: 36px; /* Tamaño de fuente del título */
-    color: #fff; /* Color de texto */
+    color: #333; /* Color de texto */
     margin-bottom: 10px; /* Margen inferior */
     animation: animateTitle 2s infinite alternate, changeColor 4s infinite; /* Animaciones para el título */
 }
@@ -125,6 +128,7 @@ body {
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra suave */
     overflow: hidden; /* Oculta el contenido que desborda */
     transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+
 }
 
 .boton:before {
@@ -150,6 +154,69 @@ body {
     max-width: 30%;
     max-height: 30%;
     margin-top: 20px;
+}
+
+/* Sección de noticias */
+.noticias {
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo blanco */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Efecto de desenfoque para Safari */
+    padding: 30px; /* Relleno interno */
+    margin-top: 40px; /* Margen superior */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: left; /* Alineación del texto a la izquierda */
+}
+
+.noticias h2 {
+    font-size: 28px; /* Tamaño de fuente del título */
+    color: #ffffff; /* Color de texto */
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+.noticia {
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+.noticia h3 {
+    font-size: 20px; /* Tamaño de fuente del título de la noticia */
+    color: #ebebeb; /* Color de texto */
+    margin-bottom: 10px; /* Margen inferior */
+}
+
+.noticia p {
+    font-size: 16px; /* Tamaño de fuente del contenido de la noticia */
+    color: #b9b9b9; /* Color de texto */
+    line-height: 1.6; /* Altura de línea */
+}
+
+/* Sección del calendario */
+.calendario {
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo blanco */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Efecto de desenfoque para Safari */
+    padding: 30px; /* Relleno interno */
+    margin-top: 40px; /* Margen superior */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: left; /* Alineación del texto a la izquierda */
+}
+
+.calendario h2 {
+    font-size: 28px; /* Tamaño de fuente del título */
+    color: #ffffff; /* Color de texto */
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+.calendario ul {
+    list-style-type: none; /* Sin viñetas */
+    padding: 0;
+}
+
+.calendario ul li {
+    font-size: 16px; /* Tamaño de fuente del elemento de la lista */
+    color: #b9b9b9; /* Color de texto */
+    margin-bottom: 8px; /* Margen inferior */
 }
 
 /* Sección sobre la plataforma */
@@ -234,12 +301,186 @@ body {
         font-size: 18px; /* Tamaño de fuente más pequeño en títulos de noticias */
     }
 
-    .noticia p {
-        font-size: 14px; /* Tamaño de fuente más pequeño en contenido de noticias */
+    .noticia p, .calendario ul li, .sobre p {
+        font-size: 14px; /* Tamaño de fuente más pequeño en contenido */
     }
+}
+.boton-admin {
+    background-color: #002a54;
+    border: 2px solid #003366;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
 
-    .img_qr {
-        max-width: 50%; /* Ajustar el tamaño de la imagen en móviles */
-        max-height: 50%; /* Ajustar el tamaño de la imagen en móviles */
-    }
+.boton-admin:hover {
+    background-color: #85009f;
+    border-color: #67007b;
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.boton-admin::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.boton-admin:hover::before {
+    width: 0;
+    height: 0;
+}
+/* Estilos para el modal */
+.modal {
+    display: none; /* Por defecto, el modal está oculto */
+    position: fixed; /* Posición fija para cubrir toda la pantalla */
+    z-index: 999; /* Capa superior */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    overflow: auto; /* Permitir desplazamiento si el contenido es largo */
+}
+
+.modal-content {
+    background-color: #fefefe; /* Fondo blanco del modal */
+    margin: 15% auto; /* Margen vertical y centrado horizontal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del modal */
+    max-width: 600px; /* Ancho máximo del modal */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.h1-politica {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+.h2-politica {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.h3-politica {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.p-politica {
+    font-size: 16px;
+    color: #160000;
+}
+.contenedor {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    transition: transform 1s ease;
+    width: 100%;
+}
+
+.card {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #393b4039;
+    cursor: default;
+}
+.card img {
+    width: 100%;
+    height: 105px;
+}
+.card .contenido {
+    padding: 15px;
+    text-align: center;
+}
+.card .contenido p {
+    line-height: 1.5;
+    color: #e5e5e5;
+}
+.card .contenido h3 {
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.card .contenido a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+    margin-top: 10px;
+    color: #2fb4cc;
+    border: 1px solid #2fb4cc;
+    border-radius: 4px;
+    transition: all 400ms ease;
+}
+.card .contenido a:hover {
+    background-color: #2fb4cc;
+    color: #fff;
+}
+
+.controls {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.controls button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #2fb4cc;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+    background-color: #1b8fa0;
+}
+.evento {
+    color: #8fbe39; 
+}
+.noticia {
+    color: #f7bf11;
+}
+.fecha {
+    color: #61665e;
+    margin-right: 70%;
 }

@@ -3,11 +3,13 @@ import socketserver
 import os
 import json
 from base64 import b64decode
+import sass
 
 # Configuración del puerto y credenciales de autenticación
-PORT = 8082
+PORT = 8080
 PASSWORD = "sifti4321"
 USERNAME = "Team Sifti" # Nombre de usuario temporal
+
 
 # Rutas a los directorios y archivos estáticos
 STATIC_DIR = os.path.join(os.path.dirname(__file__), 'static')
@@ -31,6 +33,9 @@ class Handler(http_server.SimpleHTTPRequestHandler):
             if not self.is_authenticated():
                 self.send_auth_request()
                 return
+            # Compilar archivos Sass a CSS si es necesario
+        if self.path.endswith('.scss'):
+            self.compile_sass_to_css()
 
         file_path = os.path.join(STATIC_DIR, self.path.lstrip('/'))
 
@@ -190,6 +195,24 @@ class Handler(http_server.SimpleHTTPRequestHandler):
         self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
         self.end_headers()
         self.wfile.write(json.dumps(response).encode('utf-8'))
+    
+    def compile_sass_to_css(self):
+        # Ruta del archivo Sass de entrada
+        archivo_sass = os.path.join(STATIC_DIR, self.path.lstrip('/'))
+
+        # Ruta del archivo CSS de salida
+        archivo_css = archivo_sass.replace('.scss', '.css')
+
+        # Compilar el archivo Sass a CSS
+        try:
+            css = sass.compile(filename=archivo_sass)
+            
+            # Guardar el CSS compilado en el archivo de salida
+            with open(archivo_css, 'w') as f:
+                f.write(css)
+
+        except sass.CompileError as e:
+            print("Error al compilar el archivo Sass:", e)
 
 # Inicia el servidor en el puerto especificado
 with socketserver.TCPServer(("", PORT), Handler) as httpd:

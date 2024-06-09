@@ -34,7 +34,7 @@ Para utilizar este servidor en tu entorno local, sigue estos pasos:
 
 1. Clona este repositorio:
 
-`git clone https://github.com/tu-usuario/sifti-server.git`
+`git clone https:/*github.com/tu-usuario/sifti-server.git`
 `cd sifti-server`
 
 2. Instala las dependencias necesarias (si las hay):

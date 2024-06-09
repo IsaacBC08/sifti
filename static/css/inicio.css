@@ -30,13 +30,13 @@ body {
 
 @keyframes changeColor {
     0% {
-        color: #000000; /* Color inicial */
+        color: #ffffff; /* Color inicial */
     }
     50% {
         color: #5695cb; /* Color intermedio */
     }
     100% {
-        color: #000000; /* Color final */
+        color: #ffffff; /* Color final */
     }
 }
 
@@ -69,7 +69,7 @@ body {
 
 /* Contenedor principal */
 .main-container {
-    background-color: #f0f0f0; /* Color de fondo */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo blanco semitransparente */
     border-radius: 20px; /* Bordes redondeados */
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra suave */
     padding: 20px; /* Relleno interno */
@@ -78,7 +78,10 @@ body {
     text-align: center; /* Alineación del texto al centro */
     margin-top: 20px; /* Margen superior */
     flex: 1; /* Flex para ocupar el espacio disponible */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Efecto de desenfoque para Safari */
 }
+
 
 .container {
     text-align: center; /* Alineación del texto al centro */
@@ -86,7 +89,7 @@ body {
 
 .titulo-animado {
     font-size: 36px; /* Tamaño de fuente del título */
-    color: #333; /* Color de texto */
+    color: #e4e4e4; /* Color de texto */
     margin-bottom: 10px; /* Margen inferior */
     animation: animateTitle 2s infinite alternate, changeColor 4s infinite; /* Animaciones para el título */
 }

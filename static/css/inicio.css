@@ -304,6 +304,10 @@ body {
     .noticia p, .calendario ul li, .sobre p {
         font-size: 14px; /* Tamaño de fuente más pequeño en contenido */
     }
+    .fecha {
+        color: #61665e;
+        margin-right: 10%;
+    }
 }
 .boton-admin {
     background-color: #002a54;
@@ -415,6 +419,11 @@ body {
     width: 100%;
 }
 
+.titulo {
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
 .card {
     flex: 0 0 100%;
     box-sizing: border-box;
@@ -454,33 +463,22 @@ body {
     color: #fff;
 }
 
-.controls {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.controls button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    font-size: 16px;
-    border: none;
-    background-color: #2fb4cc;
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.controls button:hover {
-    background-color: #1b8fa0;
-}
 .evento {
     color: #8fbe39; 
-}
-.noticia {
-    color: #f7bf11;
+    float: right;
+    width: 70%; /* Ancho deseado para la noticia */
+    text-align: right !important; /* Alinea el texto a la derecha dentro de la noticia */
 }
 .fecha {
     color: #61665e;
-    margin-right: 70%;
+    float: left;
+    width: 30%; /* Ancho deseado para la fecha */
+    text-align: left;
+}
+
+.noticia {
+    color: #f7bf11;
+    float: right;
+    width: 70%; /* Ancho deseado para la noticia */
+    text-align: right !important; /* Alinea el texto a la derecha dentro de la noticia */
 }

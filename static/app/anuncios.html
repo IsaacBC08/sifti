@@ -8,24 +8,27 @@
 </head>
 <body>
     <div class="container">
-        <h3 id="fecha-1"></h1>
-        <h1 id="asunto-1"></h2>
+        <h3 id="fecha-1"></h3>
+        <h1 id="asunto-1"></h1>
         <p id="contenido-1" class="contenido"></p>
-        <p id="afectados-1" class="afectados"><span class="bold-text">Afectados:</span></p>
+        <p id="afectados-1" class="afectados"><span class="bold-text">Afectados:  </span></p>
+        <button class="expand-button" onclick="toggleContent('contenido-1', this)">Mostrar más</button>
     </div>
     <div class="container">
-        <h3 id="fecha-2"></h1>
-        <h1 id="asunto-2"></h2>
+        <h3 id="fecha-2"></h3>
+        <h1 id="asunto-2"></h1>
         <p id="contenido-2" class="contenido"></p>
-        <p id="afectados-2" class="afectados"><span class="bold-text">Afectados:</span></p>
+        <p id="afectados-2" class="afectados"><span class="bold-text">Afectados:  </span></p>
+        <button class="expand-button" onclick="toggleContent('contenido-2', this)">Mostrar más</button>
     </div>
     <div class="container">
-        <h3 id="fecha-3"></h1>
-        <h1 id="asunto-3"></h2>
+        <h3 id="fecha-3"></h3>
+        <h1 id="asunto-3"></h1>
         <p id="contenido-3" class="contenido"></p>
-        <p id="afectados-3" class="afectados"><span class="bold-text">Afectados:</span></p>
+        <p id="afectados-3" class="afectados"><span class="bold-text">Afectados: </span></p>
+        <button class="expand-button" onclick="toggleContent('contenido-3', this)">Mostrar más</button>
         <button onclick="window.history.back()" class="back-button">Volver atrás</button>
     </div>
-    <script src="../js/cargar_anuncios.js"></script>  
+    <script src="../js/cargar_anuncios.js"></script>
 </body>
 </html>

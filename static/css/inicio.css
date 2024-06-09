@@ -6,28 +6,22 @@
 }
 
 body {
-    color: #000000 !important;
+    color: #ffffff !important;
     font-family: 'Arial', sans-serif; /* Fuente principal para el cuerpo del documento */
     display: flex; /* Usa Flexbox para diseño flexible */
     flex-direction: column; /* Diseño en columna */
     align-items: center; /* Centra horizontalmente el contenido */
+    justify-content: center; /* Centra verticalmente el contenido */
     min-height: 100vh; /* Altura mínima del cuerpo al 100% del viewport */
-    background-color: #000000;
-    /*background-image: url("../img/bg.png");*/
-    background-size: 200% 200%; /* Tamaño del fondo de degradado */
-    animation: backgroundAnimation 60s infinite; /* Animación de fondo continua */
-
+    background: linear-gradient(270deg, #000000, #020d14, #031721, #052137, #07304f);
+    background-size: 800% 800%; /* Tamaño del fondo de degradado */
+    animation: backgroundAnimation 30s ease infinite; /* Animación de fondo continua */
 }
 
-/* Animaciones */
 @keyframes backgroundAnimation {
-    0% {
-        background-position: 0% 0%; /* Posición inicial del fondo */
-    }
-    100% {
-        background-position: 0% -200%;
-    }
-
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 @keyframes changeColor {
@@ -77,7 +71,7 @@ body {
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra suave */
     padding: 20px; /* Relleno interno */
     width: 90%; /* Ancho del contenedor */
-    max-width: 600px; /* Ancho máximo del contenedor */
+    max-width: 70%; /* Ancho máximo del contenedor */
     text-align: center; /* Alineación del texto al centro */
     margin-top: 20px; /* Margen superior */
     flex: 1; /* Flex para ocupar el espacio disponible */
@@ -222,7 +216,7 @@ body {
 
 /* Sección sobre la plataforma */
 .sobre {
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo blanco */
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo blanco */
     backdrop-filter: blur(10px); /* Efecto de desenfoque */
     -webkit-backdrop-filter: blur(10px); /* Efecto de desenfoque para Safari */
     padding: 30px; /* Relleno interno */

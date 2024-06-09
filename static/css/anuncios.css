@@ -1,68 +1,115 @@
 body {
-    font-family: Arial, sans-serif;  /* Fuente principal */
-    background-color: #f0f0f0;  /* Color de fondo */
+    font-family: Arial, sans-serif;
+    background-color: #2c3e50;  /* Azul oscuro */
     margin: 0;
     padding: 0;
 }
 
 .container {
-    max-width: 90%;  /* Ancho máximo del contenedor */
-    margin: 30px auto;  /* Margen superior e inferior automático para centrar */
-    background-color: #fff;  /* Color de fondo del contenedor */
-    padding: 20px;  /* Relleno interior */
-    border-radius: 8px;  /* Bordes redondeados */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Sombra suave */
-    font-size: 0.9rem;  /* Tamaño de fuente reducido */
-    line-height: 1.6;  /* Altura de línea */
+    max-width: 90%;
+    margin: 30px auto;
+    background-color: #34495e;  /* Azul grisáceo oscuro */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.container:hover {
+    transform: scale(1.05); /* Agrandar ligeramente al hacer hover */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.expanded {
+    transform: scale(2); /* Expandir al doble cuando está expandido */
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h3 {
-    text-align: left;  /* Alinear texto a la izquierda */
-    color: #e67e22;  /* Color naranja */
-    font-size: 1.2rem;  /* Tamaño de fuente */
-    margin-bottom: 10px;  /* Margen inferior */
+    text-align: left;
+    color: #1abc9c;  /* Verde azulado */
+    font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
 h1 {
-    text-align: center;  /* Alinear texto al centro */
-    color: #d35400;  /* Naranja oscuro */
-    font-size: 2rem;  /* Tamaño de fuente */
-    margin-bottom: 10px;  /* Margen inferior */
+    text-align: center;
+    color: #16a085;  /* Verde azulado oscuro */
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
 .contenido {
-    text-align: left;  /* Alinear texto a la izquierda */
-    font-weight: bold;  /* Texto en negrita */
-    color: #333;  /* Color de texto principal */
-    font-size: 1.2rem;  /* Tamaño de fuente */
-    margin-bottom: 8px;  /* Margen inferior */
+    text-align: left;
+    font-weight: bold;
+    color: #ecf0f1;  /* Blanco claro */
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    opacity: 0;
+    height: 0;
+    transition: opacity 0.5s ease, height 0.5s ease;
+    overflow: hidden;
+}
+
+.contenido.visible {
+    opacity: 1;
+    height: auto;
 }
 
 .container p:last-child {
-    margin-bottom: 0;  /* Eliminar margen inferior del último párrafo dentro del contenedor */
+    margin-bottom: 0;
 }
 
 .bold-text {
-    font-weight: bold;  /* Texto en negrita */
-    color: #e67e22;  /* Color naranja para el texto en negrita */
+    font-weight: bold;
+    color: #1abc9c;
 }
 
 .back-button {
-    background-color: #e67e22;  /* Color de fondo naranja */
-    color: #fff;  /* Color del texto blanco */
-    border: none;  /* Quitar borde */
-    padding: 10px 20px;  /* Relleno interior */
-    font-size: 1rem;  /* Tamaño de fuente */
-    cursor: pointer;  /* Cambiar cursor al pasar el ratón */
-    border-radius: 5px;  /* Bordes redondeados */
-    margin-top: 20px;  /* Margen superior */
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
 }
 
 .back-button:hover {
-    background-color: #d35400;  /* Color de fondo naranja oscuro al pasar el ratón */
+    background-color: #16a085;
 }
 
 .afectados {
-    font-size: 1.5rem;  /* Tamaño de fuente grande */
-    color: #ff7417;  /* Color naranja más claro */
+    font-size: 2rem;
+    color: #66c2ff;  /* Azul claro */
+}
+
+.expand-button {
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.expand-button:hover {
+    background-color: #16a085;
 }

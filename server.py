@@ -5,7 +5,7 @@ import json
 from base64 import b64decode
 
 # Configuración del puerto y credenciales de autenticación
-PORT = 3030
+PORT = 8080
 PASSWORD = "sifti4321"
 USERNAME = "Team Sifti" # Nombre de usuario temporal
 

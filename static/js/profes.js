@@ -262,25 +262,86 @@ const horarios = {
         'Viernes': ['12-1 A', '12-1 A', '12-1 A', '12-1 A', '12-1 A', '12-1 A', '12-1 A', '12-1 A', '12-1 A', '12-1 A', '12-1 A', '12-1 A'],
     },
     'Natalia Castillo Ceballos': {
-    'Lunes': ['', '', '', '', '11-3', '10-2', '10-2 A', '10-2 A', '10-2 A', '11-1', '11-1', '11-1'],
-    'Martes': ['', '11-5', '11-5', '10-5 A', '10-5 A', '10-5 A', '10-2 A', '10-2 A', '10-2 A', '11-2', '11-2', '11-2'],
-    'Miércoles': ['10-2', '10-2', '10-2', '10-5 A', '10-5 A', '10-5 A', '10-1 A', '10-1 A', '10-1 A', '11-5', '', ''],
-    'Jueves': ['10-4 A', '10-4 A', '10-4 A', '', '', '', '10-1', '11-3', '11-3', '10-4 A', '10-4 A', '10-4 A'],
-    'Viernes': ['11-1 A', '11-1 A', '11-1 A', '11-4', '11-4', '11-4', '12-3 A', '12-3 A', '12-3 A', '12-3 A', '12-3 A', '12-3 A'],
-},
-'Daniel Castillo Tenorio': {
-    'Lunes': ['10-3 B', '10-3 B', '10-3 B', '11-2 B', '11-2 B', '11-2 B', '11-1 B', '11-1 B', 
-'11-1 B', '12-1 A', '12-1 A', '12-1 A'],
-    'Martes': ['11-1 B', '11-1 B', '11-1 B', '11-3 B', '11-3 B', '11-3 B', '12-1 A', '12-1 A', '12-1 A', '10-5 B', '10-5 B', '10-5 B'],
-    'Miércoles': ['12-3 B', '12-3 B', '12-3 B', '11-3 B', '11-3 B', '11-3 B', '11-2 B', '11-2 B', '11-2 B', '11-2 B', '11-2 B', '11-2 B'],
-    'Jueves': ['10-3 B', '10-3 B', '10-3 B', '10-5 B', '10-5 B', '10-5 B', '10-3 B', '10-3 B', '10-3 B', '10-3 B', '10-3 B', '10-3 B'],
-    'Viernes': ['11-5 A', '11-5 A', '11-5 A', '12-3 B', '12-3 B', '12-3 B', '11-5 A', '11-5 A', '11-5 A', '12-3 B', '12-3 B', '12-3 B'],
-},
+        'Lunes': ['', '', '', '', '11-3', '10-2', '10-2 A', '10-2 A', '10-2 A', '11-1', '11-1', '11-1'],
+        'Martes': ['', '11-5', '11-5', '10-5 A', '10-5 A', '10-5 A', '10-2 A', '10-2 A', '10-2 A', '11-2', '11-2', '11-2'],
+        'Miércoles': ['10-2', '10-2', '10-2', '10-5 A', '10-5 A', '10-5 A', '10-1 A', '10-1 A', '10-1 A', '11-5', '', ''],
+        'Jueves': ['10-4 A', '10-4 A', '10-4 A', '', '', '', '10-1', '11-3', '11-3', '10-4 A', '10-4 A', '10-4 A'],
+        'Viernes': ['11-1 A', '11-1 A', '11-1 A', '11-4', '11-4', '11-4', '12-3 A', '12-3 A', '12-3 A', '12-3 A', '12-3 A', '12-3 A'],
+    },
+    'Daniel Castillo Tenorio': {
+        'Lunes': ['10-3 B', '10-3 B', '10-3 B', '11-2 B', '11-2 B', '11-2 B', '11-1 B', '11-1 B',
+            '11-1 B', '12-1 A', '12-1 A', '12-1 A'],
+        'Martes': ['11-1 B', '11-1 B', '11-1 B', '11-3 B', '11-3 B', '11-3 B', '12-1 A', '12-1 A', '12-1 A', '10-5 B', '10-5 B', '10-5 B'],
+        'Miércoles': ['12-3 B', '12-3 B', '12-3 B', '11-3 B', '11-3 B', '11-3 B', '11-2 B', '11-2 B', '11-2 B', '11-2 B', '11-2 B', '11-2 B'],
+        'Jueves': ['10-3 B', '10-3 B', '10-3 B', '10-5 B', '10-5 B', '10-5 B', '10-3 B', '10-3 B', '10-3 B', '10-3 B', '10-3 B', '10-3 B'],
+        'Viernes': ['11-5 A', '11-5 A', '11-5 A', '12-3 B', '12-3 B', '12-3 B', '11-5 A', '11-5 A', '11-5 A', '12-3 B', '12-3 B', '12-3 B'],
+    },
 
 };
+function claseActual() {
+    // Obtén todos los elementos de bloque
+    const bloques = [
+        document.getElementById('bloque-1'),
+        document.getElementById('bloque-2'),
+        document.getElementById('bloque-3'),
+        document.getElementById('bloque-4'),
+        document.getElementById('bloque-5'),
+        document.getElementById('bloque-6'),
+        document.getElementById('bloque-7'),
+        document.getElementById('bloque-8'),
+        document.getElementById('bloque-9'),
+        document.getElementById('bloque-10'),
+        document.getElementById('bloque-11'),
+        document.getElementById('bloque-12')
+    ];
+
+    let bloque = 0;
+    const fecha = new Date();
+    const hora =  fecha.getHours();
+    const minuto = fecha.getMinutes();
+    console.log(`${hora}:${minuto < 10 ? '0' + minuto : minuto}`);
+
+    const intervalos = [
+        { inicio: [7, 0], fin: [7, 39], bloque: 1 },
+        { inicio: [7, 40], fin: [8, 19], bloque: 2 },
+        { inicio: [8, 20], fin: [8, 59], bloque: 3 },
+        { inicio: [9, 0], fin: [9, 49], bloque: 4 },
+        { inicio: [9, 50], fin: [10, 29], bloque: 5 },
+        { inicio: [10, 30], fin: [11, 59], bloque: 6 },
+        { inicio: [11, 0], fin: [12,0], bloque: 13 },
+        { inicio: [12, 0], fin: [12, 39], bloque: 7 },
+        { inicio: [12, 40], fin: [13, 19], bloque: 8 },
+        { inicio: [13, 20], fin: [13, 59], bloque: 9 },
+        { inicio: [14, 0], fin: [14, 49], bloque: 10 },
+        { inicio: [14, 50], fin: [15, 29], bloque: 11 },
+        { inicio: [15, 30], fin: [15, 59], bloque: 12 }
+    ];
+
+    for (let i = 0; i < intervalos.length; i++) {
+        const { inicio, fin, bloque: b } = intervalos[i];
+        if ((hora > inicio[0] || (hora === inicio[0] && minuto >= inicio[1])) &&
+            (hora < fin[0] || (hora === fin[0] && minuto <= fin[1]))) {
+            bloque = b;
+            break;
+        }
+    }
+
+    console.log(bloque);
+
+    // Añadir la clase "current" al elemento correspondiente
+    if (bloque > 0) {
+        const elementoActual = bloques[bloque - 1];
+        if (elementoActual) {
+            elementoActual.classList.add('current');
+        }
+    }
+
+}
+
 
 // Función para cargar el horario del grupo seleccionado
 function cargarHorario() {
+    claseActual()
     // Obtener el elemento select con id 'grupoSelect'
     const grupoSelect = document.getElementById('grupoSelect');
     // Obtener el valor seleccionado en el select (grupo seleccionado)

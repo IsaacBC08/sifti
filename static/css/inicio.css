@@ -11,22 +11,21 @@ body {
     flex-direction: column; /* Diseño en columna */
     align-items: center; /* Centra horizontalmente el contenido */
     min-height: 100vh; /* Altura mínima del cuerpo al 100% del viewport */
-    background: linear-gradient(135deg, #fff, #f64865, #d90429, #f64865, #fff); /* Fondo con degradado */
+    background-image: url("../img/bg.png");
     background-size: 200% 200%; /* Tamaño del fondo de degradado */
-    animation: backgroundAnimation 10s ease infinite; /* Animación de fondo continua */
+    animation: backgroundAnimation 60s infinite; /* Animación de fondo continua */
+
 }
 
 /* Animaciones */
 @keyframes backgroundAnimation {
     0% {
-        background-position: 0% 50%; /* Posición inicial del fondo */
-    }
-    50% {
-        background-position: 100% 50%; /* Posición intermedia del fondo */
+        background-position: 0% 0%; /* Posición inicial del fondo */
     }
     100% {
-        background-position: 0% 50%; /* Posición final del fondo */
+        background-position: 0% -200%;
     }
+
 }
 
 @keyframes changeColor {
@@ -34,7 +33,7 @@ body {
         color: #000000; /* Color inicial */
     }
     50% {
-        color: #ff6e4a; /* Color intermedio */
+        color: #5695cb; /* Color intermedio */
     }
     100% {
         color: #000000; /* Color final */
@@ -112,7 +111,7 @@ body {
 /* Estilos para el botón */
 .boton {
     position: relative; /* Posición relativa */
-    background-color: #ff7e5f; /* Color de fondo del botón */
+    background-color: #5695cb; /* Color de fondo del botón */
     color: #fff; /* Color de texto del botón */
     padding: 15px 30px; /* Relleno interno */
     margin: 10px; /* Margen */
@@ -234,7 +233,7 @@ body {
 
 /* Pie de página */
 .footer {
-    background-color: #d90429;;
+    background-color: #000000;
     color: #fff;
     text-align: center;
     padding: 20px 0;
@@ -295,7 +294,7 @@ body {
     }
 }
 .boton-admin {
-    background-color: #004d99;
+    background-color: #002a54;
     border: 2px solid #003366;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -309,8 +308,8 @@ body {
 }
 
 .boton-admin:hover {
-    background-color: #005cbf;
-    border-color: #004080;
+    background-color: #85009f;
+    border-color: #67007b;
     transform: scale(1.05);
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 }

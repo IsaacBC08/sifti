@@ -62,3 +62,35 @@ select {
     bottom: 10px; /* Distancia desde la parte inferior */
     left: 10px; /* Distancia desde la izquierda */
 }
+@keyframes fondoAnimado {
+    0% {
+        background-color: #16DBA5;
+        transform: scale(1);
+    }
+    20% {
+        background-color: #0CD19B;
+        transform: scale(1.05);
+    }
+    40% {
+        background-color:  #00B37D;
+        transform: scale(1.1);
+    }
+    60% {
+        background-color:  #00B37D;
+        transform: scale(1.1);
+    }
+    80% {
+        background-color: #0CD19B;
+        transform: scale(1.05);
+    }
+    100% {
+        background-color: #16DBA5;
+        transform: scale(1);
+    }
+}
+
+.current {
+    color: #ffffff !important;
+    animation: fondoAnimado 3.5s infinite;
+    transition: transform 0.2s;
+}

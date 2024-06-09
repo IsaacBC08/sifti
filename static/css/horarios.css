@@ -44,7 +44,7 @@ body {
 
 #horarioTable th {
     background-color: #16DBA5; /* Fondo color secundario */
-    color: #fff; /* Texto blanco */
+    color: #ffffff; /* Texto blanco */
     width: 100px; /* Ancho fijo para cada bloque del encabezado */
     border-radius: 8px 8px 0 0; /* Borde redondeado solo en la parte superior */
 }
@@ -104,30 +104,33 @@ body {
 }
 @keyframes fondoAnimado {
     0% {
-        background-color: #5eeec8;
-    }
-    25% {
-        background-color: #13C8B3;
-    }
-    50% {
         background-color: #16DBA5;
-    }
-    100% {
-        background-color: #5eeec8 ;
-    }
-}
-
-@keyframes tamanoAnimado {
-    0%,
-    100% {
         transform: scale(1);
     }
-    50% {
-        transform: scale(1.02);
+    20% {
+        background-color: #0CD19B;
+        transform: scale(1.05);
+    }
+    40% {
+        background-color:  #00B37D;
+        transform: scale(1.1);
+    }
+    60% {
+        background-color:  #00B37D;
+        transform: scale(1.1);
+    }
+    80% {
+        background-color: #0CD19B;
+        transform: scale(1.05);
+    }
+    100% {
+        background-color: #16DBA5;
+        transform: scale(1);
     }
 }
 
 .current {
-    animation: fondoAnimado 4s infinite, tamanoAnimado 4s infinite;
+    color: #ffffff !important;
+    animation: fondoAnimado 3.5s infinite;
     transition: transform 0.2s;
 }

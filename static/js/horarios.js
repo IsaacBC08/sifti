@@ -50,7 +50,7 @@ function claseActual() {
 
     let bloque = 0;
     const fecha = new Date();
-    const hora = fecha.getHours();
+    const hora =  fecha.getHours();
     const minuto = fecha.getMinutes();
     console.log(`${hora}:${minuto < 10 ? '0' + minuto : minuto}`);
 

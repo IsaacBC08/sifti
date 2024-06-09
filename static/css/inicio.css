@@ -265,6 +265,7 @@ body {
 @media (max-width: 600px) {
     .main-container {
         width: 100%; /* Ancho completo en dispositivos móviles */
+        max-width: 95%;
         border-radius: 0; /* Sin bordes redondeados */
         box-shadow: none; /* Sin sombra */
         padding: 10px; /* Relleno más pequeño */

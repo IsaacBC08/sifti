@@ -196,23 +196,6 @@ class Handler(http_server.SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(json.dumps(response).encode('utf-8'))
     
-    def compile_sass_to_css(self):
-        # Ruta del archivo Sass de entrada
-        archivo_sass = os.path.join(STATIC_DIR, self.path.lstrip('/'))
-
-        # Ruta del archivo CSS de salida
-        archivo_css = archivo_sass.replace('.scss', '.css')
-
-        # Compilar el archivo Sass a CSS
-        try:
-            css = sass.compile(filename=archivo_sass)
-            
-            # Guardar el CSS compilado en el archivo de salida
-            with open(archivo_css, 'w') as f:
-                f.write(css)
-
-        except sass.CompileError as e:
-            print("Error al compilar el archivo Sass:", e)
 
 # Inicia el servidor en el puerto especificado
 with socketserver.TCPServer(("", PORT), Handler) as httpd:

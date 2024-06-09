@@ -4,9 +4,8 @@ import os
 import json
 from base64 import b64decode
 
-
 # Configuración del puerto y credenciales de autenticación
-PORT = 8080
+PORT = 3030
 PASSWORD = "sifti4321"
 USERNAME = "Team Sifti" # Nombre de usuario temporal
 
@@ -195,7 +194,6 @@ class Handler(http_server.SimpleHTTPRequestHandler):
         self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
         self.end_headers()
         self.wfile.write(json.dumps(response).encode('utf-8'))
-    
 
 # Inicia el servidor en el puerto especificado
 with socketserver.TCPServer(("", PORT), Handler) as httpd:

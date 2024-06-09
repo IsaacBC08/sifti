@@ -12,7 +12,8 @@ body {
     flex-direction: column; /* Diseño en columna */
     align-items: center; /* Centra horizontalmente el contenido */
     min-height: 100vh; /* Altura mínima del cuerpo al 100% del viewport */
-    background-image: url("../img/bg.png");
+    background-color: #000000;
+    /*background-image: url("../img/bg.png");*/
     background-size: 200% 200%; /* Tamaño del fondo de degradado */
     animation: backgroundAnimation 60s infinite; /* Animación de fondo continua */
 

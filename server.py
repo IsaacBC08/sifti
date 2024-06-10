@@ -5,16 +5,19 @@ import json
 from base64 import b64decode
 
 # Configuración del puerto y credenciales de autenticación
-PORT = 8080
+PORT = 8083
 PASSWORD = "sifti4321"
 USERNAME = "Team Sifti" # Nombre de usuario temporal
 
-
 # Rutas a los directorios y archivos estáticos
 STATIC_DIR = os.path.join(os.path.dirname(__file__), 'static')
-ANUNCIOS_JSON_FILE = os.path.join(os.path.dirname(__file__), 'static/db/anuncios.json')
-MENU_JSON_FILE = os.path.join(os.path.dirname(__file__), 'static/db/menu.json')
-REPORTES_JSON_FILE = os.path.join(os.path.dirname(__file__), 'static/db/reportes.json')
+UPLOADS_DIR = os.path.join(os.path.dirname(__file__), 'uploads') # Nuevo directorio para guardar imágenes
+ANUNCIOS_JSON_FILE = os.path.join(STATIC_DIR, 'db/anuncios.json')
+MENU_JSON_FILE = os.path.join(STATIC_DIR, 'db/menu.json')
+REPORTES_JSON_FILE = os.path.join(STATIC_DIR, 'db/reportes.json')
+DESTACADA_JSON_FILE = os.path.join(STATIC_DIR, 'db/noticias.json')
+# Asegúrate de que el nuevo directorio de imágenes existe
+os.makedirs(UPLOADS_DIR, exist_ok=True)
 
 # Definición de la clase Handler que manejará las solicitudes HTTP
 class Handler(http_server.SimpleHTTPRequestHandler):
@@ -32,9 +35,22 @@ class Handler(http_server.SimpleHTTPRequestHandler):
             if not self.is_authenticated():
                 self.send_auth_request()
                 return
-            # Compilar archivos Sass a CSS si es necesario
-        if self.path.endswith('.scss'):
-            self.compile_sass_to_css()
+
+        # Maneja la ruta /uploads para servir archivos desde el directorio de uploads
+        if self.path.startswith('/uploads'):
+            file_path = os.path.join(UPLOADS_DIR, self.path.lstrip('/uploads'))
+            if os.path.exists(file_path):
+                self.send_response(200)
+                self.send_header('Content-type', 'application/octet-stream')
+                self.end_headers()
+                with open(file_path, 'rb') as file:
+                    self.wfile.write(file.read())
+                return
+            else:
+                self.send_response(404)
+                self.end_headers()
+                self.wfile.write(b'Error 404: Not Found')
+                return
 
         file_path = os.path.join(STATIC_DIR, self.path.lstrip('/'))
 
@@ -64,6 +80,10 @@ class Handler(http_server.SimpleHTTPRequestHandler):
             self.handle_anuncio_update()
         elif self.path == '/send_report':
             self.handle_send_report()
+        elif self.path == '/update_destacadas':
+            self.handle_destacada_update()
+        elif self.path == '/upload_image':
+            self.handle_image_upload()
         else:
             self.send_response(404)
             self.send_header('Content-type', 'text/plain')
@@ -195,6 +215,94 @@ class Handler(http_server.SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(json.dumps(response).encode('utf-8'))
 
+    def handle_image_upload(self):
+        print("Se llama la img")
+        try:
+            # Maneja la solicitud para subir una imagen
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length)
+            boundary = self.headers['Content-Type'].split("=")[1].encode('utf-8')
+            parts = post_data.split(b"--" + boundary)
+
+            for part in parts:
+                if b'Content-Disposition' in part and b'name="image"; filename="' in part:
+                    # Extrae el nombre del archivo
+                    header, file_data = part.split(b"\r\n\r\n", 1)
+                    file_data = file_data.rstrip(b"\r\n")
+                    filename = header.split(b'filename="')[1].split(b'"')[0].decode('utf-8')
+
+                    # Guarda la imagen en el directorio de imágenes
+                    file_path = os.path.join(UPLOADS_DIR, filename)
+                    with open(file_path, 'wb') as file:
+                        file.write(file_data)
+
+                    response = {'status': 'success', 'message': 'Imagen subida correctamente', 'file_path': '/uploads/' + filename}
+                    break
+        except json.JSONDecodeError as e:
+            print("sale mal")
+            print("Error al decodificar JSON:", str(e))  # Imprime el error específico
+            response = {'status': 'error', 'message': 'Error al procesar datos JSON'}
+
+        # Envía la respuesta al cliente
+        self.send_response(200)
+        self.send_header('Content-type', 'application/json')
+        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
+        self.end_headers()
+        self.wfile.write(json.dumps(response).encode('utf-8'))
+        
+    def handle_destacada_update(self):
+        # Maneja la solicitud para actualizar las noticias
+        content_length = int(self.headers['Content-Length'])
+        post_data = self.rfile.read(content_length).decode('utf-8')
+
+        try:
+            data = json.loads(post_data)
+
+            # Obtener la fecha y hora actual
+            now = self.get_current_date()
+            formatted_date = now.strftime("%Y-%m-%d")
+
+            # Abrir el archivo de noticias existente o crear uno nuevo si no existe
+            if os.path.exists(DESTACADA_JSON_FILE):
+                with open(DESTACADA_JSON_FILE, 'r') as json_file:
+                    destacadas = json.load(json_file)
+
+
+            # Crear un nuevo objeto de noticia con los datos recibidos y la fecha actual
+            nueva_destacada = {
+                'fecha': formatted_date,
+                'titular': data['titulo'],
+                'contenido': data['contenido'],
+                'tipo': data['tipo'],
+                'ruta' : data['ruta']
+            }
+            # Agregar la nueva noticia a la lista de destacadas
+            destacadas["destacada-3"] = destacadas["destacada-2"]
+            destacadas["destacada-2"] = destacadas["destacada-1"]
+            destacadas["destacada-1"] = nueva_destacada
+
+            # Guardar las noticias actualizadas en el archivo JSON
+            with open(DESTACADA_JSON_FILE, 'w') as json_file:
+                json.dump(destacadas, json_file, indent=4)
+
+            response = {'status': 'success', 'message': 'Destacada publicada correctamente'}
+
+        except json.JSONDecodeError as e:
+            response = {'status': 'error', 'message': 'Error al procesar datos JSON'}
+
+        # Envía la respuesta al cliente
+        self.send_response(200)
+        self.send_header('Content-type', 'application/json')
+        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
+        self.end_headers()
+        self.wfile.write(json.dumps(response).encode('utf-8'))
+
+    def get_current_date(self):
+        # Retorna la fecha y hora actual en formato ISO 8601
+        from datetime import datetime
+        return datetime.now()
+    
+    
 # Inicia el servidor en el puerto especificado
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
     print("Servidor iniciado en el puerto", PORT)

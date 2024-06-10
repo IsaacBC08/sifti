@@ -3,12 +3,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const menuLink = document.getElementById('menu-link');
     const announcementLink = document.getElementById('announcement-link');
     const reportLink = document.getElementById('reports-link');
+    const newsLink = document.getElementById('news-link')
     
     // Obtener referencias a las secciones correspondientes
     const menuSection = document.getElementById('menu-section');
     const announcementSection = document.getElementById('announcement-section');
     const reportSection = document.getElementById('read_reports-section');
-    
+    const newsSection = document.getElementById('news-section')    
+
     // Listener para mostrar la sección del menú al hacer clic en 'Menú'
     menuLink.addEventListener('click', function() {
         menuSection.style.display = 'block';
@@ -21,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         menuSection.style.display = 'none';
         announcementSection.style.display = 'block';
         reportSection.style.display = 'none';
+        newsSection.style.display = 'none';
     });
 
     // Listener para mostrar la sección de reportes al hacer clic en 'Reportes'
@@ -28,7 +31,14 @@ document.addEventListener("DOMContentLoaded", function() {
         menuSection.style.display = 'none';
         announcementSection.style.display = 'none';
         reportSection.style.display = 'block';
+        newsSection.style.display = 'none';
     });
+    newsLink.addEventListener('click', function(){
+        menuSection.style.display = 'none';
+        announcementSection.style.display = 'none';
+        reportSection.style.display = 'none';
+        newsSection.style.display = 'block';
+    })
 });
 
 function guardar_menu(event) {
@@ -162,4 +172,61 @@ function cargar_reportes() {
             }
         })
         .catch(error => console.error('Error al cargar los reportes:', error));  // Capturar y manejar errores
+}
+
+function upload_image() {
+    document.getElementById('uploadForm').addEventListener('click', function(event) {
+        event.preventDefault();
+        var root = document.getElementById('root')
+        var formData = new FormData(this);
+
+        fetch('/upload_image', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                var img = document.createElement('img');
+                img.src = data.file_path;
+                root.textContent = data.file_path;
+                document.getElementById('imageContainer').appendChild(img);
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+}
+
+function publicar_destacada() {
+    const titulo = document.getElementById('destacada-titulo').value;
+    const contenido = document.getElementById('destacada-contenido').value;
+    const root = document.getElementById('root').textContent
+    const tipo = document.getElementById('tipo').value
+    const data = {
+        "titulo": titulo,
+        "contenido": contenido,
+        "tipo": tipo,
+        "ruta": root
+    };
+
+    fetch('/update_destacadas', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Basic ' + btoa('Team Sifti:sifti4321') // Base64 de "Team Sifti:sifti4321"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Respuesta del servidor:', data);
+        // Aquí puedes manejar la respuesta del servidor como desees
+        alert(data.message); // Muestra un mensaje de éxito o error al usuario
+    })
+    .catch(error => {
+        console.error('Error al enviar datos al servidor:', error);
+        alert('Error al publicar la noticia');
+    });
 }

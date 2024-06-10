@@ -20,6 +20,8 @@
             <hr>
             <li><a id="announcement-link">Publicar Anuncio</a></li>
             <hr>
+            <li><a id="news-link">Publicar Destacada</a></li>
+            <hr>
             <li><a id="reports-link" onclick="cargar_reportes()">Leer Reportes</a></li>
         </ul>
     </nav>
@@ -50,7 +52,6 @@
                     </div>
                 </form>
             </div>
-
         </section>
         <section id="announcement-section" style="display: none;">
             <h2>Publicar un Anuncio</h2>
@@ -59,8 +60,8 @@
                 <h2>Anuncios de último momento</h2>
                 <form action="" method="POST">
                     <div class="form-group">
-                        <label for="nombre">Fecha:</label>
-                        <input type="text" id="nombre" name="nombre" required>
+                        <label for="fecha">Fecha:</label>
+                        <input type="text" id="fecha" name="fecha" required>
                     </div>
                     <div class="form-group">
                         <label for="asunto">Asunto:</label>
@@ -78,6 +79,42 @@
                         <button type="button" class="boton" onclick="subir_anuncio()">Publicar</button>
                     </div>
                 </form>
+            </div>
+        </section>
+        <section id="news-section" style="display: none;">
+            <h2>Publicar una Destacada</h2>
+            <!-- Contenido para publicar una noticia -->
+            <div class="container">
+                <h1>Subir Imagen</h1>
+                <form id="uploadForm" enctype="multipart/form-data" method="POST" action="">
+                    <input type="file" name="image" accept="image/*" required>
+                    <button type="button" onclick="upload_image()">Subir Imagen</button>
+                    <span id="root" style="display: none;"></span>
+
+                </form>
+                <div id="imageContainer"></div>
+                <form action="#" method="POST" id="datos">
+                    <div class="form-group">
+                        <label for="destacada">Titular:</label>
+                        <input type="text" id="destacada-titulo" name="destacada" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="destacada">Contenido:</label>
+                        <textarea id="destacada-contenido" name="destacada-contenido" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="noticia-tipo">Tipo</label>
+                        <select name="type" id="tipo">
+                            <option value="default">...</option>
+                            <option value="evento">Evento</option>
+                            <option value="noticia">Noticia</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="boton" onclick="publicar_destacada()">Publicar</button>
+                    </div>
+                </form>
+                
             </div>
         </section>
         <section id="read_reports-section" style="display: none;">
@@ -138,4 +175,5 @@
     <script src="./js/administracion.js"></script>
 
 </body>
+
 </html>

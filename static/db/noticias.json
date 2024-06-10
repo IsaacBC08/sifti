@@ -1,0 +1,23 @@
+{
+    "destacada-1": {
+        "fecha": "2024-06-09",
+        "titular": "a",
+        "contenido": "b",
+        "tipo": "evento",
+        "ruta": "/uploads/images.png"
+    },
+    "destacada-2": {
+        "fecha": "2024-06-09",
+        "titular": "a",
+        "contenido": "b",
+        "tipo": "noticia",
+        "ruta": "/uploads/images.png"
+    },
+    "destacada-3": {
+        "fecha": "2024-06-09",
+        "titular": "a",
+        "contenido": "b",
+        "tipo": "evento",
+        "ruta": "/uploads/images.png"
+    }
+}

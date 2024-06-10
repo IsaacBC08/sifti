@@ -1,23 +1,23 @@
 {
     "destacada-1": {
-        "fecha": "2024-06-09",
-        "titular": "a",
-        "contenido": "b",
+        "fecha": "2024-06-10",
+        "titular": "Actividad de informatica",
+        "contenido": "Todos los de informatica estar\u00e1n armando robots",
         "tipo": "evento",
-        "ruta": "/uploads/images.png"
+        "ruta": "/uploads/informatica.jpg"
     },
     "destacada-2": {
-        "fecha": "2024-06-09",
-        "titular": "a",
-        "contenido": "b",
-        "tipo": "noticia",
-        "ruta": "/uploads/images.png"
+        "fecha": "2024-06-10",
+        "titular": "Actividad de ejecutivo",
+        "contenido": "Todos los de ejecutivo vienen formales",
+        "tipo": "evento",
+        "ruta": "/uploads/ejecutivo.jpg"
     },
     "destacada-3": {
-        "fecha": "2024-06-09",
-        "titular": "a",
-        "contenido": "b",
-        "tipo": "evento",
-        "ruta": "/uploads/images.png"
+        "fecha": "2024-06-10",
+        "titular": "Actividad de contabilidad",
+        "contenido": "Todos pueden venir disfrazados de contadores por el d\u00eda del contador",
+        "tipo": "noticia",
+        "ruta": "/uploads/contabilidad.jpg"
     }
 }

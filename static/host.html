@@ -87,12 +87,13 @@
             <div class="container">
                 <h1>Subir Imagen</h1>
                 <form id="uploadForm" enctype="multipart/form-data" method="POST" action="">
-                    <input type="file" name="image" accept="image/*" required>
-                    <button type="button" onclick="upload_image()">Subir Imagen</button>
+                    <input type="file" name="image" accept="image/*" required class="input-file"><br>
+                    <button type="button" onclick="upload_image()" class="boton">Subir Imagen</button><br>
                     <span id="root" style="display: none;"></span>
-
                 </form>
-                <div id="imageContainer"></div>
+                <div id="imageContainer">
+                    <img src="" alt="Imagen subida" id="uploadedImage" style="display: none; max-width: 100%; border-radius: 8px;">
+                </div>
                 <form action="#" method="POST" id="datos">
                     <div class="form-group">
                         <label for="destacada">Titular:</label>
@@ -114,7 +115,6 @@
                         <button type="button" class="boton" onclick="publicar_destacada()">Publicar</button>
                     </div>
                 </form>
-                
             </div>
         </section>
         <section id="read_reports-section" style="display: none;">

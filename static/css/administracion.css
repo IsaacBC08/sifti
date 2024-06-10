@@ -182,3 +182,7 @@ textarea {
     color: #333; /* Color gris oscuro */
     line-height: 1.6; /* Interlineado */
 }
+.input-file {
+    margin-top: 10% !important;
+    margin-bottom: 10% !important;
+}

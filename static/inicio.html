@@ -45,41 +45,35 @@
             <div class="slider">
                 <div class="card">
                     <figure>
-                        <img src="img/1.jpg" alt="img 1">
+                        <img src="" alt="Imagen 1" id="img-1">
                     </figure>
                     <div class="contenido">
-                        <h3>Noticia numero #1</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis veritatis ea vero quis
-                            praesentium temporibus aliquid itaque! Quis nemo mollitia animi illo, nobis fuga optio
-                            tenetur repellendus esse sequi ipsum?</p>
+                        <h3 id="titulo-1"></h3>
+                        <p id="contenido-1"></p>
                         <a href="#">Leer más</a><br><br>
-                        <span id="fecha-1" class="fecha"></span><span class="evento">Evento</span>
+                        <span id="fecha-1" class="fecha"></span><span id="tipo-1"></span>
                     </div>
                 </div>
                 <div class="card">
                     <figure>
-                        <img src="img/1.jpg" alt="img 1">
+                        <img src="" alt="Imagen 2" id="img-2">
                     </figure>
                     <div class="contenido">
-                        <h3>Noticia numero #2</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis veritatis ea vero quis
-                            praesentium temporibus aliquid itaque! Quis nemo mollitia animi illo, nobis fuga optio
-                            tenetur repellendus esse sequi ipsum?</p>
+                        <h3 id="titulo-2"></h3>
+                        <p id="contenido-2"></p>
                         <a href="#">Leer más</a><br><br>
-                        <span id="fecha-2" class="fecha"></span><span class="noticia">Noticia</span>
+                        <span id="fecha-2" class="fecha"></span><span id="tipo-2"></span>
                     </div>
                 </div>
                 <div class="card">
                     <figure>
-                        <img src="img/1.jpg" alt="img 1">
+                        <img src="" alt="Imagen 3" id="img-3">
                     </figure>
                     <div class="contenido">
-                        <h3>Noticia numero #3</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis veritatis ea vero quis
-                            praesentium temporibus aliquid itaque! Quis nemo mollitia animi illo, nobis fuga optio
-                            tenetur repellendus esse sequi ipsum?</p>
+                        <h3 id="titulo-3"></h3>
+                        <p id="contenido-3"></p>
                         <a href="#">Leer más</a><br><br>
-                        <span id="fecha-3" class="fecha"></span><span class="evento">Evento</span>
+                        <span id="fecha-3" class="fecha"></span><span id="tipo-3"></span>
                     </div>
                 </div>
             </div>
@@ -138,62 +132,7 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Crear un nuevo objeto Date
-            const today = new Date();
-
-            // Obtener el año, mes y día
-            const year = today.getFullYear();
-            const month = today.getMonth() + 1; // Los meses van de 0 a 11, por eso sumamos 1
-            const day = today.getDate();
-            const formattedDate = `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day}`;
-
-            let fecha1 = document.getElementById('fecha-1');
-            let fecha2 = document.getElementById('fecha-2');
-            let fecha3 = document.getElementById('fecha-3');
-
-
-            const slider = document.querySelector('.slider');
-            const cards = document.querySelectorAll('.card');
-
-            let currentIndex = 0;
-            fecha1.textContent = formattedDate
-            fecha2.textContent = formattedDate
-            fecha3.textContent = formattedDate
-            function updateSlider() {
-                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }
-
-            function nextCard() {
-                currentIndex = (currentIndex + 1) % cards.length;
-                updateSlider();
-            }
-
-            function prevCard() {
-                currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-                updateSlider();
-            }
-
-            // Llama a la función nextCard cada 5 segundos
-            setInterval(nextCard, 5000);
-            updateSlider();
-        });
-        // Función para abrir la ventana modal
-        function openModal() {
-            document.getElementById('politica-modal').style.display = 'block';
-        }
-
-        // Función para cerrar la ventana modal
-        function closeModal() {
-            document.getElementById('politica-modal').style.display = 'none';
-        }
-
-        // Event listener para abrir la ventana modal al hacer clic en el enlace
-        document.getElementById('politica-link').addEventListener('click', function (event) {
-            event.preventDefault();
-            openModal();
-        });
+    <script src="./js/home.js">
     </script>
 </body>
 

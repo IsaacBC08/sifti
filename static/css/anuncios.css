@@ -1,89 +1,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+/* Estilos generales */
 body {
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, #f06, #48f); /* Gradiente vibrante */
+    background-color: #f2f2f2;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     color: #333;
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 600px;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.9);  /* Fondo blanco con transparencia */
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    font-size: 1rem;
-    line-height: 1.8;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.7s forwards;
-    transition: transform 0.4s, box-shadow 0.4s;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilos del encabezado */
+.header {
+    background-color: #1a2980;
+    color: #fff;
+    padding: 20px 0;
     text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.container:hover {
-    transform: translateY(0);
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-h1 {
-    text-align: center;
-    color: #48f;  /* Azul vibrante */
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-h3 {
-    color: #f06;  /* Rojo vibrante */
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-}
-
-.contenido {
-    font-weight: bold;
-    color: #333;  /* Texto oscuro */
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    opacity: 0;
-    height: 0;
-    transition: opacity 0.6s ease, height 0.6s ease;
-    overflow: hidden;
-}
-
-.contenido.visible {
-    opacity: 1;
-    height: auto;
-}
-
-.bold-text {
-    font-weight: bold;
-    color: #f06;  /* Rojo vibrante */
-}
-
-.buttons {
+.header-inner {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 15px; /* Espacio entre los botones */
-    margin-top: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.back-button, .expand-button {
-    background-color: #48f;
+.header-title {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+/* Estilos del contenido principal */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+}
+
+.announcement {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease;
+}
+
+.announcement:hover {
+    transform: translateY(-5px);
+}
+
+.announcement-header {
+    padding: 20px;
+    background-color: #1a2980;
+    color: #fff;
+}
+
+.announcement-title {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.announcement-date {
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+.announcement-content {
+    padding: 20px;
+}
+
+.content {
+    margin-bottom: 20px;
+}
+
+.affected {
+    font-weight: bold;
+}
+
+.announcement-footer {
+    padding: 20px;
+    text-align: center;
+}
+
+.expand-button {
+    background-color: #26d0ce;
     color: #fff;
     border: none;
     padding: 12px 30px;
@@ -91,21 +105,33 @@ h3 {
     cursor: pointer;
     border-radius: 8px;
     transition: background-color 0.3s;
-    width: 80%; /* Para que los botones ocupen un ancho cómodo */
-    max-width: 300px; /* Máximo ancho para mantener consistencia */
-    text-align: center;
 }
 
-.back-button:hover, .expand-button:hover {
-    background-color: #358de6;
+.expand-button:hover {
+    background-color: #1a2980;
 }
 
-.afectados {
-    font-size: 2.2rem;
-    color: #48f;  /* Azul claro */
-    margin-top: 20px;
+/* Estilos del pie de página */
+.footer {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
 }
 
-.container p:last-child {
-    margin-bottom: 0;
+.back-button {
+    background-color: #1a2980;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #26d0ce;
+}
+.hidden{
+    display: none;
 }

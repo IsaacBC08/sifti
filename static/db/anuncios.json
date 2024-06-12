@@ -16,5 +16,11 @@
         "asunto": "Salida anticipada",
         "contenido": "Los estudiantes de la 10-5 A salen temprano por falta de lecciones de el profesor de electr\u00f3nica",
         "afectados": "10-5-A"
+    },
+    "anuncio-4": {
+        "fecha": "04-06-24",
+        "asunto": "Salida anticipada",
+        "contenido": "Los estudiantes de la 10-3 A salen temprano por falta de lecciones de el profesor de informatica",
+        "afectados": "10-3-A"
     }
 }

@@ -1,37 +1,53 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Obtener una marca de tiempo actual para asegurar la obtención de la versión más reciente del archivo JSON
     const timestamp = new Date().getTime();
+    const url = `../db/anuncios.json?uniqueParam=${timestamp}`;
 
-    // Construir la URL del archivo JSON con la marca de tiempo como parámetro de consulta
-    const url = `../db/anuncios.json?timestamp=${timestamp}`;
-
-    // Realizar una solicitud fetch para obtener los datos del archivo JSON
     fetch(url)
-        .then(response => response.json())  // Convertir la respuesta a JSON
+        .then(response => response.json())
         .then(data => {
-            // Obtener los datos de cada anuncio del objeto JSON
-            const anuncios = [data["anuncio-1"], data["anuncio-2"], data["anuncio-3"]];
+            // Verificar que los anuncios existan en el JSON
+            if (data) {
+                Object.keys(data).forEach(key => {
+                    const anuncio = data[key];
+                    // Parsear el número del anuncio desde la clave
+                    const numAviso = parseInt(key.split("-")[1]);
+                    
+                    // Obtener elementos del DOM
+                    const fechaElement = document.getElementById(`fecha-${numAviso}`);
+                    const asuntoElement = document.getElementById(`asunto-${numAviso}`);
+                    const contenidoElement = document.getElementById(`contenido-${numAviso}`);
+                    const afectadosElement = document.getElementById(`afectados-${numAviso}`);
 
-            // Iterar sobre los anuncios y aplicar los datos a los elementos del DOM
-            anuncios.forEach((anuncio, index) => {
-                document.getElementById(`fecha-${index + 1}`).textContent = anuncio.fecha;
-                document.getElementById(`asunto-${index + 1}`).textContent = anuncio.asunto;
-                document.getElementById(`contenido-${index + 1}`).textContent = anuncio.contenido;
-                document.getElementById(`afectados-${index + 1}`).append(anuncio.afectados);
-            });
+                    // Verificar si los elementos existen antes de actualizar
+                    if (fechaElement && asuntoElement && contenidoElement && afectadosElement) {
+                        fechaElement.textContent = anuncio.fecha || '';
+                        asuntoElement.textContent = anuncio.asunto || '';
+                        contenidoElement.textContent = anuncio.contenido || '';
+                        afectadosElement.textContent = anuncio.afectados || '';
+
+                        // Agregar clases según el contenido visible o no
+                        if (anuncio.contenido) {
+                            contenidoElement.classList.add('visible');
+                        }
+                    } else {
+                        console.error(`Elementos de aviso-${numAviso} no encontrados en el DOM.`);
+                    }
+                });
+            } else {
+                console.error('No se encontraron anuncios válidos en el archivo JSON.');
+            }
         })
         .catch(error => {
             console.error('Error al cargar los anuncios:', error);
         });
 });
-
-function toggleContent(id, button) {
-    const content = document.getElementById(id);
-    if (content.classList.contains('visible')) {
-        content.classList.remove('visible');
-        button.textContent = "Mostrar más";
+function toggleContent(contenido, button) {
+    const content = document.getElementById(contenido);
+    if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        button.textContent = 'Leer menos';
     } else {
-        content.classList.add('visible');
-        button.textContent = "Mostrar menos";
+        content.classList.add('hidden');
+        button.textContent = 'Leer más';
     }
 }

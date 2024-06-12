@@ -1,32 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #2c3e50;  /* Azul oscuro */
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #f06, #48f); /* Gradiente vibrante */
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
 }
 
 .container {
-    max-width: 90%;
-    margin: 30px auto;
-    background-color: #34495e;  /* Azul grisáceo oscuro */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    font-size: 0.9rem;
-    line-height: 1.6;
+    max-width: 600px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);  /* Fondo blanco con transparencia */
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    line-height: 1.8;
     opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.5s forwards;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transform: translateY(30px);
+    animation: fadeInUp 0.7s forwards;
+    transition: transform 0.4s, box-shadow 0.4s;
+    text-align: center;
 }
 
 .container:hover {
-    transform: scale(1.05); /* Agrandar ligeramente al hacer hover */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-}
-
-.expanded {
-    transform: scale(2); /* Expandir al doble cuando está expandido */
+    transform: translateY(0);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes fadeInUp {
@@ -36,29 +40,27 @@ body {
     }
 }
 
-h3 {
-    text-align: left;
-    color: #1abc9c;  /* Verde azulado */
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
 h1 {
     text-align: center;
-    color: #16a085;  /* Verde azulado oscuro */
+    color: #48f;  /* Azul vibrante */
     font-size: 2rem;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #f06;  /* Rojo vibrante */
+    font-size: 1.3rem;
+    margin-bottom: 15px;
 }
 
 .contenido {
-    text-align: left;
     font-weight: bold;
-    color: #ecf0f1;  /* Blanco claro */
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+    color: #333;  /* Texto oscuro */
+    font-size: 1.1rem;
+    margin-bottom: 20px;
     opacity: 0;
     height: 0;
-    transition: opacity 0.5s ease, height 0.5s ease;
+    transition: opacity 0.6s ease, height 0.6s ease;
     overflow: hidden;
 }
 
@@ -67,49 +69,43 @@ h1 {
     height: auto;
 }
 
-.container p:last-child {
-    margin-bottom: 0;
-}
-
 .bold-text {
     font-weight: bold;
-    color: #1abc9c;
+    color: #f06;  /* Rojo vibrante */
 }
 
-.back-button {
-    background-color: #1abc9c;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Espacio entre los botones */
     margin-top: 20px;
 }
 
-.back-button:hover {
-    background-color: #16a085;
-}
-
-.afectados {
-    font-size: 2rem;
-    color: #66c2ff;  /* Azul claro */
-}
-
-.expand-button {
-    background-color: #1abc9c;
+.back-button, .expand-button {
+    background-color: #48f;
     color: #fff;
     border: none;
-    padding: 5px 10px;
-    font-size: 0.9rem;
+    padding: 12px 30px;
+    font-size: 1rem;
     cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-    display: block;
-    width: 100%;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    width: 80%; /* Para que los botones ocupen un ancho cómodo */
+    max-width: 300px; /* Máximo ancho para mantener consistencia */
     text-align: center;
 }
 
-.expand-button:hover {
-    background-color: #16a085;
+.back-button:hover, .expand-button:hover {
+    background-color: #358de6;
+}
+
+.afectados {
+    font-size: 2.2rem;
+    color: #48f;  /* Azul claro */
+    margin-top: 20px;
+}
+
+.container p:last-child {
+    margin-bottom: 0;
 }

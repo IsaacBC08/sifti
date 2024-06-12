@@ -6,7 +6,7 @@
 }
 
 body {
-    color: #ffffff !important;
+    color: #000000 !important;
     font-family: 'Arial', sans-serif; /* Fuente principal para el cuerpo del documento */
     display: flex; /* Usa Flexbox para diseño flexible */
     flex-direction: column; /* Diseño en columna */

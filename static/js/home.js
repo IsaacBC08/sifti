@@ -69,7 +69,6 @@ function cargar_noticias() {
         });
 }
 
-
 // Función para abrir la ventana modal
 function openModal() {
 	document.getElementById('politica-modal').style.display = 'block';
@@ -121,4 +120,11 @@ function splash(){
     }, 2500); // Show main content 0.5s after splash screen fades out
 
   console.log("Todo cargado")
+}
+
+let progress = document.getElementById("progress-bar")
+let totalHeight = document.body.scrollHeight - window.innerHeight
+window.onscroll = function () {
+    let progressHeight = (window.scrollY / totalHeight) * 70
+    progress.style.height = progressHeight + "%"
 }

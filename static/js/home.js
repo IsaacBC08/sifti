@@ -92,10 +92,14 @@ function splash(){
     setTimeout(function() {
 
       document.getElementById("splash-screen").classList.add("fade-out");
-    }, 4000); // 2000 milliseconds = 2 seconds
-
+    }, 4000); // 4000 milliseconds = 4 seconds
+    
     // Show main content after splash screen animation
-    document.getElementById("main-content").classList.add("show")
+    setTimeout(function() {
+
+        document.getElementById("main-content").classList.add("show")
+      }, 2000); // 2000 milliseconds = 2 seconds
+    
 
   console.log("Todo cargado")
 }

@@ -174,62 +174,15 @@ body {
 /* Estilos para el botón */
 .boton {
     position: relative;
-    /* Posición relativa */
-    background-color: #5695cb;
-    /* Color de fondo del botón */
-    color: #fff;
-    /* Color de texto del botón */
-    padding: 15px 30px;
-    /* Relleno interno */
-    margin: 10px;
-    /* Margen */
-    font-size: 16px;
-    /* Tamaño de fuente */
-    border: none;
-    /* Sin borde */
-    border-radius: 50px;
-    /* Bordes redondeados */
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 1em;
+    background: transparent;
+    border: 2px solid #5695cb;
+    font-weight: 500;
+    border-radius: 40px;
     cursor: pointer;
-    /* Cambia el cursor a puntero */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    /* Sombra suave */
-    overflow: hidden;
-    /* Oculta el contenido que desborda */
-    transition: background-color 0.3s, transform 0.3s;
-    /* Transiciones suaves */
-
-}
-
-.boton:before {
-    content: '';
-    /* Contenido generado */
-    position: absolute;
-    /* Posición absoluta */
-    top: -2px;
-    /* Distancia desde arriba */
-    left: -2px;
-    /* Distancia desde la izquierda */
-    right: -2px;
-    /* Distancia desde la derecha */
-    bottom: -2px;
-    /* Distancia desde abajo */
-    border-radius: 50px;
-    /* Bordes redondeados */
-    border: 2px solid transparent;
-    /* Borde transparente */
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.358), transparent);
-    /* Degradado diagonal */
-    animation: shine 2s infinite linear;
-    /* Animación de brillo */
-}
-
-.boton:hover {
-    background-color: #d90429;
-    /* Color de fondo al pasar el mouse */
-    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4);
-    /* Sombra más intensa */
-    transform: scale(1.1);
-    /* Escala al 110% */
+    color: #5695cb;
 }
 
 .img_qr {
@@ -666,6 +619,7 @@ body {
 
 /* Splash screen styles */
 #splash-screen {
+    font-family: consolas;
     position: fixed;
     top: 0;
     left: 0;
@@ -726,6 +680,7 @@ body {
     max-height: 10%;
     border-radius: 80px;
     animation: aparecer 3s;
+    margin-bottom: -20%;
 }
 ::-webkit-scrollbar {
     width: 0;
@@ -777,4 +732,35 @@ body {
         filter: hue-rotate(360deg);
     }
     
+}
+.load-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+.wavy {
+    position: relative;
+    -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0,0,0,0.2));
+}
+.wavy span {
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    font-size: 2em;
+    text-transform: uppercase;
+    animation: wave 1s ease-in-out infinite;
+    animation-delay: calc(.1s * var(--i));
+}
+@keyframes wave {
+    0% {
+        transform: translateY(0px);
+    }
+    20% {
+        transform: translateY(-20px);
+    }
+    40%, 100% {
+        transform: translateY(0px);
+    }
 }

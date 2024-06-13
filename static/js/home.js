@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+	splash()
 	cargar_noticias()
 	// Crear un nuevo objeto Date
 	const today = new Date();
@@ -84,3 +85,40 @@ document.getElementById('politica-link').addEventListener('click', function (eve
 	event.preventDefault();
 	openModal();
 });
+
+function loading() {
+    var cargando = document.getElementById("loading");
+    
+    // Mostrar el primer mensaje "loading."
+    setTimeout(function() {
+        cargando.textContent = "Cargando.";
+        
+        // Mostrar el segundo mensaje "loading.."
+        setTimeout(function() {
+            cargando.textContent = "Cargando..";
+            
+            // Mostrar el tercer mensaje "loading..."
+            setTimeout(function() {
+                cargando.textContent = "Cargando...";
+            }, 1000); // Esperar 1 segundo antes de cambiar a "loading..."
+        }, 1000); // Esperar 1 segundo antes de cambiar a "loading.."
+    }, 1000); // Esperar 1 segundo antes de cambiar a "loading."
+}
+
+
+function splash(){
+  // Wait for the page to fully load
+  	loading()
+    // Fade out the splash screen after 2 seconds
+    setTimeout(function() {
+
+      document.getElementById("splash-screen").classList.add("fade-out");
+    }, 6000); // 2000 milliseconds = 2 seconds
+
+    // Show main content after splash screen animation
+    setTimeout(function() {
+      document.getElementById("main-content").classList.add("show");
+    }, 2500); // Show main content 0.5s after splash screen fades out
+
+  console.log("Todo cargado")
+}

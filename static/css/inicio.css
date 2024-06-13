@@ -1,148 +1,235 @@
 /* Estilos generales para el documento */
 * {
-    box-sizing: border-box; /* Box-sizing para incluir padding y border en el tamaño total */
-    margin: 0; /* Elimina márgenes por defecto */
-    padding: 0; /* Elimina rellenos por defecto */
+    box-sizing: border-box;
+    /* Box-sizing para incluir padding y border en el tamaño total */
+    margin: 0;
+    /* Elimina márgenes por defecto */
+    padding: 0;
+    /* Elimina rellenos por defecto */
 }
 
 body {
     color: #000000 !important;
-    font-family: 'Arial', sans-serif; /* Fuente principal para el cuerpo del documento */
-    display: flex; /* Usa Flexbox para diseño flexible */
-    flex-direction: column; /* Diseño en columna */
-    align-items: center; /* Centra horizontalmente el contenido */
-    justify-content: center; /* Centra verticalmente el contenido */
-    min-height: 100vh; /* Altura mínima del cuerpo al 100% del viewport */
+    font-family: 'Arial', sans-serif;
+    /* Fuente principal para el cuerpo del documento */
+    display: flex;
+    /* Usa Flexbox para diseño flexible */
+    flex-direction: column;
+    /* Diseño en columna */
+    align-items: center;
+    /* Centra horizontalmente el contenido */
+    justify-content: center;
+    /* Centra verticalmente el contenido */
+    min-height: 100vh;
+    /* Altura mínima del cuerpo al 100% del viewport */
     background: linear-gradient(270deg, #000000, #020d14, #031721, #052137, #07304f);
-    background-size: 800% 800%; /* Tamaño del fondo de degradado */
-    animation: backgroundAnimation 30s ease infinite; /* Animación de fondo continua */
+    background-size: 800% 800%;
+    /* Tamaño del fondo de degradado */
+    animation: backgroundAnimation 30s ease infinite;
+    /* Animación de fondo continua */
 }
 
 @keyframes backgroundAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 @keyframes changeColor {
     0% {
-        color: #ffffff; /* Color inicial */
+        color: #ffffff;
+        /* Color inicial */
     }
+
     50% {
-        color: #5695cb; /* Color intermedio */
+        color: #5695cb;
+        /* Color intermedio */
     }
+
     100% {
-        color: #ffffff; /* Color final */
+        color: #ffffff;
+        /* Color final */
     }
 }
 
 @keyframes fadeIn {
     0% {
-        opacity: 0; /* Opacidad inicial */
+        opacity: 0;
+        /* Opacidad inicial */
     }
+
     100% {
-        opacity: 1; /* Opacidad al 100% */
+        opacity: 1;
+        /* Opacidad al 100% */
     }
 }
 
 @keyframes shine {
     0% {
-        transform: translateX(-100%); /* Inicio del brillo */
+        transform: translateX(-100%);
+        /* Inicio del brillo */
     }
+
     100% {
-        transform: translateX(100%); /* Fin del brillo */
+        transform: translateX(100%);
+        /* Fin del brillo */
     }
 }
 
 @keyframes expand {
     0% {
-        scale: 1; /* Escala inicial */
+        scale: 1;
+        /* Escala inicial */
     }
+
     100% {
-        scale: 1.1; /* Escala al 110% */
+        scale: 1.1;
+        /* Escala al 110% */
     }
 }
 
 /* Contenedor principal */
 .main-container {
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.3); /* Fondo blanco semitransparente */
-    border-radius: 20px; /* Bordes redondeados */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra suave */
-    padding: 20px; /* Relleno interno */
-    width: 90%; /* Ancho del contenedor */
-    max-width: 70%; /* Ancho máximo del contenedor */
-    text-align: center; /* Alineación del texto al centro */
-    margin-top: 20px; /* Margen superior */
-    flex: 1; /* Flex para ocupar el espacio disponible */
-    backdrop-filter: blur(10px); /* Efecto de desenfoque */
-    -webkit-backdrop-filter: blur(10px); /* Efecto de desenfoque para Safari */
+    background-color: rgba(0, 0, 0, 0.3);
+    /* Fondo blanco semitransparente */
+    border-radius: 20px;
+    /* Bordes redondeados */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    /* Sombra suave */
+    width: 90%;
+    /* Ancho del contenedor */
+    max-width: 70%;
+    /* Ancho máximo del contenedor */
+    text-align: center;
+    /* Alineación del texto al centro */
+    margin-top: 20px;
+    /* Margen superior */
+    flex: 1;
+    /* Flex para ocupar el espacio disponible */
+    backdrop-filter: blur(10px);
+    /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px);
+    /* Efecto de desenfoque para Safari */
     border-radius: 4%;
+    padding: 30px;
+    /* Aumento del relleno para separar las secciones */
+    margin-bottom: 30px;
+    /* Margen inferior para separar del pie de página */
+
 }
 
 
 .container {
-    text-align: center; /* Alineación del texto al centro */
+    text-align: center;
+    /* Alineación del texto al centro */
 }
 
 .titulo-animado {
-    font-size: 36px; /* Tamaño de fuente del título */
-    color: #333; /* Color de texto */
-    margin-bottom: 10px; /* Margen inferior */
-    animation: animateTitle 2s infinite alternate, changeColor 4s infinite; /* Animaciones para el título */
+    font-size: 36px;
+    /* Tamaño de fuente del título */
+    color: #333;
+    /* Color de texto */
+    margin-bottom: 10px;
+    /* Margen inferior */
+    animation: animateTitle 2s infinite alternate, changeColor 4s infinite;
+    /* Animaciones para el título */
 }
 
 .typing-text {
-    opacity: 0; /* Inicialmente invisible */
-    animation: fadeIn 4s forwards; /* Animación de aparecer */
-    font-size: 18px; /* Tamaño de fuente */
-    margin: 0 auto; /* Margen automático */
-    padding: 10px 0; /* Relleno */
+    opacity: 0;
+    /* Inicialmente invisible */
+    animation: fadeIn 4s forwards;
+    /* Animación de aparecer */
+    font-size: 18px;
+    /* Tamaño de fuente */
+    margin: 0 auto;
+    /* Margen automático */
+    padding: 10px 0;
+    /* Relleno */
 }
 
 /* Contenedor de botones */
 .boton-container {
-    display: flex; /* Usa Flexbox para diseño flexible */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    flex-wrap: wrap; /* Permite que los botones se envuelvan */
-    margin-top: 20px; /* Margen superior */
+    display: flex;
+    /* Usa Flexbox para diseño flexible */
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    flex-wrap: wrap;
+    /* Permite que los botones se envuelvan */
+    margin-top: 20px;
+    /* Margen superior */
 }
 
 /* Estilos para el botón */
 .boton {
-    position: relative; /* Posición relativa */
-    background-color: #5695cb; /* Color de fondo del botón */
-    color: #fff; /* Color de texto del botón */
-    padding: 15px 30px; /* Relleno interno */
-    margin: 10px; /* Margen */
-    font-size: 16px; /* Tamaño de fuente */
-    border: none; /* Sin borde */
-    border-radius: 50px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra suave */
-    overflow: hidden; /* Oculta el contenido que desborda */
-    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+    position: relative;
+    /* Posición relativa */
+    background-color: #5695cb;
+    /* Color de fondo del botón */
+    color: #fff;
+    /* Color de texto del botón */
+    padding: 15px 30px;
+    /* Relleno interno */
+    margin: 10px;
+    /* Margen */
+    font-size: 16px;
+    /* Tamaño de fuente */
+    border: none;
+    /* Sin borde */
+    border-radius: 50px;
+    /* Bordes redondeados */
+    cursor: pointer;
+    /* Cambia el cursor a puntero */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    /* Sombra suave */
+    overflow: hidden;
+    /* Oculta el contenido que desborda */
+    transition: background-color 0.3s, transform 0.3s;
+    /* Transiciones suaves */
 
 }
 
 .boton:before {
-    content: ''; /* Contenido generado */
-    position: absolute; /* Posición absoluta */
-    top: -2px; /* Distancia desde arriba */
-    left: -2px; /* Distancia desde la izquierda */
-    right: -2px; /* Distancia desde la derecha */
-    bottom: -2px; /* Distancia desde abajo */
-    border-radius: 50px; /* Bordes redondeados */
-    border: 2px solid transparent; /* Borde transparente */
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.358), transparent); /* Degradado diagonal */
-    animation: shine 2s infinite linear; /* Animación de brillo */
+    content: '';
+    /* Contenido generado */
+    position: absolute;
+    /* Posición absoluta */
+    top: -2px;
+    /* Distancia desde arriba */
+    left: -2px;
+    /* Distancia desde la izquierda */
+    right: -2px;
+    /* Distancia desde la derecha */
+    bottom: -2px;
+    /* Distancia desde abajo */
+    border-radius: 50px;
+    /* Bordes redondeados */
+    border: 2px solid transparent;
+    /* Borde transparente */
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.358), transparent);
+    /* Degradado diagonal */
+    animation: shine 2s infinite linear;
+    /* Animación de brillo */
 }
 
 .boton:hover {
-    background-color: #d90429; /* Color de fondo al pasar el mouse */
-    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4); /* Sombra más intensa */
-    transform: scale(1.1); /* Escala al 110% */
+    background-color: #d90429;
+    /* Color de fondo al pasar el mouse */
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4);
+    /* Sombra más intensa */
+    transform: scale(1.1);
+    /* Escala al 110% */
 }
 
 .img_qr {
@@ -153,89 +240,136 @@ body {
 
 /* Sección de noticias */
 .noticias {
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo blanco */
-    backdrop-filter: blur(10px); /* Efecto de desenfoque */
-    -webkit-backdrop-filter: blur(10px); /* Efecto de desenfoque para Safari */
-    padding: 30px; /* Relleno interno */
-    margin-top: 40px; /* Margen superior */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    text-align: left; /* Alineación del texto a la izquierda */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Fondo blanco */
+    backdrop-filter: blur(10px);
+    /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px);
+    /* Efecto de desenfoque para Safari */
+    padding: 30px;
+    /* Relleno interno */
+    margin-top: 40px;
+    /* Margen superior */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    text-align: left;
+    /* Alineación del texto a la izquierda */
 }
 
 .noticias h2 {
-    font-size: 28px; /* Tamaño de fuente del título */
-    color: #ffffff; /* Color de texto */
-    margin-bottom: 20px; /* Margen inferior */
+    font-size: 28px;
+    /* Tamaño de fuente del título */
+    color: #ffffff;
+    /* Color de texto */
+    margin-bottom: 20px;
+    /* Margen inferior */
 }
 
 .noticia {
-    margin-bottom: 20px; /* Margen inferior */
+    margin-bottom: 20px;
+    /* Margen inferior */
 }
 
 .noticia h3 {
-    font-size: 20px; /* Tamaño de fuente del título de la noticia */
-    color: #ebebeb; /* Color de texto */
-    margin-bottom: 10px; /* Margen inferior */
+    font-size: 20px;
+    /* Tamaño de fuente del título de la noticia */
+    color: #ebebeb;
+    /* Color de texto */
+    margin-bottom: 10px;
+    /* Margen inferior */
 }
 
 .noticia p {
-    font-size: 16px; /* Tamaño de fuente del contenido de la noticia */
-    color: #b9b9b9; /* Color de texto */
-    line-height: 1.6; /* Altura de línea */
+    font-size: 16px;
+    /* Tamaño de fuente del contenido de la noticia */
+    color: #b9b9b9;
+    /* Color de texto */
+    line-height: 1.6;
+    /* Altura de línea */
 }
 
 /* Sección del calendario */
 .calendario {
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo blanco */
-    backdrop-filter: blur(10px); /* Efecto de desenfoque */
-    -webkit-backdrop-filter: blur(10px); /* Efecto de desenfoque para Safari */
-    padding: 30px; /* Relleno interno */
-    margin-top: 40px; /* Margen superior */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    text-align: left; /* Alineación del texto a la izquierda */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Fondo blanco */
+    backdrop-filter: blur(10px);
+    /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px);
+    /* Efecto de desenfoque para Safari */
+    padding: 30px;
+    /* Relleno interno */
+    margin-top: 40px;
+    /* Margen superior */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    text-align: left;
+    /* Alineación del texto a la izquierda */
 }
 
 .calendario h2 {
-    font-size: 28px; /* Tamaño de fuente del título */
-    color: #ffffff; /* Color de texto */
-    margin-bottom: 20px; /* Margen inferior */
+    font-size: 28px;
+    /* Tamaño de fuente del título */
+    color: #ffffff;
+    /* Color de texto */
+    margin-bottom: 20px;
+    /* Margen inferior */
 }
 
 .calendario ul {
-    list-style-type: none; /* Sin viñetas */
+    list-style-type: none;
+    /* Sin viñetas */
     padding: 0;
 }
 
 .calendario ul li {
-    font-size: 16px; /* Tamaño de fuente del elemento de la lista */
-    color: #b9b9b9; /* Color de texto */
-    margin-bottom: 8px; /* Margen inferior */
+    font-size: 16px;
+    /* Tamaño de fuente del elemento de la lista */
+    color: #b9b9b9;
+    /* Color de texto */
+    margin-bottom: 8px;
+    /* Margen inferior */
 }
 
 /* Sección sobre la plataforma */
 .sobre {
-    background-color: rgba(0, 0, 0, 0.2); /* Fondo blanco */
-    backdrop-filter: blur(10px); /* Efecto de desenfoque */
-    -webkit-backdrop-filter: blur(10px); /* Efecto de desenfoque para Safari */
-    padding: 30px; /* Relleno interno */
-    margin-top: 40px; /* Margen superior */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    text-align: left; /* Alineación del texto a la izquierda */
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Fondo blanco */
+    backdrop-filter: blur(10px);
+    /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px);
+    /* Efecto de desenfoque para Safari */
+    padding: 30px;
+    /* Relleno interno */
+    margin-top: 40px;
+    /* Margen superior */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    text-align: left;
+    /* Alineación del texto a la izquierda */
 }
 
 .sobre h2 {
-    font-size: 28px; /* Tamaño de fuente del título */
-    color: #ffffff; /* Color de texto */
-    margin-bottom: 20px; /* Margen inferior */
+    font-size: 28px;
+    /* Tamaño de fuente del título */
+    color: #ffffff;
+    /* Color de texto */
+    margin-bottom: 20px;
+    /* Margen inferior */
 }
 
 .sobre p {
-    font-size: 16px; /* Tamaño de fuente del contenido */
-    color: #b9b9b9; /* Color de texto */
-    line-height: 1.6; /* Altura de línea */
+    font-size: 16px;
+    /* Tamaño de fuente del contenido */
+    color: #b9b9b9;
+    /* Color de texto */
+    line-height: 1.6;
+    /* Altura de línea */
 }
 
 /* Pie de página */
@@ -264,51 +398,73 @@ body {
 /* Media queries para dispositivos móviles */
 @media (max-width: 600px) {
     .main-container {
-        width: 100%; /* Ancho completo en dispositivos móviles */
+        width: 100%;
+        /* Ancho completo en dispositivos móviles */
         max-width: 95%;
-        border-radius: 0; /* Sin bordes redondeados */
-        box-shadow: none; /* Sin sombra */
-        padding: 10px; /* Relleno más pequeño */
+        border-radius: 0;
+        /* Sin bordes redondeados */
+        box-shadow: none;
+        /* Sin sombra */
+        padding: 10px;
+        /* Relleno más pequeño */
     }
 
     .titulo-animado {
-        font-size: 24px; /* Tamaño de fuente más pequeño */
+        font-size: 24px;
+        /* Tamaño de fuente más pequeño */
     }
 
     .typing-text {
-        font-size: 14px; /* Tamaño de fuente más pequeño */
+        font-size: 14px;
+        /* Tamaño de fuente más pequeño */
     }
 
     .boton {
-        padding: 12px 25px; /* Relleno más pequeño */
-        font-size: 14px; /* Tamaño de fuente más pequeño */
-        width: 100%; /* Ancho completo */
+        padding: 12px 25px;
+        /* Relleno más pequeño */
+        font-size: 14px;
+        /* Tamaño de fuente más pequeño */
+        width: 100%;
+        /* Ancho completo */
     }
 
-    .noticias, .calendario, .sobre {
-        padding: 20px; /* Relleno más pequeño en secciones */
+    .noticias,
+    .calendario,
+    .sobre {
+        padding: 20px;
+        /* Relleno más pequeño en secciones */
     }
 
-    .noticias h2, .calendario h2, .sobre h2 {
-        font-size: 24px; /* Tamaño de fuente más pequeño en títulos de sección */
+    .noticias h2,
+    .calendario h2,
+    .sobre h2 {
+        font-size: 24px;
+        /* Tamaño de fuente más pequeño en títulos de sección */
     }
 
     .noticia h3 {
-        font-size: 18px; /* Tamaño de fuente más pequeño en títulos de noticias */
+        font-size: 18px;
+        /* Tamaño de fuente más pequeño en títulos de noticias */
     }
 
-    .noticia p, .calendario ul li, .sobre p {
-        font-size: 14px; /* Tamaño de fuente más pequeño en contenido */
+    .noticia p,
+    .calendario ul li,
+    .sobre p {
+        font-size: 14px;
+        /* Tamaño de fuente más pequeño en contenido */
     }
+
     .fecha {
         color: #61665e;
         margin-right: 10%;
     }
+
     .card img {
         width: 100%;
         min-height: 60%;
     }
 }
+
 .boton-admin {
     background-color: #002a54;
     border: 2px solid #003366;
@@ -346,27 +502,38 @@ body {
     width: 0;
     height: 0;
 }
+
 /* Estilos para el modal */
 .modal {
-    display: none; /* Por defecto, el modal está oculto */
-    position: fixed; /* Posición fija para cubrir toda la pantalla */
-    z-index: 999; /* Capa superior */
+    display: none;
+    /* Por defecto, el modal está oculto */
+    position: fixed;
+    /* Posición fija para cubrir toda la pantalla */
+    z-index: 999;
+    /* Capa superior */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
-    overflow: auto; /* Permitir desplazamiento si el contenido es largo */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro semi-transparente */
+    overflow: auto;
+    /* Permitir desplazamiento si el contenido es largo */
 }
 
 .modal-content {
-    background-color: #fefefe; /* Fondo blanco del modal */
-    margin: 15% auto; /* Margen vertical y centrado horizontal */
+    background-color: #fefefe;
+    /* Fondo blanco del modal */
+    margin: 15% auto;
+    /* Margen vertical y centrado horizontal */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Ancho del modal */
-    max-width: 600px; /* Ancho máximo del modal */
-    border-radius: 10px; /* Bordes redondeados */
+    width: 80%;
+    /* Ancho del modal */
+    max-width: 600px;
+    /* Ancho máximo del modal */
+    border-radius: 10px;
+    /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -383,6 +550,7 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
 .h1-politica {
     font-size: 28px;
     font-weight: bold;
@@ -405,6 +573,7 @@ body {
     font-size: 16px;
     color: #160000;
 }
+
 .contenedor {
     width: 100%;
     max-width: 1100px;
@@ -432,22 +601,27 @@ body {
     background-color: #393b4039;
     cursor: default;
 }
+
 .card img {
     width: 100%;
     min-height: 30%;
 }
+
 .card .contenido {
     padding: 15px;
     text-align: center;
 }
+
 .card .contenido p {
     line-height: 1.5;
     color: #e5e5e5;
 }
+
 .card .contenido h3 {
     font-weight: 600;
     margin-bottom: 15px;
 }
+
 .card .contenido a {
     text-decoration: none;
     display: inline-block;
@@ -458,27 +632,98 @@ body {
     border-radius: 4px;
     transition: all 400ms ease;
 }
+
 .card .contenido a:hover {
     background-color: #2fb4cc;
     color: #fff;
 }
 
 .evento {
-    color: #8fbe39; 
+    color: #8fbe39;
     float: right;
-    width: 70%; /* Ancho deseado para la noticia */
-    text-align: right !important; /* Alinea el texto a la derecha dentro de la noticia */
+    width: 70%;
+    /* Ancho deseado para la noticia */
+    text-align: right !important;
+    /* Alinea el texto a la derecha dentro de la noticia */
 }
+
 .fecha {
     color: #61665e;
     float: left;
-    width: 30%; /* Ancho deseado para la fecha */
+    width: 30%;
+    /* Ancho deseado para la fecha */
     text-align: left;
 }
 
 .noticia {
     color: #f7bf11;
     float: right;
-    width: 70%; /* Ancho deseado para la noticia */
-    text-align: right !important; /* Alinea el texto a la derecha dentro de la noticia */
+    width: 70%;
+    /* Ancho deseado para la noticia */
+    text-align: right !important;
+    /* Alinea el texto a la derecha dentro de la noticia */
+}
+
+/* Splash screen styles */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    animation: oscurecer 7s;
+}
+@keyframes oscurecer {
+    0% {
+        background-color: #fff; /* Color inicial */
+    }
+    100% {
+        
+        background-color:  #11274d; /* Color intermedio */
+    }
+}
+#splash-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+    /* Disable clicks during transition */
+}
+
+.logo-container {
+    text-align: center;
+}
+
+.logo-container img {
+    max-width: 100%;
+}
+
+/* Main content styles */
+#main-content {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#main-content.show {
+    opacity: 1;
+}
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+    
+}
+#logo-splash{
+    max-width: 10%;
+    max-height: 10%;
+    border-radius: 80px;
+    animation: aparecer 3s;
 }

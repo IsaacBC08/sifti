@@ -85,39 +85,17 @@ document.getElementById('politica-link').addEventListener('click', function (eve
 	openModal();
 });
 
-function loading() {
-    var cargando = document.getElementById("loading");
-    
-    // Mostrar el primer mensaje "loading."
-    setTimeout(function() {
-        cargando.textContent = "Cargando.";
-        
-        // Mostrar el segundo mensaje "loading.."
-        setTimeout(function() {
-            cargando.textContent = "Cargando..";
-            
-            // Mostrar el tercer mensaje "loading..."
-            setTimeout(function() {
-                cargando.textContent = "Cargando...";
-            }, 1000); // Esperar 1 segundo antes de cambiar a "loading..."
-        }, 1000); // Esperar 1 segundo antes de cambiar a "loading.."
-    }, 1000); // Esperar 1 segundo antes de cambiar a "loading."
-}
-
 
 function splash(){
   // Wait for the page to fully load
-  	loading()
     // Fade out the splash screen after 2 seconds
     setTimeout(function() {
 
       document.getElementById("splash-screen").classList.add("fade-out");
-    }, 6000); // 2000 milliseconds = 2 seconds
+    }, 4000); // 2000 milliseconds = 2 seconds
 
     // Show main content after splash screen animation
-    setTimeout(function() {
-      document.getElementById("main-content").classList.add("show");
-    }, 2500); // Show main content 0.5s after splash screen fades out
+    document.getElementById("main-content").classList.add("show")
 
   console.log("Todo cargado")
 }
@@ -128,3 +106,29 @@ window.onscroll = function () {
     let progressHeight = (window.scrollY / totalHeight) * 70
     progress.style.height = progressHeight + "%"
 }
+
+let buttons = document.querySelectorAll(".boton")
+buttons.forEach(button => {
+    let text = button.textContent
+    button.innerHTML = ''
+    for (let char of text) {
+        let span = document.createElement('span')
+        span.textContent = char === '  ' ? '\u00A0' : char
+        button.appendChild(span)
+    }    
+    let spans = button.querySelectorAll('span')
+    button.addEventListener('mouseenter', () => {
+        spans.forEach((span, index) => {
+            setTimeout(() => {
+                span.classList.add('hover')
+            }, index * 50)
+        })
+    })
+    button.addEventListener('mouseleave', () => {
+        spans.forEach((span, index) => {
+            setTimeout(() => {
+                span.classList.remove('hover')
+            }, index * 50)
+        })
+    })
+});

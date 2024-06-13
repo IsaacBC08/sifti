@@ -185,12 +185,26 @@ body {
     color: #5695cb;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    transition: 2s;
+    transition: 0.8s;
+    overflow: hidden;
 }
 .boton:hover {
     background: #5695cb;
     box-shadow: 0 0 25px #5695cb, 0 0 100px #5695cb, 0 0 150px #5695cb;
 
+}
+
+.boton span {
+    display: inline-block;
+    transition: transform 0.5s;
+    text-shadow: 0 35px #fff;
+    transform: translateY(0px);
+}
+.boton:hover span.hover{
+    transform: translateY(-35px);
+}
+.boton span.hover{
+    transform: translateY(-35px);
 }
 
 .img_qr {
@@ -643,7 +657,8 @@ body {
     z-index: 9999;
     opacity: 1;
     transition: opacity 0.5s ease;
-    animation: oscurecer 7s;
+    animation: oscurecer 4s;
+    margin: 20px;
 }
 @keyframes oscurecer {
     0% {

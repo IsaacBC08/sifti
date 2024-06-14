@@ -87,21 +87,18 @@ document.getElementById('politica-link').addEventListener('click', function (eve
 
 
 function splash(){
-  // Wait for the page to fully load
-    // Fade out the splash screen after 2 seconds
-    setTimeout(function() {
+  // Fade out the splash screen after 2 seconds
+  setTimeout(function() {
 
-      document.getElementById("splash-screen").classList.add("fade-out");
-    }, 4000); // 4000 milliseconds = 4 seconds
-    
-    // Show main content after splash screen animation
-    setTimeout(function() {
+    document.getElementById("splash-screen").classList.add("fade-out");
+  }, 1500); // 2000 milliseconds = 2 seconds
 
-        document.getElementById("main-content").classList.add("show")
-      }, 2000); // 2000 milliseconds = 2 seconds
-    
+  // Show main content after splash screen animation
+  setTimeout(function() {
+    document.getElementById("main-content").classList.add("show");
+  }, 500); // Show main content 0.5s after splash screen fades out
 
-  console.log("Todo cargado")
+console.log("Todo cargado")
 }
 
 let progress = document.getElementById("progress-bar")
@@ -113,6 +110,32 @@ window.onscroll = function () {
 
 let buttons = document.querySelectorAll(".boton")
 buttons.forEach(button => {
+    let text = button.textContent
+    button.innerHTML = ''
+    for (let char of text) {
+        let span = document.createElement('span')
+        span.textContent = char === '  ' ? '\u00A0' : char
+        button.appendChild(span)
+    }    
+    let spans = button.querySelectorAll('span')
+    button.addEventListener('mouseenter', () => {
+        spans.forEach((span, index) => {
+            setTimeout(() => {
+                span.classList.add('hover')
+            }, index * 50)
+        })
+    })
+    button.addEventListener('mouseleave', () => {
+        spans.forEach((span, index) => {
+            setTimeout(() => {
+                span.classList.remove('hover')
+            }, index * 50)
+        })
+    })
+});
+
+let buttonAdmin = document.querySelectorAll(".boton-admin")
+buttonAdmin.forEach(button => {
     let text = button.textContent
     button.innerHTML = ''
     for (let char of text) {

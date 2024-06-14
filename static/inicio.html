@@ -16,6 +16,7 @@
     <title>SIFTI - Inicio</title>
     <link rel="stylesheet" href="css/inicio.css">
 
+
 </head>
 
 <body>
@@ -23,9 +24,9 @@
     <!-- Splash Screen -->
     <div id="splash-screen">
         <div class="logo-container">
-            <img src="img/siftilogo.jpg" alt="Logo" id="logo-splash">
+
             <div class="load-container">
-                
+
                 <div class="wavy">
                     <span style="--i:1;">C</span>
                     <span style="--i:2;">a</span>
@@ -59,16 +60,20 @@
 
             <!-- Contenedor para los botones -->
             <div class="boton-container">
-                <button class="boton" onclick="window.location.href='./app/anuncios'">Anuncios</button>
-                <button class="boton" onclick="window.location.href='./app/estudiantes'">Estudiantes</button>
-                <button class="boton" onclick="window.location.href='./app/profes'">Profesores</button>
-                <button class="boton" onclick="window.location.href='./app/menu'">Comedor</button>
-                <button class="boton" onclick="window.location.href='./app/reportes'">Reportes</button>
-                <button class="boton-admin" onclick="window.location.href='./host'">Administración</button>
+                <button class="boton" onclick="window.location.href='./app/estudiantes'"
+                    style="--crl:#01dbc2">Estudiantes</button>
+                <button class="boton" onclick="window.location.href='./app/profes'"
+                    style="--crl:#01dbc2">Profesores</button>
+                <button class="boton" onclick="window.location.href='./app/menu'" style="--crl:#01dbc2">Comedor</button>
+                <button class="boton" onclick="window.location.href='./app/anuncios'"
+                    style="--crl:#01dbc2">Anuncios</button>
+                <button class="boton" onclick="window.location.href='./app/reportes'"
+                    style="--crl:#01dbc2">Reportes</button>
+                <button class="boton" style="--crl:#01dbc2">Proximamente...</button>
             </div>
         </div>
         <h2 class="titulo">Sección de noticias y eventos</h2>
-        <div class="contenedor">
+        <div class="contenedor-noticias">
             <div class="slider">
                 <div class="card">
                     <figure>
@@ -114,8 +119,11 @@
                 Pavas. Incluye funcionalidades como gestión de anuncios, horarios, menú del comedor, calendario de
                 eventos y generación de reportes.</p>
         </div>
+        <button class="boton-admin" onclick="window.location.href='./host'">Administración</button>
+        <br>
         <!-- Imagen del código QR -->
         <img src="./img/codigo_qr.png" class="img_qr">
+
     </div>
 
     <!-- Pie de Página -->
@@ -161,6 +169,7 @@
 
     <script src="./js/home.js">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

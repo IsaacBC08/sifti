@@ -5,7 +5,7 @@ import json
 from base64 import b64decode
 
 # Configuración del puerto y credenciales de autenticación
-PORT = 8088
+PORT = 8080
 PASSWORD = "sifti4321"
 USERNAME = "Team Sifti" # Nombre de usuario temporal
 
@@ -193,7 +193,7 @@ class Handler(http_server.SimpleHTTPRequestHandler):
                 anuncios = json.load(json_file)
 
             # Actualiza el archivo de anuncios manteniendo solo los 4 más recientes
-            anuncios['anuncio-4'] = anuncios['anuncios-3']
+            anuncios['anuncio-4'] = anuncios['anuncio-3']
             anuncios['anuncio-3'] = anuncios['anuncio-2']
             anuncios['anuncio-2'] = anuncios['anuncio-1']
             anuncios['anuncio-1'] = data['anuncio']

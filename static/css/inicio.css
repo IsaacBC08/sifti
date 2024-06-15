@@ -22,7 +22,7 @@ body {
     /* Centra verticalmente el contenido */
     min-height: 100vh;
     /* Altura mínima del cuerpo al 100% del viewport */
-    background-color: #222;
+    background-color: #11151d;
     background-size: 800% 800%;
     /* Tamaño del fondo de degradado */
     animation: backgroundAnimation 30s ease infinite;
@@ -44,19 +44,17 @@ body {
 }
 
 @keyframes changeColor {
-    0% {
+
+    0%,
+    100% {
         color: #ffffff;
         /* Color inicial */
     }
 
     50% {
-        color: #5695cb;
+        color: #01dbc2;
         /* Color intermedio */
-    }
-
-    100% {
-        color: #ffffff;
-        /* Color final */
+        text-shadow: 0 0 25px #01dbc2, 0 0 100px #01dbc2, 0 0 150px #01dbc2;
     }
 }
 
@@ -99,7 +97,7 @@ body {
 /* Contenedor principal */
 .main-container {
     color: #fff;
-    background-color: #303030;
+    background-color: #1e2a37;
     /* Fondo blanco semitransparente */
     border-radius: 20px;
     /* Bordes redondeados */
@@ -190,6 +188,7 @@ body {
     transition: 0.8s;
     overflow: hidden;
 }
+
 .boton:hover {
     background: var(--crl);
     box-shadow: 0 0 25px var(--crl), 0 0 100px var(--crl), 0 0 150px var(--crl);
@@ -202,12 +201,15 @@ body {
     text-shadow: 0 35px #fff;
     transform: translateY(0px);
 }
-.boton:hover span.hover{
+
+.boton:hover span.hover {
     transform: translateY(-35px);
 }
-.boton span.hover{
+
+.boton span.hover {
     transform: translateY(-35px);
 }
+
 /* Estilos para el botón */
 .boton-admin {
     position: relative;
@@ -225,6 +227,7 @@ body {
     transition: 0.8s;
     overflow: hidden;
 }
+
 .boton-admin:hover {
     background: #b456cb;
     box-shadow: 0 0 25px #b456cb, 0 0 100px #b456cb, 0 0 150px #b456cb;
@@ -237,10 +240,12 @@ body {
     text-shadow: 0 35px #fff;
     transform: translateY(0px);
 }
-.boton-admin:hover span.hover{
+
+.boton-admin:hover span.hover {
     transform: translateY(-35px);
 }
-.boton-admin span.hover{
+
+.boton-admin span.hover {
     transform: translateY(-35px);
 }
 
@@ -302,47 +307,12 @@ body {
     /* Altura de línea */
 }
 
-/* Sección del calendario */
-.calendario {
-    background-color: rgba(0, 0, 0, 0.6);
-    /* Fondo blanco */
-    backdrop-filter: blur(10px);
-    /* Efecto de desenfoque */
-    -webkit-backdrop-filter: blur(10px);
-    /* Efecto de desenfoque para Safari */
-    padding: 30px;
-    /* Relleno interno */
-    margin-top: 40px;
-    /* Margen superior */
-    border-radius: 10px;
-    /* Bordes redondeados */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-    /* Sombra suave */
-    text-align: left;
-    /* Alineación del texto a la izquierda */
-}
-
 .calendario h2 {
     font-size: 28px;
     /* Tamaño de fuente del título */
     color: #ffffff;
     /* Color de texto */
     margin-bottom: 20px;
-    /* Margen inferior */
-}
-
-.calendario ul {
-    list-style-type: none;
-    /* Sin viñetas */
-    padding: 0;
-}
-
-.calendario ul li {
-    font-size: 16px;
-    /* Tamaño de fuente del elemento de la lista */
-    color: #b9b9b9;
-    /* Color de texto */
-    margin-bottom: 8px;
     /* Margen inferior */
 }
 
@@ -475,7 +445,8 @@ body {
         width: 100%;
         min-height: 60%;
     }
-    #logo-splash{
+
+    #logo-splash {
         margin-bottom: -50%;
     }
 }
@@ -646,7 +617,7 @@ body {
     font-family: consolas;
     position: fixed;
     bottom: 0%;
-    left:0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: #fff;
@@ -659,15 +630,20 @@ body {
     animation: oscurecer 2s;
 
 }
+
 @keyframes oscurecer {
     0% {
-        background-color: #fff; /* Color inicial */
+        background-color: #fff;
+        /* Color inicial */
     }
+
     100% {
-        
-        background-color:  #11274d; /* Color intermedio */
+
+        background-color: #11274d;
+        /* Color intermedio */
     }
 }
+
 #splash-screen.fade-out {
     opacity: 0;
     pointer-events: none;
@@ -675,7 +651,8 @@ body {
 }
 
 .logo-container {
-    text-align: center;
+    position: absolute;
+    top: -15%;
 }
 
 .logo-container img {
@@ -691,25 +668,30 @@ body {
 #main-content.show {
     opacity: 1;
 }
+
 @keyframes aparecer {
     0% {
         opacity: 0;
     }
-    100%{
+
+    100% {
         opacity: 1;
     }
-    
+
 }
-#logo-splash{
+
+#logo-splash {
     max-width: 10%;
     max-height: 10%;
     border-radius: 80px;
     animation: aparecer 3s;
     margin-bottom: -20%;
 }
+
 ::-webkit-scrollbar {
     width: 0;
 }
+
 #scrool-path {
     position: fixed;
     top: 0;
@@ -718,6 +700,7 @@ body {
     height: 100%;
     background: rgba(255, 255, 255, 0.05);
 }
+
 #progress-bar {
     position: fixed;
     top: 0;
@@ -735,9 +718,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, #008aff, #00ffe7 );
+    background: linear-gradient(to top, #008aff, #00ffe7);
     filter: blur(10px);
 }
+
 #progress-bar::after {
     content: '';
     position: absolute;
@@ -745,19 +729,23 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, #008aff, #00ffe7 );
+    background: linear-gradient(to top, #008aff, #00ffe7);
     filter: blur(30px);
 }
 
 @keyframes neon {
-    0%,100% {
+
+    0%,
+    100% {
         filter: hue-rotate(0deg);
     }
+
     50% {
         filter: hue-rotate(360deg);
     }
-    
+
 }
+
 .load-container {
     display: flex;
     justify-content: center;
@@ -765,10 +753,12 @@ body {
     min-height: 100vh;
 
 }
+
 .wavy {
     position: relative;
-    -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0,0,0,0.2));
+    -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
 }
+
 .wavy span {
     position: relative;
     display: inline-block;
@@ -778,15 +768,18 @@ body {
     animation: wave 1s ease-in-out infinite;
     animation-delay: calc(.1s * var(--i));
 }
+
 @keyframes wave {
     0% {
         transform: translateY(0px);
     }
+
     20% {
         transform: translateY(-20px);
     }
-    40%, 100% {
+
+    40%,
+    100% {
         transform: translateY(0px);
     }
 }
-

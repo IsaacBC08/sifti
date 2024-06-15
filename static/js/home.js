@@ -113,7 +113,7 @@ function splash() {
 let progress = document.getElementById("progress-bar")
 let totalHeight = document.body.scrollHeight - window.innerHeight
 window.onscroll = function () {
-    let progressHeight = (window.scrollY / totalHeight) * 70
+    let progressHeight = (window.scrollY / totalHeight) * 100
     progress.style.height = progressHeight + "%"
 }
 

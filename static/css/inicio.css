@@ -103,7 +103,7 @@ body {
     /* Bordes redondeados */
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     /* Sombra suave */
-    width: 50%;
+    width: 60%;
     /* Ancho del contenedor */
     max-width: 60%;
     /* Ancho máximo del contenedor */
@@ -210,44 +210,6 @@ body {
     transform: translateY(-35px);
 }
 
-/* Estilos para el botón */
-.boton-admin {
-    position: relative;
-    display: inline-block;
-    padding: 10px 30px;
-    font-size: 1em;
-    background: transparent;
-    border: 2px solid #b456cb;
-    font-weight: 500;
-    border-radius: 40px;
-    cursor: pointer;
-    color: #b456cb;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: 0.8s;
-    overflow: hidden;
-}
-
-.boton-admin:hover {
-    background: #b456cb;
-    box-shadow: 0 0 25px #b456cb, 0 0 100px #b456cb, 0 0 150px #b456cb;
-
-}
-
-.boton-admin span {
-    display: inline-block;
-    transition: transform 0.5s;
-    text-shadow: 0 35px #fff;
-    transform: translateY(0px);
-}
-
-.boton-admin:hover span.hover {
-    transform: translateY(-35px);
-}
-
-.boton-admin span.hover {
-    transform: translateY(-35px);
-}
 
 .img_qr {
     max-width: 30%;
@@ -356,8 +318,10 @@ body {
 
 /* Pie de página */
 .footer {
-    background-color: #000000;
-    color: #fff;
+    background-color: #1b2633;
+    color: #cecece;
+    font-size: 1.5em;
+    font-weight: bold;
     text-align: center;
     padding: 20px 0;
     width: 100%;
@@ -369,12 +333,30 @@ body {
 }
 
 .footer a {
-    color: #ff7e5f;
+    font-size: 1em;
+    font-weight: bold;
+    color: #E66B52;
     text-decoration: none;
+    animation: hightlight 4s infinite;
 }
 
 .footer a:hover {
     text-decoration: underline;
+    transition: 1s;
+}
+@keyframes hightlight {
+    0%, 100% {
+        
+    }
+    25% {
+        text-shadow: 0 0 10px #E66B52, 0 0 20px #E66B52, 0 0 30px #E66B52, 0 0 40px #E66B52;
+    }
+    50% {
+        text-shadow: 0 0 15px #E66B52, 0 0 30px #E66B52, 0 0 45px #E66B52, 0 0 60px #E66B52;
+    }
+    75% {
+        text-shadow: 0 0 10px #E66B52, 0 0 20px #E66B52, 0 0 30px #E66B52, 0 0 40px #E66B52;
+    }
 }
 
 /* Media queries para dispositivos móviles */

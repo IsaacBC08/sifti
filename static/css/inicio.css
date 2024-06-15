@@ -652,11 +652,12 @@ body {
 
 .logo-container {
     position: absolute;
-    top: -15%;
+    top: -30%;
 }
 
 .logo-container img {
     max-width: 100%;
+    scale: 0.6;
 }
 
 /* Main content styles */
@@ -751,7 +752,6 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-
 }
 
 .wavy {

@@ -23,25 +23,8 @@ body {
     min-height: 100vh;
     /* Altura mínima del cuerpo al 100% del viewport */
     background-color: #11151d;
-    background-size: 800% 800%;
-    /* Tamaño del fondo de degradado */
-    animation: backgroundAnimation 30s ease infinite;
-    /* Animación de fondo continua */
 }
 
-@keyframes backgroundAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
 
 @keyframes changeColor {
 

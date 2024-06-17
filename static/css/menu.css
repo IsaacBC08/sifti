@@ -1,26 +1,25 @@
 /* Estilos generales para el documento */
 body {
     font-family: Arial, sans-serif; /* Fuente y familia de fuentes para todo el cuerpo del documento */
-    background-color: #f0f0f0; /* Color de fondo general del cuerpo */
+    background-color: #11151d; /* Color de fondo general del cuerpo */
     margin: 0; /* Elimina el margen predeterminado */
     padding: 0; /* Elimina el relleno predeterminado */
 }
 
 .container {
     font-weight: bold; /* Texto en negrita para el contenido del contenedor */
-    font-size: 2rem; /* Tamaño de fuente grande para el contenido del contenedor */
+    font-size: 1.8rem; /* Tamaño de fuente grande para el contenido del contenedor */
     max-width: 90%; /* Ancho máximo del contenedor */
     max-height: 80%; /* Altura máxima del contenedor */
     margin: 20px auto; /* Margen superior e inferior automático y centrado horizontalmente */
-    background-color: #fff; /* Color de fondo del contenedor */
+    background-color: #1e2a37; /* Color de fondo del contenedor */
     padding: 30px; /* Relleno interno del contenedor */
     border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
 h1 {
     text-align: center; /* Alineación centrada para los títulos h1 */
-    color: #333; /* Color del texto del encabezado */
+    color: #00ffe7; /* Color del texto del encabezado */
 }
 
 /* Estilos para la tabla */
@@ -43,7 +42,7 @@ table th, table td {
 }
 
 table th {
-    background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Degradado de fondo para los encabezados */
+    background: linear-gradient(90deg, #008aff, #00ffe7);
     color: #fff; /* Color del texto de los encabezados */
     text-transform: uppercase; /* Transformación a mayúsculas */
     letter-spacing: 0.1em; /* Espaciado entre letras */
@@ -53,21 +52,21 @@ table th {
 
 table td {
     font-size: 18px; /* Tamaño de fuente para las celdas */
-    color: #555; /* Color del texto de las celdas */
+    color: #698a9d;
 }
 
 table tr:nth-child(even) {
-    background-color: #fff0e0; /* Color de fondo alternativo para filas pares */
+    background-color: #ccfffd; /* Color de fondo alternativo para filas pares */
 }
 
 table tr:hover {
-    background-color: #ffe0c7; /* Color de fondo al pasar el ratón sobre las filas */
+    background-color: #ddd; /* Color de fondo al pasar el ratón sobre las filas */
 }
 
 /* Resaltar los días en la tabla */
 table td:first-child {
     font-weight: bold; /* Texto en negrita para la primera columna (días) */
-    color: #ff7e5f; /* Color especial para los días */
+    color: #1d526f; /* Color especial para los días */
 }
 
 /* Estilos adicionales para las celdas y encabezados de la tabla */
@@ -91,38 +90,66 @@ table td:hover::before, table th:hover::before {
     opacity: 1; /* Opacidad al pasar el ratón */
 }
 
-/* Estilos para el botón de retroceso */
-#backButton {
-    margin-top: 10%; /* Margen superior */
-    padding: 20px 24px; /* Relleno del botón */
-    background-color: #ff7e5f; /* Color de fondo del botón */
-    color: #fff; /* Color del texto del botón */
-    border: none; /* Sin borde */
-    border-radius: 50px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    font-size: 18px; /* Tamaño de fuente */
-    font-family: 'Roboto', sans-serif; /* Familia de fuentes */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra suave */
-    transition: all 0.3s ease; /* Transición suave */
-    z-index: 1; /* Z-index para superponer sobre otros elementos */
-}
 
 /* Media queries para dispositivos móviles */
 @media (max-width: 768px) {
-    #adminButton, #backButton {
+    .boton {
         font-size: 16px; /* Reducción del tamaño de fuente para dispositivos móviles */
         padding: 10px 20px; /* Ajuste del padding */
     }
 }
 
-/* Estilos al pasar el ratón sobre el botón de retroceso */
-#backButton:hover {
-    background-color: #d90429; /* Cambio de color de fondo al pasar el ratón */
-    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+/* Contenedor de botones */
+.boton-container {
+    display: grid;
+    /* Usa Flexbox para diseño flexible */
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    flex-wrap: wrap;
+    /* Permite que los botones se envuelvan */
+    margin-top: 20px;
+    /* Margen superior */
 }
 
-/* Estilos al presionar el botón de retroceso */
-#backButton:active {
-    transform: translateY(2px); /* Efecto de desplazamiento al presionar */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Sombra suave */
+/* Estilos para el botón */
+.boton {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    font-size: 0.8em;
+    background: transparent;
+    border: 2px solid var(--crl);
+    font-weight: 500;
+    border-radius: 40px;
+    cursor: pointer;
+    color: var(--crl);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: 0.8s;
+    overflow: hidden;
+}
+
+.boton:hover {
+    background: var(--crl);
+    box-shadow: 0 0 25px var(--crl), 0 0 100px var(--crl), 0 0 150px var(--crl);
+
+}
+
+.boton span {
+    display: inline-block;
+    transition: transform 0.5s;
+    text-shadow: 0 35px #fff;
+    transform: translateY(0px);
+}
+
+.boton:hover span.hover {
+    transform: translateY(-35px);
+}
+
+.boton span.hover {
+    transform: translateY(-35px);
 }

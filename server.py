@@ -10,12 +10,13 @@ PASSWORD = "sifti4321"
 USERNAME = "Team Sifti" # Nombre de usuario temporal
 
 # Rutas a los directorios y archivos estáticos
-STATIC_DIR = os.path.join(os.path.dirname(__file__), 'static')
+STATIC_DIR = os.path.join(os.path.dirname(__file__), 'web')
 UPLOADS_DIR = os.path.join(os.path.dirname(__file__), 'uploads') # Nuevo directorio para guardar imágenes
-ANUNCIOS_JSON_FILE = os.path.join(STATIC_DIR, 'db/anuncios.json')
-MENU_JSON_FILE = os.path.join(STATIC_DIR, 'db/menu.json')
-REPORTES_JSON_FILE = os.path.join(STATIC_DIR, 'db/reportes.json')
-DESTACADA_JSON_FILE = os.path.join(STATIC_DIR, 'db/noticias.json')
+DATABASE_DIR = os.path.join(os.path.dirname(__file__), 'database')
+ANUNCIOS_JSON_FILE = os.path.join(DATABASE_DIR, 'db/anuncios.json')
+MENU_JSON_FILE = os.path.join(DATABASE_DIR, 'db/menu.json')
+REPORTES_JSON_FILE = os.path.join(DATABASE_DIR, 'db/reportes.json')
+DESTACADA_JSON_FILE = os.path.join(DATABASE_DIR, 'db/noticias.json')
 # Asegúrate de que el nuevo directorio de imágenes existe
 os.makedirs(UPLOADS_DIR, exist_ok=True)
 

@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    
     // Obtener referencias a los elementos del menú
     const menuLink = document.getElementById('menu-link');
     const announcementLink = document.getElementById('announcement-link');

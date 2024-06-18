@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const timestamp = new Date().getTime();
 
     // Construir la URL del archivo JSON con el timestamp como parámetro de consulta
-    const url = `../db/menu.json?timestamp=${timestamp}`;
+    const url = `/database/common/menu.json?unique=${timestamp}`;
 
     // Hacer la solicitud GET para obtener el JSON
     fetch(url)

@@ -5,7 +5,7 @@ import json
 from base64 import b64decode
 
 # Configuración del puerto y credenciales de autenticación
-PORT = 8080
+PORT = 8081
 PASSWORD = "sifti4321"
 USERNAME = "Team Sifti" # Nombre de usuario temporal
 
@@ -13,10 +13,10 @@ USERNAME = "Team Sifti" # Nombre de usuario temporal
 STATIC_DIR = os.path.join(os.path.dirname(__file__), 'web')
 UPLOADS_DIR = os.path.join(os.path.dirname(__file__), 'uploads') # Nuevo directorio para guardar imágenes
 DATABASE_DIR = os.path.join(os.path.dirname(__file__), 'database')
-ANUNCIOS_JSON_FILE = os.path.join(DATABASE_DIR, 'db/anuncios.json')
-MENU_JSON_FILE = os.path.join(DATABASE_DIR, 'db/menu.json')
-REPORTES_JSON_FILE = os.path.join(DATABASE_DIR, 'db/reportes.json')
-DESTACADA_JSON_FILE = os.path.join(DATABASE_DIR, 'db/noticias.json')
+ANUNCIOS_JSON_FILE = os.path.join(DATABASE_DIR, 'anuncios.json')
+MENU_JSON_FILE = os.path.join(DATABASE_DIR, 'common/menu.json')
+REPORTES_JSON_FILE = os.path.join(DATABASE_DIR, 'reportes.json')
+DESTACADA_JSON_FILE = os.path.join(DATABASE_DIR, 'noticias.json')
 # Asegúrate de que el nuevo directorio de imágenes existe
 os.makedirs(UPLOADS_DIR, exist_ok=True)
 

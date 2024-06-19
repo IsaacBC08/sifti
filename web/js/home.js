@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function cargar_noticias() {
     const timestamp = new Date().getTime();
-    const url = `../db/noticias.json?timestamp=${timestamp}`;
+    const url = `/database/common/noticias.json?timestamp=${timestamp}`;
 
     fetch(url)
         .then(response => {

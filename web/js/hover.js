@@ -1,4 +1,4 @@
-
+var mess = 0
 let buttons = document.querySelectorAll(".boton")
 buttons.forEach(button => {
     let text = button.textContent

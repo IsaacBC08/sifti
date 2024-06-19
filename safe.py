@@ -8,6 +8,4 @@ def upload_datas(commit = "Inserción de datos al servidor"):
 		subprocess.run(["git", "push", "-u", "origin", "main"], check=True)
 	except subprocess.CalledProcessError as e:
 		print(f"Error en el comando git: {e}")
-  
-commit = input("Nombre del Commit: ")
-upload_datas(commit)
+upload_datas()

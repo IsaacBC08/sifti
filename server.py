@@ -3,6 +3,7 @@ import socketserver
 import os
 import json
 from base64 import b64decode
+from safe import upload_datas
 
 # Configuración del puerto y credenciales de autenticación
 PORT = 8081
@@ -172,7 +173,7 @@ class Handler(http_server.SimpleHTTPRequestHandler):
                 json.dump(data, json_file, indent=4)
 
             response = {'status': 'success', 'message': 'Datos del menú guardados correctamente'}
-
+            upload_datas()
         except json.JSONDecodeError as e:
             response = {'status': 'error', 'message': 'Error al procesar datos JSON'}
 

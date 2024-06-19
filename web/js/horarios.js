@@ -162,5 +162,5 @@ function cargarHorario() {
 // Función para aplicar estilos al texto de las aulas
 function aplicarEstilosAU(texto) {
     // Aplicar estilos a las aulas usando una expresión regular y retornando el texto modificado
-    return texto.replace(/\b(AV1|AV2|AV3|AV4|AV5|AV6|AN1|AN2|AN3|AN4|AN5|Lab1N|Lab2N|Lab3N|Lab4N|Lab5N|Lab1V|Lab2V|Lab3V|Lab4V|Lab5V|AE|Gimnasio|TALLER|TALLER|LAB6V|AN6|Libre)\b/gi, '<span style="color: #FF7165; font-weight: bold;">$&</span>');
+    return texto.replace(/\b(AV1|AV2|AV3|AV4|AV5|AV6|AN1|AN2|AN3|AN4|AN5|Lab1N|Lab2N|Lab3N|Lab4N|Lab5N|Lab1V|Lab2V|Lab3V|Lab4V|Lab5V|AE|Gimnasio|TALLER|TALLER|LAB6V|AN6|Libre)\b/gi, '<span style="color: #2fb4cc; font-weight: bold;">$&</span>');
 }

@@ -14,7 +14,7 @@ body {
     align-items: center; /* Centrar horizontalmente los elementos */
     justify-content: center; /* Centrar verticalmente los elementos */
     min-height: 100vh; /* Altura mínima igual al tamaño de la ventana */
-    background-color: #eeeeee; /* Fondo de página suave rosa */
+    background-color: #11151d; /* Fondo de página oscuro */
 }
 
 .select-container {
@@ -31,7 +31,7 @@ body {
 #horarioTable {
     width: 100%; /* Ancho completo para ocupar todo el espacio disponible */
     border-collapse: collapse; /* Colapsar bordes de la tabla */
-    background-color: #fffbf2; /* Fondo color terciario */
+    background-color: #fefefe; /* Fondo blanco */
     border-radius: 10px; /* Borde redondeado */
 }
 
@@ -39,60 +39,73 @@ body {
 #horarioTable td {
     padding: 12px; /* Espaciado interno de celdas aumentado */
     text-align: center; /* Alinear texto al centro */
-    border: 3px solid #000000; /* Borde ligero */
+    border: 3px solid #000000; /* Borde negro */
 }
 
 #horarioTable th {
-    background-color: #16DBA5; /* Fondo color secundario */
+    background-color:#01dbc2 ; /* Fondo cian */
     color: #ffffff; /* Texto blanco */
     width: 100px; /* Ancho fijo para cada bloque del encabezado */
-    border-radius: 8px 8px 0 0; /* Borde redondeado solo en la parte superior */
 }
 
 #horarioTable td {
     background-color: #ffffff; /* Fondo blanco para celdas de datos */
 }
-
 .boton {
-    width: 100px; /* Ancho fijo */
-    height: 60px; /* Altura fija */
-    background-color: #ff7e5f; /* Color de fondo naranja suave */
-    border: none; /* Sin borde */
-    color: #fff; /* Texto blanco */
-    margin: 10px; /* Margen exterior */
-    font-size: 16px; /* Tamaño de fuente */
-    text-align: center; /* Alinear texto al centro */
-    text-decoration: none; /* Sin decoración de texto */
-    display: inline-block; /* Mostrar como bloque en línea */
-    border-radius: 12px; /* Borde redondeado */
-    cursor: pointer; /* Cursor de puntero */
-    transition: background-color 0.3s ease; /* Transición suave */
+    margin-top: 12px;
+    margin-bottom: 12px;
+    position: relative;
+    display: block;
+    padding: 10px 30px;
+    font-size: 1em;
+    background: transparent;
+    border: 2px solid var(--crl);
+    font-weight: 500;
+    border-radius: 40px;
+    cursor: pointer;
+    color: var(--crl);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: 0.8s;
+    overflow: hidden;
 }
 
 .boton:hover {
-    background-color: #d90429; /* Cambio de color al pasar el mouse */
+    background: var(--crl);
+    box-shadow: 0 0 25px var(--crl), 0 0 100px var(--crl), 0 0 150px var(--crl);
+
 }
 
-.boton:active {
-    transform: translateY(2px); /* Efecto de presionar */
+.boton span {
+    display: inline-block;
+    transition: transform 0.5s;
+    text-shadow: 0 35px #fff;
+    transform: translateY(0px);
 }
 
+.boton:hover span.hover {
+    transform: translateY(-35px);
+}
+
+.boton span.hover {
+    transform: translateY(-35px);
+}
 .select-container select {
     width: 300px; /* Ancho deseado para el select */
     padding: 10px; /* Relleno interior */
     font-size: 16px; /* Tamaño de fuente */
-    border: 2px solid #ff7e5f; /* Borde color primario */
+    border: 2px solid #fff; /* Borde naranja */
     border-radius: 5px; /* Borde redondeado */
-    background-color: #fffbf2; /* Fondo color terciario */
-    color: #333; /* Color de texto */
+    background-color: #fefefe; /* Fondo blanco */
+    color: #333; /* Color de texto gris oscuro */
     appearance: none; /* Ocultar la flecha de selección en algunos navegadores */
     cursor: pointer; /* Cursor de puntero */
 }
 
 .select-container select:focus {
     outline: none; /* Eliminar el contorno al enfocar */
-    border-color: #feb47b; /* Cambio de color al enfocar */
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Sombra al enfocar */
+    border-color: #1165f7; /* Cambio de color al enfocar */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra al enfocar */
 }
 
 @media screen and (max-width: 600px) {
@@ -102,35 +115,8 @@ body {
         font-size: smaller; /* Reducir tamaño de fuente */
     }
 }
-@keyframes fondoAnimado {
-    0% {
-        background-color: #16DBA5;
-        transform: scale(1);
-    }
-    20% {
-        background-color: #0CD19B;
-        transform: scale(1.05);
-    }
-    40% {
-        background-color:  #00B37D;
-        transform: scale(1.1);
-    }
-    60% {
-        background-color:  #00B37D;
-        transform: scale(1.1);
-    }
-    80% {
-        background-color: #0CD19B;
-        transform: scale(1.05);
-    }
-    100% {
-        background-color: #16DBA5;
-        transform: scale(1);
-    }
-}
 
 .current {
-    color: #ffffff !important;
-    animation: fondoAnimado 3.5s infinite;
-    transition: transform 0.2s;
+    color: #ffffff !important; /* Texto blanco */
+    background-color: #1165f7 !important;
 }

@@ -3,44 +3,58 @@ import socketserver
 import os
 import json
 from base64 import b64decode
+from datetime import datetime
+import logging
+from Lawliett_dir.Lawliett import Lawliett
+
 
 # Configuración del puerto y credenciales de autenticación
 PORT = 8081
 PASSWORD = "sifti4321"
-USERNAME = "Team Sifti" # Nombre de usuario temporal
+USERNAME = "Team Sifti"  # Nombre de usuario temporal
 
 # Rutas a los directorios y archivos estáticos
-STATIC_DIR = os.path.join(os.path.dirname(__file__), 'web')
-UPLOADS_DIR = os.path.join(os.path.dirname(__file__), 'uploads') # Nuevo directorio para guardar imágenes
-DATABASE_DIR = os.path.join(os.path.dirname(__file__), 'database')
-ANUNCIOS_JSON_FILE = os.path.join(DATABASE_DIR, 'anuncios.json')
+BASE_DIR = os.path.dirname(__file__)
+STATIC_DIR = os.path.join(BASE_DIR, 'web')
+UPLOADS_DIR = os.path.join(BASE_DIR, 'uploads')  # Nuevo directorio para guardar imágenes
+DATABASE_DIR = os.path.join(STATIC_DIR, 'database')
+ANUNCIOS_JSON_FILE = os.path.join(DATABASE_DIR, 'common/anuncios.json')
 MENU_JSON_FILE = os.path.join(DATABASE_DIR, 'common/menu.json')
-REPORTES_JSON_FILE = os.path.join(DATABASE_DIR, 'reportes.json')
-DESTACADA_JSON_FILE = os.path.join(DATABASE_DIR, 'noticias.json')
+REPORTES_JSON_FILE = os.path.join(DATABASE_DIR, 'common/reportes.json')
+DESTACADA_JSON_FILE = os.path.join(DATABASE_DIR, 'common/noticias.json')
+
 # Asegúrate de que el nuevo directorio de imágenes existe
 os.makedirs(UPLOADS_DIR, exist_ok=True)
 
+# Configuración del logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%H:%M:%S')
 # Definición de la clase Handler que manejará las solicitudes HTTP
 class Handler(http_server.SimpleHTTPRequestHandler):
-
     def __init__(self, *args, **kwargs):
-        # Inicializa el manejador con la configuración del directorio estático
+        # Llama al constructor de la clase padre (SimpleHTTPRequestHandler)
+        # pasando los argumentos posicionales y de palabra clave.
+        # Además, se añade el argumento de palabra clave 'directory'
+        # para especificar el directorio de archivos estáticos.
         super().__init__(*args, directory=STATIC_DIR, **kwargs)
-
+        
+        
     def do_GET(self):
-        # Elimina cualquier parámetro de consulta de la URL
+        # Eliminar cualquier parámetro de consulta de la URL
         self.path = self.path.split('?')[0]
 
-        # Protege la ruta '/host' con autenticación básica
+        # Manejo de autenticación para la ruta '/host'
         if self.path == '/host':
             if not self.is_authenticated():
+                # Enviar solicitud de autenticación si el usuario no está autenticado
                 self.send_auth_request()
                 return
 
-        # Maneja la ruta /uploads para servir archivos desde el directorio de uploads
+        # Manejo de archivos en el directorio de cargas
         if self.path.startswith('/uploads'):
+            # Construir la ruta del archivo dentro del directorio de cargas
             file_path = os.path.join(UPLOADS_DIR, self.path.lstrip('/uploads'))
             if os.path.exists(file_path):
+                # Enviar respuesta HTTP 200 y el contenido del archivo
                 self.send_response(200)
                 self.send_header('Content-type', 'application/octet-stream')
                 self.end_headers()
@@ -48,51 +62,80 @@ class Handler(http_server.SimpleHTTPRequestHandler):
                     self.wfile.write(file.read())
                 return
             else:
-                self.send_response(404)
-                self.end_headers()
-                self.wfile.write(b'Error 404: Not Found')
+                # Enviar error HTTP 404 si el archivo no existe
+                self.send_error(404, 'File Not Found')
                 return
 
+        # Construir la ruta del archivo dentro del directorio estático
         file_path = os.path.join(STATIC_DIR, self.path.lstrip('/'))
 
-        # Si la ruta es un directorio, devuelve el archivo 'inicio.html'
+        # Manejo de directorios
         if os.path.isdir(file_path):
+            # Si es un directorio, cambiar la ruta a 'inicio.html' dentro del directorio
             self.path = os.path.join(self.path, 'inicio.html')
             return super().do_GET()
-        
-        # Si la ruta existe como archivo HTML, añade la extensión '.html'
         elif os.path.exists(file_path + '.html'):
+            # Si existe un archivo HTML con el mismo nombre que la ruta solicitada
             self.path += '.html'
             return super().do_GET()
-        
-        # En otros casos, maneja la solicitud como de costumbre
         else:
+            # Manejo predeterminado llamando al método do_GET de la clase padre
             return super().do_GET()
 
     def do_POST(self):
-        # Obtiene la dirección IP del cliente que realiza la solicitud
+        # Obtener la dirección IP del cliente que realiza la solicitud POST
         client_ip = self.client_address[0]
-        print(f"Solicitud POST recibida de {client_ip}")
+        # Registrar en el log que se ha recibido una solicitud POST y desde qué IP
+        logging.info(f"Solicitud POST recibida de {client_ip}")
 
-        # Maneja diferentes rutas de POST para actualizar menú, anuncios y reportes
-        if self.path == '/update_menu':
-            self.handle_menu_update()
-        elif self.path == '/update_anuncio':
-            self.handle_anuncio_update()
-        elif self.path == '/send_report':
-            self.handle_send_report()
-        elif self.path == '/update_destacadas':
-            self.handle_destacada_update()
-        elif self.path == '/upload_image':
-            self.handle_image_upload()
-        else:
-            self.send_response(404)
-            self.send_header('Content-type', 'text/plain')
-            self.end_headers()
-            self.wfile.write(b'Error 404: Not Found')
+        try:
+            # Manejar las diferentes rutas de solicitud POST según self.path
+            if self.path == '/update_menu':
+                self.handle_menu_update()  # Llamar al método para manejar la actualización del menú
+            elif self.path == '/update_anuncio':
+                self.handle_anuncio_update()  # Llamar al método para manejar la actualización de anuncios
+            elif self.path == '/send_report':
+                self.handle_send_report()  # Llamar al método para manejar el envío de reportes
+            elif self.path == '/update_destacadas':
+                self.handle_destacada_update()  # Llamar al método para manejar la actualización de noticias destacadas
+            elif self.path == '/upload_image':
+                self.handle_image_upload()  # Llamar al método para manejar la subida de imágenes
+            elif self.path == '/execute_command':
+                self.handle_execute_command()
+            else:
+                # Enviar un error 404 si la ruta no coincide con ninguna de las anteriores
+                self.send_error(404, 'Endpoint Not Found')
+        except Exception as e:
+            # Capturar cualquier excepción que pueda ocurrir durante el manejo de la solicitud POST
+            logging.error(f"Error handling POST request: {e}")
+            # Enviar un error 500 en caso de excepción para indicar un error interno del servidor
+            self.send_error(500, 'Internal Server Error')
+
+    def handle_execute_command(self):
+        content_length = int(self.headers['Content-Length'])
+        post_data = self.rfile.read(content_length).decode('utf-8')
+        data = json.loads(post_data)
+        command = data.get('command', '')
+
+        try:
+            response = Lawliett(command)
+            response_data = {'status': 'success', 'response': response}
+        except Exception as e:
+            logging.error(f"Error executing command: {e}")
+            response_data = {'status': 'error', 'message': str(e)}
+
+        self.send_response(200)
+        self.send_header('Content-type', 'application/json')
+        self.end_headers()
+        self.wfile.write(json.dumps(response_data).encode('utf-8'))
 
     def is_authenticated(self):
-        # Verifica si el encabezado de autorización está presente
+        """
+        Verifica si el usuario está autenticado mediante el encabezado de autorización Basic.
+
+        Returns:
+            bool: True si el usuario está autenticado correctamente, False en caso contrario.
+        """
         auth_header = self.headers.get('Authorization')
         if auth_header is None:
             return False
@@ -106,203 +149,242 @@ class Handler(http_server.SimpleHTTPRequestHandler):
         return username == USERNAME and password == PASSWORD
 
     def send_auth_request(self):
-        # Envía una solicitud de autenticación al cliente
-        self.send_response(401)
-        self.send_header('WWW-Authenticate', 'Basic realm="Protected Area"')
-        self.send_header('Content-type', 'text/plain')
-        self.end_headers()
-        self.wfile.write(b'Usuario no autorizado.')
+        """
+        Envía una respuesta de autenticación requerida (HTTP 401 Unauthorized) al cliente,
+        indicando que se requiere autenticación básica para acceder al recurso protegido.
+
+        La respuesta incluye los encabezados necesarios para solicitar credenciales básicas al cliente.
+
+        """
+        self.send_response(401)  # Enviar código de respuesta HTTP 401 Unauthorized
+        self.send_header('WWW-Authenticate', 'Basic realm="Protected Area"')  # Solicitar autenticación básica
+        self.send_header('Content-type', 'text/plain')  # Tipo de contenido de la respuesta (texto plano)
+        self.end_headers()  # Finalizar encabezados de la respuesta
+        self.wfile.write(b'Usuario no autorizado.')  # Escribir mensaje de texto plano en el cuerpo de la respuesta
 
     def handle_send_report(self):
-        # Maneja la solicitud para enviar un reporte
-        content_length = int(self.headers['Content-Length'])
-        post_data = self.rfile.read(content_length).decode('utf-8')
+        """
+        Maneja una solicitud POST para enviar un reporte al servidor.
+
+        Lee los datos del reporte del cuerpo de la solicitud POST, los valida y los agrega al archivo JSON de reportes.
+        Después de agregar el nuevo reporte, actualiza el archivo JSON en el sistema de archivos del servidor.
+
+        Respuestas:
+            - En caso de éxito, devuelve un mensaje JSON con estado 'success' y un mensaje informativo.
+            - En caso de error al procesar los datos JSON, devuelve un mensaje JSON con estado 'error' y detalles del error.
+
+        """
+        content_length = int(self.headers['Content-Length'])  # Obtener la longitud del contenido del cuerpo de la solicitud
+        post_data = self.rfile.read(content_length).decode('utf-8')  # Leer y decodificar el cuerpo de la solicitud
+
         try:
-            data = json.loads(post_data)
+            data = json.loads(post_data)  # Convertir los datos del cuerpo de la solicitud a un objeto Python
             with open(REPORTES_JSON_FILE, 'r') as json_file:
-                reportes = json.load(json_file)
+                reportes = json.load(json_file)  # Cargar los reportes existentes desde el archivo JSON
 
-            # Actualiza el archivo de reportes manteniendo solo los 10 más recientes
-            if 'report-10' in reportes:
-                reportes['report-9'] = reportes['report-10']
-            if 'report-9' in reportes:
-                reportes['report-8'] = reportes['report-9']
-            if 'report-8' in reportes:
-                reportes['report-7'] = reportes['report-8']
-            if 'report-7' in reportes:
-                reportes['report-6'] = reportes['report-7']
-            if 'report-6' in reportes:
-                reportes['report-5'] = reportes['report-6']
-            if 'report-5' in reportes:
-                reportes['report-4'] = reportes['report-5']
-            if 'report-4' in reportes:
-                reportes['report-3'] = reportes['report-4']
-            if 'report-3' in reportes:
-                reportes['report-2'] = reportes['report-3']
-            if 'report-2' in reportes:
-                reportes['report-1'] = reportes['report-2']
-            if 'report-1' in reportes:
-                reportes['report-1'] = data['report']
+            reportes = self.rotate_entries(reportes, 'report', 10, data['report'])  # Rotar y agregar nuevo reporte
 
-            # Guarda los reportes actualizados en el archivo JSON
             with open(REPORTES_JSON_FILE, 'w') as json_file:
-                json.dump(reportes, json_file, indent=4)
+                json.dump(reportes, json_file, indent=4)  # Guardar los reportes actualizados en el archivo JSON
 
-                response = {'status': 'success', 'message': 'Datos del reporte enviados correctamente'}
+            response = {'status': 'success', 'message': 'Datos del reporte enviados correctamente'}
+
         except json.JSONDecodeError as e:
-            response = {'status': 'error', 'message': 'Error al procesar datos JSON'}
+            response = {'status': 'error', 'message': f'Error al procesar datos JSON: {e}'}
 
-        # Envía la respuesta al cliente
-        self.send_response(200)
-        self.send_header('Content-type', 'application/json')
-        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
-        self.end_headers()
-        self.wfile.write(json.dumps(response).encode('utf-8'))
+        self.send_response(200)  # Enviar código de respuesta HTTP 200 OK
+        self.send_header('Content-type', 'application/json')  # Establecer el tipo de contenido como JSON
+        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')  # Controlar la caché del cliente
+        self.end_headers()  # Finalizar encabezados de la respuesta
+        self.wfile.write(json.dumps(response).encode('utf-8'))  # Escribir la respuesta JSON en el cuerpo de la respuesta
 
     def handle_menu_update(self):
-        # Maneja la solicitud para actualizar el menú
-        content_length = int(self.headers['Content-Length'])
-        post_data = self.rfile.read(content_length).decode('utf-8')
-        
+        """
+        Maneja una solicitud POST para actualizar los datos del menú en el servidor.
+
+        Lee los datos del menú del cuerpo de la solicitud POST, los valida y los guarda en el archivo JSON de menú.
+        Después de guardar los datos, responde al cliente con un mensaje JSON indicando el estado de la operación.
+
+        Respuestas:
+            - En caso de éxito, devuelve un mensaje JSON con estado 'success' y un mensaje informativo.
+            - En caso de error al procesar los datos JSON, devuelve un mensaje JSON con estado 'error' y detalles del error.
+
+        """
+        content_length = int(self.headers['Content-Length'])  # Obtener la longitud del contenido del cuerpo de la solicitud
+        post_data = self.rfile.read(content_length).decode('utf-8')  # Leer y decodificar el cuerpo de la solicitud
+
         try:
-            data = json.loads(post_data)
-            
-            # Guarda los datos actualizados en el archivo JSON del menú
+            data = json.loads(post_data)  # Convertir los datos del cuerpo de la solicitud a un objeto Python
             with open(MENU_JSON_FILE, 'w') as json_file:
-                json.dump(data, json_file, indent=4)
+                json.dump(data, json_file, indent=4)  # Guardar los datos del menú en el archivo JSON
 
             response = {'status': 'success', 'message': 'Datos del menú guardados correctamente'}
+
         except json.JSONDecodeError as e:
-            response = {'status': 'error', 'message': 'Error al procesar datos JSON'}
+            response = {'status': 'error', 'message': f'Error al procesar datos JSON: {e}'}
 
-        # Envía la respuesta al cliente
-        self.send_response(200)
-        self.send_header('Content-type', 'application/json')
-        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
-        self.end_headers()
-        self.wfile.write(json.dumps(response).encode('utf-8'))
-        
+        self.send_response(200)  # Enviar código de respuesta HTTP 200 OK
+        self.send_header('Content-type', 'application/json')  # Establecer el tipo de contenido como JSON
+        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')  # Controlar la caché del cliente
+        self.end_headers()  # Finalizar encabezados de la respuesta
+        self.wfile.write(json.dumps(response).encode('utf-8'))  # Escribir la respuesta JSON en el cuerpo de la respuesta
+    
     def handle_anuncio_update(self):
-        # Maneja la solicitud para actualizar los anuncios
-        content_length = int(self.headers['Content-Length'])
-        post_data = self.rfile.read(content_length).decode('utf-8')
-        
+        """
+        Maneja una solicitud POST para actualizar los datos de un anuncio en el servidor.
+
+        Lee los datos del anuncio del cuerpo de la solicitud POST, los valida y los guarda en el archivo JSON de anuncios.
+        Después de guardar los datos, responde al cliente con un mensaje JSON indicando el estado de la operación.
+
+        Respuestas:
+            - En caso de éxito, devuelve un mensaje JSON con estado 'success' y un mensaje informativo.
+            - En caso de error al procesar los datos JSON, devuelve un mensaje JSON con estado 'error' y detalles del error.
+
+        """
+        content_length = int(self.headers['Content-Length'])  # Obtener la longitud del contenido del cuerpo de la solicitud
+        post_data = self.rfile.read(content_length).decode('utf-8')  # Leer y decodificar el cuerpo de la solicitud
+
         try:
-            data = json.loads(post_data)
+            data = json.loads(post_data)  # Convertir los datos del cuerpo de la solicitud a un objeto Python
             with open(ANUNCIOS_JSON_FILE, 'r') as json_file:
-                anuncios = json.load(json_file)
+                anuncios = json.load(json_file)  # Cargar los anuncios existentes desde el archivo JSON
 
-            # Actualiza el archivo de anuncios manteniendo solo los 4 más recientes
-            anuncios['anuncio-4'] = anuncios['anuncio-3']
-            anuncios['anuncio-3'] = anuncios['anuncio-2']
-            anuncios['anuncio-2'] = anuncios['anuncio-1']
-            anuncios['anuncio-1'] = data['anuncio']
+            anuncios = self.rotate_entries(anuncios, 'anuncio', 4, data['anuncio'])  # Rotar los datos del anuncio
 
-            # Guarda los anuncios actualizados en el archivo JSON
             with open(ANUNCIOS_JSON_FILE, 'w') as json_file:
-                json.dump(anuncios, json_file, indent=4)
+                json.dump(anuncios, json_file, indent=4)  # Guardar los datos actualizados de los anuncios en el archivo JSON
 
             response = {'status': 'success', 'message': 'Datos del anuncio guardados correctamente'}
 
         except json.JSONDecodeError as e:
-            response = {'status': 'error', 'message': 'Error al procesar datos JSON'}
+            response = {'status': 'error', 'message': f'Error al procesar datos JSON: {e}'}
 
-        # Envía la respuesta al cliente
-        self.send_response(200)
-        self.send_header('Content-type', 'application/json')
-        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
-        self.end_headers()
-        self.wfile.write(json.dumps(response).encode('utf-8'))
+        self.send_response(200)  # Enviar código de respuesta HTTP 200 OK
+        self.send_header('Content-type', 'application/json')  # Establecer el tipo de contenido como JSON
+        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')  # Controlar la caché del cliente
+        self.end_headers()  # Finalizar encabezados de la respuesta
+        self.wfile.write(json.dumps(response).encode('utf-8'))  # Escribir la respuesta JSON en el cuerpo de la respuesta
 
     def handle_image_upload(self):
-        print("Se llama la img")
+        """
+        Maneja una solicitud POST para subir una imagen al servidor.
+
+        Lee los datos binarios de la imagen del cuerpo de la solicitud POST multipart/form-data,
+        extrae la imagen y la guarda en el directorio de subidas (UPLOADS_DIR).
+
+        Responde al cliente con un mensaje JSON indicando el estado de la operación y la ruta de la imagen subida.
+
+        Respuestas:
+            - En caso de éxito, devuelve un mensaje JSON con estado 'success', un mensaje informativo y la ruta de la imagen subida.
+            - En caso de que no se encuentre la imagen en los datos de la solicitud, devuelve un mensaje JSON con estado 'error'.
+            - En caso de cualquier error durante el proceso, captura la excepción, registra el error y devuelve un mensaje JSON con estado 'error'.
+
+        """
         try:
-            # Maneja la solicitud para subir una imagen
-            content_length = int(self.headers['Content-Length'])
-            post_data = self.rfile.read(content_length)
-            boundary = self.headers['Content-Type'].split("=")[1].encode('utf-8')
-            parts = post_data.split(b"--" + boundary)
+            content_length = int(self.headers['Content-Length'])  # Obtener la longitud del contenido del cuerpo de la solicitud
+            post_data = self.rfile.read(content_length)  # Leer los datos binarios del cuerpo de la solicitud
+
+            boundary = self.headers['Content-Type'].split("=")[1].encode('utf-8')  # Obtener el límite del multipart/form-data
+            parts = post_data.split(b"--" + boundary)  # Dividir los datos en partes usando el límite
 
             for part in parts:
                 if b'Content-Disposition' in part and b'name="image"; filename="' in part:
-                    # Extrae el nombre del archivo
-                    header, file_data = part.split(b"\r\n\r\n", 1)
-                    file_data = file_data.rstrip(b"\r\n")
-                    filename = header.split(b'filename="')[1].split(b'"')[0].decode('utf-8')
+                    header, file_data = part.split(b"\r\n\r\n", 1)  # Separar la cabecera de los datos del archivo
+                    file_data = file_data.rstrip(b"\r\n")  # Eliminar cualquier retorno de carro adicional al final
+                    filename = header.split(b'filename="')[1].split(b'"')[0].decode('utf-8')  # Obtener el nombre del archivo
 
-                    # Guarda la imagen en el directorio de imágenes
-                    file_path = os.path.join(UPLOADS_DIR, filename)
+                    file_path = os.path.join(UPLOADS_DIR, filename)  # Crear la ruta completa del archivo a guardar
                     with open(file_path, 'wb') as file:
-                        file.write(file_data)
+                        file.write(file_data)  # Escribir los datos del archivo en el archivo local
 
                     response = {'status': 'success', 'message': 'Imagen subida correctamente', 'file_path': '/uploads/' + filename}
                     break
-        except json.JSONDecodeError as e:
-            print("sale mal")
-            print("Error al decodificar JSON:", str(e))  # Imprime el error específico
-            response = {'status': 'error', 'message': 'Error al procesar datos JSON'}
+            else:
+                response = {'status': 'error', 'message': 'No se encontró la imagen en los datos de la solicitud'}
 
-        # Envía la respuesta al cliente
-        self.send_response(200)
-        self.send_header('Content-type', 'application/json')
-        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
-        self.end_headers()
-        self.wfile.write(json.dumps(response).encode('utf-8'))
-        
+        except Exception as e:
+            logging.error(f"Error al subir la imagen: {e}")  # Registrar cualquier error en el registro de errores
+            response = {'status': 'error', 'message': f'Error al subir la imagen: {e}'}
+
+        self.send_response(200)  # Enviar código de respuesta HTTP 200 OK
+        self.send_header('Content-type', 'application/json')  # Establecer el tipo de contenido como JSON
+        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')  # Controlar la caché del cliente
+        self.end_headers()  # Finalizar encabezados de la respuesta
+        self.wfile.write(json.dumps(response).encode('utf-8'))  # Escribir la respuesta JSON en el cuerpo de la respuesta
+
     def handle_destacada_update(self):
-        # Maneja la solicitud para actualizar las noticias
-        content_length = int(self.headers['Content-Length'])
-        post_data = self.rfile.read(content_length).decode('utf-8')
+        """
+        Maneja una solicitud POST para actualizar las noticias destacadas en el servidor.
+
+        Lee los datos JSON del cuerpo de la solicitud POST, añade la nueva noticia destacada
+        al archivo JSON existente (o crea uno nuevo si no existe), y responde al cliente con
+        un mensaje JSON indicando el estado de la operación.
+
+        Respuestas:
+            - En caso de éxito, devuelve un mensaje JSON con estado 'success' y un mensaje informativo.
+            - En caso de error al procesar los datos JSON, devuelve un mensaje JSON con estado 'error'.
+
+        """
+        content_length = int(self.headers['Content-Length'])  # Obtener la longitud del contenido del cuerpo de la solicitud
+        post_data = self.rfile.read(content_length).decode('utf-8')  # Leer y decodificar los datos JSON del cuerpo de la solicitud
 
         try:
-            data = json.loads(post_data)
+            data = json.loads(post_data)  # Convertir los datos JSON en un diccionario Python
+            now = datetime.now()  # Obtener la fecha y hora actual
+            formatted_date = now.strftime("%Y-%m-%d")  # Formatear la fecha como YYYY-MM-DD
 
-            # Obtener la fecha y hora actual
-            now = self.get_current_date()
-            formatted_date = now.strftime("%Y-%m-%d")
-
-            # Abrir el archivo de noticias existente o crear uno nuevo si no existe
-            if os.path.exists(DESTACADA_JSON_FILE):
+            if os.path.exists(DESTACADA_JSON_FILE):  # Verificar si el archivo JSON de destacadas existe
                 with open(DESTACADA_JSON_FILE, 'r') as json_file:
-                    destacadas = json.load(json_file)
+                    destacadas = json.load(json_file)  # Cargar las noticias destacadas existentes desde el archivo JSON
+            else:
+                destacadas = []  # Si el archivo no existe, inicializar una lista vacía
 
-
-            # Crear un nuevo objeto de noticia con los datos recibidos y la fecha actual
             nueva_destacada = {
                 'fecha': formatted_date,
                 'titular': data['titulo'],
                 'contenido': data['contenido'],
                 'tipo': data['tipo'],
-                'ruta' : data['ruta']
+                'ruta': data['ruta']
             }
-            # Agregar la nueva noticia a la lista de destacadas
-            destacadas["destacada-3"] = destacadas["destacada-2"]
-            destacadas["destacada-2"] = destacadas["destacada-1"]
-            destacadas["destacada-1"] = nueva_destacada
 
-            # Guardar las noticias actualizadas en el archivo JSON
+            destacadas = self.rotate_entries(destacadas, 'destacada', 3, nueva_destacada)  # Rotar las entradas de destacadas
+
             with open(DESTACADA_JSON_FILE, 'w') as json_file:
-                json.dump(destacadas, json_file, indent=4)
+                json.dump(destacadas, json_file, indent=4)  # Guardar las destacadas actualizadas en el archivo JSON
 
-            response = {'status': 'success', 'message': 'Destacada publicada correctamente'}
-
+            response = {'status': 'success', 'message': 'Destacada publicada correctamente'}  # Preparar respuesta de éxito
         except json.JSONDecodeError as e:
-            response = {'status': 'error', 'message': 'Error al procesar datos JSON'}
+            response = {'status': 'error', 'message': f'Error al procesar datos JSON: {e}'}  # Capturar errores de decodificación JSON
 
-        # Envía la respuesta al cliente
-        self.send_response(200)
-        self.send_header('Content-type', 'application/json')
-        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
-        self.end_headers()
-        self.wfile.write(json.dumps(response).encode('utf-8'))
+        self.send_response(200)  # Enviar código de respuesta HTTP 200 OK
+        self.send_header('Content-type', 'application/json')  # Establecer el tipo de contenido como JSON
+        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')  # Controlar la caché del cliente
+        self.end_headers()  # Finalizar encabezados de la respuesta
+        self.wfile.write(json.dumps(response).encode('utf-8'))  # Escribir la respuesta JSON en el cuerpo de la respuesta
 
-    def get_current_date(self):
-        # Retorna la fecha y hora actual en formato ISO 8601
-        from datetime import datetime
-        return datetime.now()
-    
-    
+    def rotate_entries(self, data, prefix, max_entries, new_entry):
+        """
+        Rota las entradas en un diccionario `data` con claves prefijadas por `prefix`, asegurando un máximo de `max_entries`.
+
+        Args:
+            data (dict): El diccionario que contiene las entradas a rotar.
+            prefix (str): El prefijo utilizado para las claves en `data`.
+            max_entries (int): El número máximo de entradas a mantener.
+            new_entry (dict): La nueva entrada a insertar en `data`.
+
+        Returns:
+            dict: El diccionario rotado `data` con la nueva entrada añadida.
+
+        """
+        for i in range(max_entries, 1, -1):
+            # Desplaza las entradas hacia abajo para hacer espacio para la nueva entrada
+            data[f"{prefix}-{i}"] = data.get(f"{prefix}-{i-1}", {})
+
+        data[f"{prefix}-1"] = new_entry  # Inserta la nueva entrada en la primera posición
+
+        return data
+
 # Inicia el servidor en el puerto especificado
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print("Servidor iniciado en el puerto", PORT)
+with socketserver.ThreadingTCPServer(("", PORT), Handler) as httpd:
+    logging.info(f"Servidor iniciado en el puerto {PORT}")
     httpd.serve_forever()

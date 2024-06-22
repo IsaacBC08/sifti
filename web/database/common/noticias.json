@@ -1,23 +1,23 @@
 {
     "destacada-1": {
+        "fecha": "2024-06-19",
+        "titular": "Guerra de las trincheras",
+        "contenido": "incredibol",
+        "tipo": "evento",
+        "ruta": "/uploads/images.jpg"
+    },
+    "destacada-2": {
         "fecha": "2024-06-10",
         "titular": "El QR de sifti!",
         "contenido": "Este es el QR de sifti",
         "tipo": "noticia",
         "ruta": "/uploads/ejecutivo.jpg"
     },
-    "destacada-2": {
+    "destacada-3": {
         "fecha": "2024-06-10",
         "titular": "Las peras",
         "contenido": "Las peras son una de las mejores frutas del mundo, 20/10 y god",
         "tipo": "noticia",
         "ruta": "/uploads/contabilidad.jpg"
-    },
-    "destacada-3": {
-        "fecha": "2024-06-10",
-        "titular": "Actividad de informatica",
-        "contenido": "Todos los de informatica estar\u00e1n armando robots",
-        "tipo": "evento",
-        "ruta": "/uploads/informatica.jpg"
     }
 }

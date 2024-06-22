@@ -158,7 +158,7 @@ function subir_anuncio() {
 
 function cargar_reportes() { 
     const timestamp = new Date().getTime();  // Obtener una marca de tiempo única
-    const url = `../db/reportes.json?timestamp=${timestamp}`;  // URL del archivo JSON
+    const url = `database/reportes.json?timestamp=${timestamp}`;  // URL del archivo JSON
 
     // Hacer una solicitud fetch para obtener los datos del archivo JSON
     fetch(url)

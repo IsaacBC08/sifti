@@ -1,99 +1,100 @@
-/* Estilos generales para el documento */
-* {
-    box-sizing: border-box;
-    /* Box-sizing para incluir padding y border en el tamaño total */
-    margin: 0;
-    /* Elimina márgenes por defecto */
-    padding: 0;
-    /* Elimina rellenos por defecto */
-}
-
 body {
-    color: #000000 !important;
-    font-family: 'Arial', sans-serif;
-    /* Fuente principal para el cuerpo del documento */
-    display: flex;
-    /* Usa Flexbox para diseño flexible */
-    flex-direction: column;
-    /* Diseño en columna */
-    align-items: center;
-    /* Centra horizontalmente el contenido */
-    justify-content: center;
-    /* Centra verticalmente el contenido */
-    min-height: 100vh;
-    /* Altura mínima del cuerpo al 100% del viewport */
+    font-family: sans-serif;
     background-color: #11151d;
-}
-
-
-/* Contenedor principal */
-.main-container {
-    color: #fff;
-    background-color: #1e2a37;
-    /* Fondo blanco semitransparente */
-    border-radius: 20px;
-    /* Bordes redondeados */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    /* Sombra suave */
-    width: 90%;
-
-    /* Ancho máximo del contenedor */
-    text-align: center;
-    /* Alineación del texto al centro */
-    margin-top: 20px;
-    /* Margen superior */
-    flex: 1;
-    /* Flex para ocupar el espacio disponible */
-    backdrop-filter: blur(10px);
-    /* Efecto de desenfoque */
-    -webkit-backdrop-filter: blur(10px);
-    /* Efecto de desenfoque para Safari */
-    border-radius: 4%;
-    padding: 30px;
-    /* Aumento del relleno para separar las secciones */
-    margin-bottom: 30px;
-    /* Margen inferior para separar del pie de página */
-
-}
-
-
-.container {
-    text-align: center;
-    /* Alineación del texto al centro */
-}
-
-.titulo-animado {
-    font-size: 36px;
-    /* Tamaño de fuente del título */
-    color: #01dbc2;
-    /* Color de texto */
-    margin-bottom: 10px;
-    /* Margen inferior */
-}
-
-
-/* Contenedor de botones */
-.boton-container {
-    display: grid;
-    /* Usa Flexbox para diseño flexible */
+    display: flex;
     justify-content: center;
-    /* Centra horizontalmente */
     align-items: center;
-    /* Centra verticalmente */
-    flex-wrap: wrap;
-    /* Permite que los botones se envuelvan */
-    margin-top: 20px;
-    /* Margen superior */
+    height: 100vh;
+    margin: 0;
+}
+
+.chat-container {
+    background-color: #11151d;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+}
+
+.chat-header {
+    color: #01dbc2;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.chat-messages {
+    flex: 1;
+    border: 1px solid #565869;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #1e2a37;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.chat-message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #4A4B57;
+    max-width: 100%;
+    font-size: 1.1em;
+}
+
+.chat-message.user {
+    align-self: flex-end;
+    background-color: rgba(143, 143, 143, 0.6);
+    color: white;
+}
+
+.chat-message.law {
+    align-self: flex-start;
+    background-color: #ff94f8d8;
+    color: white;
+    max-width: 60%;
+}
+
+.chat-message.typewriter {
+    align-self: flex-start;
+    background-color: #4A4B57;
+    color: white;
+}
+
+.chat-form {
+    display: flex;
+    border-top: 1px solid #565869;
+    padding-top: 10px;
+}
+
+.chat-form input[type="text"] {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    background-color: #565869;
+    color: #d1d5db;
+    font-size: 1.2em;
+}
+
+.chat-form input[type="text"]::placeholder {
+    color: #d1d5db;
 }
 
 /* Estilos para el botón */
 .boton {
-    margin-top: 12px;
-    margin-bottom: 12px;
-    position: relative;
-    display: block;
-    padding: 10px 30px;
-    font-size: 1em;
+    margin-left: 10px;
+    padding: 15px 20px;
+    font-size: 1.2em;
     background: transparent;
     border: 2px solid var(--crl);
     font-weight: 500;
@@ -109,7 +110,6 @@ body {
 .boton:hover {
     background: var(--crl);
     box-shadow: 0 0 25px var(--crl), 0 0 100px var(--crl), 0 0 150px var(--crl);
-
 }
 
 .boton span {
@@ -127,532 +127,54 @@ body {
     transform: translateY(-35px);
 }
 
-
-.img_qr {
-    max-width: 30%;
-    max-height: 30%;
-    margin-top: 20px;
-}
-
-/* Sección de noticias */
-.noticias {
-    background-color: rgba(143, 143, 143, 0.6);
-    /* Fondo blanco */
-    backdrop-filter: blur(10px);
-    /* Efecto de desenfoque */
-    -webkit-backdrop-filter: blur(10px);
-    /* Efecto de desenfoque para Safari */
-    padding: 30px;
-    /* Relleno interno */
-    margin-top: 40px;
-    /* Margen superior */
-    border-radius: 10px;
-    /* Bordes redondeados */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-    /* Sombra suave */
-    text-align: left;
-    /* Alineación del texto a la izquierda */
-}
-
-.noticias h2 {
-    font-size: 28px;
-    /* Tamaño de fuente del título */
-    color: #ffffff;
-    /* Color de texto */
-    margin-bottom: 20px;
-    /* Margen inferior */
-}
-
-.noticia {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    /* Margen inferior */
-}
-.noticia figure{
-    margin-top: 2vh;
-}
-.noticia h3 {
-    font-size: 20px;
-    /* Tamaño de fuente del título de la noticia */
-    color: #ebebeb;
-    /* Color de texto */
-    margin-bottom: 10px;
-    /* Margen inferior */
-}
-
-.noticia p {
-    font-size: 16px;
-    /* Tamaño de fuente del contenido de la noticia */
-    color: #b9b9b9;
-    /* Color de texto */
-    line-height: 1.6;
-    /* Altura de línea */
-}
-
-.calendario h2 {
-    font-size: 28px;
-    /* Tamaño de fuente del título */
-    color: #ffffff;
-    /* Color de texto */
-    margin-bottom: 20px;
-    /* Margen inferior */
-}
-
-/* Sección sobre la plataforma */
-.sobre {
-    background-color: rgba(0, 0, 0, 0.2);
-    /* Fondo blanco */
-    backdrop-filter: blur(10px);
-    /* Efecto de desenfoque */
-    -webkit-backdrop-filter: blur(10px);
-    /* Efecto de desenfoque para Safari */
-    padding: 30px;
-    /* Relleno interno */
-    margin-top: 40px;
-    /* Margen superior */
-    border-radius: 10px;
-    /* Bordes redondeados */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-    /* Sombra suave */
-    text-align: left;
-    /* Alineación del texto a la izquierda */
-}
-
-.sobre h2 {
-    font-size: 28px;
-    /* Tamaño de fuente del título */
-    color: #ffffff;
-    /* Color de texto */
-    margin-bottom: 20px;
-    /* Margen inferior */
-}
-
-.sobre p {
-    font-size: 16px;
-    /* Tamaño de fuente del contenido */
-    color: #b9b9b9;
-    /* Color de texto */
-    line-height: 1.6;
-    /* Altura de línea */
-}
-
-/* Pie de página */
-.footer {
-    background-color: #1b2633;
-    color: #cecece;
-    font-size: 1.5em;
-    font-weight: bold;
-    text-align: center;
-    padding: 20px 0;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.footer-container p {
-    margin: 5px 0;
-}
-
-.footer a {
-    font-size: 1em;
-    font-weight: bold;
-    color: #E66B52;
-    text-decoration: none;
-    animation: hightlight 4s infinite;
-}
-
-.footer a:hover {
-    text-decoration: underline;
-    transition: 1s;
-}
-
-/* Media queries para dispositivos móviles */
-@media (max-width: 600px) {
-    .main-container {
-        width: 100% !important;
-        /* Ancho completo en dispositivos móviles */
-        border-radius: 0;
-        /* Sin bordes redondeados */
-        box-shadow: none;
-        /* Sin sombra */
-        padding: 10px;
-        /* Relleno más pequeño */
+/* Media Queries */
+@media (max-width: 768px) {
+    .chat-container {
+        width: 95%;
+        height: 90vh;
     }
 
-    .titulo-animado {
-        font-size: 24px;
-        /* Tamaño de fuente más pequeño */
+    .chat-header {
+        font-size: 1.4em;
     }
 
-    .typing-text {
-        font-size: 14px;
-        /* Tamaño de fuente más pequeño */
+    .chat-message {
+        font-size: 1.1em;
     }
 
+    .chat-form input[type="text"] {
+        height: 50px;
+        font-size: 1.1em;
+    }
+    
     .boton {
-        padding: 12px 25px;
-        /* Relleno más pequeño */
-        font-size: 14px;
-        /* Tamaño de fuente más pequeño */
+        font-size: 1.1em;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chat-container {
         width: 100%;
-        /* Ancho completo */
+        height: 100vh;
+        padding: 10px;
     }
 
-    .noticias,
-    .calendario,
-    .sobre {
-        padding: 20px;
-        /* Relleno más pequeño en secciones */
+    .chat-header {
+        font-size: 1.2em;
     }
 
-    .noticias h2,
-    .calendario h2,
-    .sobre h2 {
-        font-size: 24px;
-        /* Tamaño de fuente más pequeño en títulos de sección */
+    .chat-message {
+        font-size: 1em;
     }
 
-    .noticia h3 {
-        font-size: 18px;
-        /* Tamaño de fuente más pequeño en títulos de noticias */
+    .chat-form input[type="text"] {
+        height: 45px;
+        font-size: 1em;
     }
-
-    .noticia p,
-    .calendario ul li,
-    .sobre p {
-        font-size: 14px;
-        /* Tamaño de fuente más pequeño en contenido */
-    }
-
-    .fecha {
-        color: #61665e;
-        margin-right: 10%;
-    }
-
-    .card img {
-        margin-top: 2vh;
-        width: 100%;
-        min-height: 60%;
-    }
-
-    #logo-splash {
-        margin-bottom: -50%;
-    }
-}
-
-/* Estilos para el modal */
-.modal {
-    display: none;
-    /* Por defecto, el modal está oculto */
-    position: fixed;
-    /* Posición fija para cubrir toda la pantalla */
-    z-index: 999;
-    /* Capa superior */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Fondo oscuro semi-transparente */
-    overflow: auto;
-    /* Permitir desplazamiento si el contenido es largo */
-}
-
-.modal-content {
-    background-color: #fefefe;
-    /* Fondo blanco del modal */
-    margin: 15% auto;
-    /* Margen vertical y centrado horizontal */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    /* Ancho del modal */
-    max-width: 600px;
-    /* Ancho máximo del modal */
-    border-radius: 10px;
-    /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.h1-politica {
-    font-size: 28px;
-    font-weight: bold;
-    color: #333;
-}
-
-.h2-politica {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-}
-
-.h3-politica {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-}
-
-.p-politica {
-    font-size: 16px;
-    color: #160000;
-}
-
-.contenedor-noticias {
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto;
-    overflow: hidden;
-    position: relative;
-}
-
-.slider {
-    display: flex;
-    transition: transform 1s ease;
-    width: 100%;
-}
-
-.titulo {
-    margin-bottom: 5%;
-    margin-top: 5%;
-}
-
-.card {
-    flex: 0 0 100%;
-    box-sizing: border-box;
-    border-radius: 6px;
-    overflow: hidden;
-    background-color: #393b4039;
-    cursor: default;
-}
-
-.card img {
-    margin-top: 4vh;
-    max-width: 60%;
-    max-height: 60%;
-}
-
-.card .contenido {
-    padding: 15px;
-    text-align: center;
-}
-
-.card .contenido p {
-    line-height: 1.5;
-    color: #e5e5e5;
-}
-
-.card .contenido h3 {
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.card .contenido a {
-    text-decoration: none;
-    display: inline-block;
-    padding: 10px;
-    margin-top: 10px;
-    color: #2fb4cc;
-    border: 1px solid #2fb4cc;
-    border-radius: 4px;
-    transition: all 400ms ease;
-}
-
-.card .contenido a:hover {
-    background-color: #2fb4cc;
-    color: #fff;
-}
-
-.evento {
-    color: #8fbe39;
-    float: right;
-    width: 70%;
-    /* Ancho deseado para la noticia */
-    text-align: right !important;
-    /* Alinea el texto a la derecha dentro de la noticia */
-}
-
-.fecha {
-    color: #61665e;
-    float: left;
-    width: 30%;
-    /* Ancho deseado para la fecha */
-    text-align: left;
-}
-
-.noticia {
-    color: #f7bf11;
-    float: right;
-    width: 70%;
-    /* Ancho deseado para la noticia */
-    text-align: right !important;
-    /* Alinea el texto a la derecha dentro de la noticia */
-}
-
-/* Splash screen styles */
-#splash-screen {
-    font-family: consolas;
-    position: fixed;
-    bottom: 0%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    opacity: 1;
-    transition: opacity 0.5s ease;
-    animation: oscurecer 2s;
-
-}
-
-@keyframes oscurecer {
-    0% {
-        background-color: #fff;
-        /* Color inicial */
-    }
-
-    100% {
-
-        background-color: #1e2a37;
-        /* Color final */
-    }
-}
-
-#splash-screen.fade-out {
-    opacity: 0;
-    pointer-events: none;
-    /* Disable clicks during transition */
-}
-
-.logo-container {
-    position: absolute;
-    top: -30%;
-}
-
-.logo-container img {
-    max-width: 100%;
-    scale: 0.6;
-}
-
-#main-content.show {
-    opacity: 1;
-}
-
-
-#logo-splash {
-    max-width: 10%;
-    max-height: 10%;
-    border-radius: 80px;
-    animation: aparecer 3s;
-    margin-bottom: -20%;
-}
-
-::-webkit-scrollbar {
-    width: 0;
-}
-
-#scrool-path {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 10px;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.05);
-}
-
-#progress-bar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 10px;
-
-    background: linear-gradient(to top, #008aff, #00ffe7);
-    animation: neon 6s linear infinite;
-}
-
-#progress-bar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, #008aff, #00ffe7);
-    filter: blur(10px);
-}
-
-#progress-bar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, #008aff, #00ffe7);
-    filter: blur(30px);
-}
-
-@keyframes neon {
-
-    0%,
-    100% {
-        filter: hue-rotate(0deg);
-    }
-
-    50% {
-        filter: hue-rotate(360deg);
-    }
-
-}
-
-.load-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.wavy {
-    position: relative;
-    -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
-}
-
-.wavy span {
-    position: relative;
-    display: inline-block;
-    color: #fff;
-    font-size: 2em;
-    text-transform: uppercase;
-    animation: wave 1s ease-in-out infinite;
-    animation-delay: calc(.1s * var(--i));
-}
-
-@keyframes wave {
-    0% {
-        transform: translateY(0px);
-    }
-
-    20% {
-        transform: translateY(-20px);
-    }
-
-    40%,
-    100% {
-        transform: translateY(0px);
+    
+    .boton {
+        font-size: 1em;
+        padding: 8px 16px;
     }
 }

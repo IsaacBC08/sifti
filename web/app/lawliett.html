@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Lawliett V0.05</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Añade esta línea -->
     <link rel="stylesheet" href="../css/law.css">
-
 </head>
 <body>
     <div class="chat-container">
-        
         <div class="chat-header">Habla con Lawliett</div>
         <div class="chat-messages" id="responseOutput"></div>
-        
         <form id="commandForm" class="chat-form">
             <input type="text" id="commandInput" name="command" required placeholder="Que le pedirás a Lawliett?">
-            <button type="button" class="boton" style="--crl:#ff4b4b" onclick="window.history.back()">Volver</button><button type="submit" class="boton" style="--crl:#01dbc2">Enviar</button>
+            <button type="button" class="boton" style="--crl:#ff4b4b" onclick="window.history.back()">Volver</button>
+            <button type="submit" class="boton" style="--crl:#01dbc2">Enviar</button>
         </form>
     </div>
-    
     <script src="../js/law.js"></script>
     <script src="../js/hover.js"></script>
 </body>

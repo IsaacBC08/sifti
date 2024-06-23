@@ -4,25 +4,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
     margin: 0;
+    height: 100vh; /* Asegura que el body llene la pantalla en móvil */
+    overflow: hidden; /* Evita el scroll no deseado */
 }
 
 .chat-container {
     background-color: #11151d;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    padding: 20px;
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    max-width: 600px; /* Limita el ancho máximo en pantallas más grandes */
+    padding: 10px; /* Ajusta el padding para pantallas pequeñas */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
 }
 
 .chat-header {
     color: #01dbc2;
-    font-size: 1.5em;
+    font-size: 1.2em; /* Ajusta el tamaño de la fuente */
     margin-bottom: 10px;
     text-align: center;
 }
@@ -46,7 +48,7 @@ body {
     border-radius: 8px;
     background-color: #4A4B57;
     max-width: 100%;
-    font-size: 1em;
+    font-size: 0.9em; /* Ajusta el tamaño de la fuente */
 }
 
 .chat-message.user {
@@ -59,7 +61,7 @@ body {
     align-self: flex-start;
     background-color: #ff94f8d8;
     color: white;
-    max-width: 60%;
+    max-width: 80%; /* Ajusta el ancho máximo */
 }
 
 .chat-message.typewriter {
@@ -91,7 +93,6 @@ body {
     color: #d1d5db;
 }
 
-/* Estilos para el botón */
 .boton {
     margin-left: 10px;
     padding: 10px 20px;
@@ -127,5 +128,3 @@ body {
 .boton span.hover {
     transform: translateY(-35px);
 }
-
-

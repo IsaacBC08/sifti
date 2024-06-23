@@ -437,8 +437,9 @@ body {
 
 .card img {
     margin-top: 4vh;
-    max-width: 60%;
-    max-height: 60%;
+    width: 600px;
+    height: 400px;
+
 }
 
 .card .contenido {
@@ -475,7 +476,7 @@ body {
 .evento {
     color: #8fbe39;
     float: right;
-    width: 70%;
+    width: 20%;
     /* Ancho deseado para la noticia */
     text-align: right !important;
     /* Alinea el texto a la derecha dentro de la noticia */
@@ -484,17 +485,17 @@ body {
 .fecha {
     color: #61665e;
     float: left;
-    width: 30%;
+    width: 20%;
     /* Ancho deseado para la fecha */
     text-align: left;
 }
 
 .noticia {
     color: #f7bf11;
+    width: 20;
     float: right;
-    width: 70%;
     /* Ancho deseado para la noticia */
-    text-align: right !important;
+    text-align: right;
     /* Alinea el texto a la derecha dentro de la noticia */
 }
 

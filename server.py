@@ -5,7 +5,7 @@ import json
 from base64 import b64decode
 from datetime import datetime
 import logging
-#from model.lawliett import Lawliett
+from model.Lawliett import Lawliett
 from tools.convert_img import convert_to_webp
 
 # Configuración del puerto y credenciales de autenticación

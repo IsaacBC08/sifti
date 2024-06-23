@@ -9,7 +9,7 @@ def cargar_horario(archivo):
         return json.load(f)
 
 # Cargar el modelo de predicción de intenciones
-modelo_intenciones = joblib.load('Lawliett_dir/lawliett.pkl')
+modelo_intenciones = joblib.load('model/lawliett.pkl')
 
 # Función para evaluar el intervalo basado en la hora actual
 def evaluar_intervalo(hora_actual):
@@ -20,7 +20,7 @@ def evaluar_intervalo(hora_actual):
             ("07:40", "08:20"),
             ("08:20", "09:00"),
             ("09:10", "09:50"),
-            ("9:50", "10:30"),
+            ("09:50", "10:30"),
             ("10:30", "11:00"),
             ("11:00", "12:00"),
             ("12:00", "12:40"),
@@ -28,12 +28,15 @@ def evaluar_intervalo(hora_actual):
             ("13:20", "14:00"),
             ("14:10", "14:50"),
             ("14:50", "15:30"),
-            ("15:30", "16:10")
-
+            ("15:30", "16:10"),
         ]
 
         # Convertir la hora actual a formato datetime para facilitar la comparación
         hora_actual = datetime.strptime(hora_actual, "%H:%M")
+        # Verificar si la hora actual está dentro del intervalo específico
+        if (datetime.strptime("09:00", "%H:%M") <= hora_actual < datetime.strptime("09:10", "%H:%M")) or \
+           (datetime.strptime("14:00", "%H:%M") <= hora_actual < datetime.strptime("14:10", "%H:%M")):
+            return 6  # Índice correspondiente al intervalo entre 09:00-09:10 o 14:00-14:10
 
 
         # Iterar sobre los intervalos para encontrar el índice correcto
@@ -131,7 +134,7 @@ def procesar_comando(comando, horario):
         return f"Error al procesar el comando: {e}"
 
 # Cargar el horario desde el archivo JSON
-horario = cargar_horario("Lawliett_dir/data/horarios.json")
+horario = cargar_horario("model/data/horarios.json")
 def Lawliett(command): 
     # Pedir el comando del usuario
     comando_usuario = command

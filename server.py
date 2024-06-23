@@ -6,6 +6,7 @@ from base64 import b64decode
 from datetime import datetime
 import logging
 from Lawliett_dir.Lawliett import Lawliett
+from tools.convert_img import convert_to_webp
 
 # Configuración del puerto y credenciales de autenticación
 PORT = 8081
@@ -291,14 +292,16 @@ class Handler(http_server.SimpleHTTPRequestHandler):
                     header, file_data = part.split(b"\r\n\r\n", 1)  # Separar la cabecera de los datos del archivo
                     file_data = file_data.rstrip(b"\r\n")  # Eliminar cualquier retorno de carro adicional al final
                     filename = header.split(b'filename="')[1].split(b'"')[0].decode('utf-8')  # Obtener el nombre del archivo
-
+                    filename = filename.replace("png", "webp").replace("jpg", "webp")
                     file_path = os.path.join(UPLOADS_DIR, filename)  # Crear la ruta completa del archivo a guardar
                     with open(file_path, 'wb') as file:
                         file.write(file_data)  # Escribir los datos del archivo en el archivo local
-
+                    convert_to_webp(UPLOADS_DIR, UPLOADS_DIR)
                     response = {'status': 'success', 'message': 'Imagen subida correctamente', 'file_path': '/uploads/' + filename}
+                    #? Sirve para que no se sobreescriban los datos de la Imagen, y se envíe correctamente
                     break
             else:
+                print("Not Already")
                 response = {'status': 'error', 'message': 'No se encontró la imagen en los datos de la solicitud'}
 
         except Exception as e:

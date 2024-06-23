@@ -162,20 +162,20 @@ body {
     }
 
     .chat-header {
-        font-size: 1em;
+        font-size: xx-large;
     }
 
     .chat-message {
-        font-size: 0.8em;
+        font-size: x-large
     }
 
     .chat-form input[type="text"] {
         height: 30px;
-        font-size: 0.8em;
+        font-size: x-large;
     }
     
     .boton {
-        font-size: 0.8em;
+        font-size: x-large;
         padding: 6px 12px;
     }
 }

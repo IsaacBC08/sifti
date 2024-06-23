@@ -71,12 +71,7 @@ body {
 
 /* Contenedor de botones */
 .boton-container {
-    display: grid;
-    /* Usa Flexbox para diseño flexible */
-    justify-content: center;
-    /* Centra horizontalmente */
-    align-items: center;
-    /* Centra verticalmente */
+    width: 100%;
     flex-wrap: wrap;
     /* Permite que los botones se envuelvan */
     margin-top: 20px;
@@ -85,12 +80,14 @@ body {
 
 /* Estilos para el botón */
 .boton {
+    margin-left: 20%;
+    width: 60%;
     margin-top: 12px;
     margin-bottom: 12px;
     position: relative;
     display: block;
     padding: 10px 30px;
-    font-size: 1em;
+    font-size: 1.5em;
     background: transparent;
     border: 2px solid var(--crl);
     font-weight: 500;

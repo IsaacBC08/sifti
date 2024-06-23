@@ -263,78 +263,7 @@ body {
 }
 
 /* Media queries para dispositivos móviles */
-@media (max-width: 600px) {
-    .main-container {
-        width: 100% !important;
-        /* Ancho completo en dispositivos móviles */
-        border-radius: 0;
-        /* Sin bordes redondeados */
-        box-shadow: none;
-        /* Sin sombra */
-        padding: 10px;
-        /* Relleno más pequeño */
-    }
 
-    .titulo-animado {
-        font-size: large;
-        /* Tamaño de fuente más pequeño */
-    }
-
-    .typing-text {
-        font-size: medium;
-        /* Tamaño de fuente más pequeño */
-    }
-
-    .boton {
-        padding: 12px 25px;
-        /* Relleno más pequeño */
-        font-size: medium;
-        /* Tamaño de fuente más pequeño */
-        width: 100%;
-        /* Ancho completo */
-    }
-
-    .noticias,
-    .calendario,
-    .sobre {
-        padding: 20px;
-        /* Relleno más pequeño en secciones */
-    }
-
-    .noticias h2,
-    .calendario h2,
-    .sobre h2 {
-        font-size: larger;
-        /* Tamaño de fuente más pequeño en títulos de sección */
-    }
-
-    .noticia h3 {
-        font-size: 18px;
-        /* Tamaño de fuente más pequeño en títulos de noticias */
-    }
-
-    .noticia p,
-    .calendario ul li,
-    .sobre p {
-        font-size: medium;
-        /* Tamaño de fuente más pequeño en contenido */
-    }
-
-    .fecha {
-        color: #61665e;
-        margin-right: 10%;
-    }
-
-    .card img {
-        margin-top: 2vh;
-        width: 100%;
-        min-height: 60%;
-    }
-
-    #logo-splash {
-        margin-bottom: -50%;
-    }
-}
 
 /* Estilos para el modal */
 .modal {

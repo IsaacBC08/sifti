@@ -7,7 +7,6 @@ from datetime import datetime
 import logging
 from Lawliett_dir.Lawliett import Lawliett
 
-os.system('pip install joblib')
 # Configuración del puerto y credenciales de autenticación
 PORT = 8081
 PASSWORD = "sifti4321"

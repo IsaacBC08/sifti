@@ -268,9 +268,8 @@ body {
 /* Media queries para dispositivos móviles */
 @media (max-width: 600px) {
     .main-container {
-        width: 100%;
+        width: 100% !important;
         /* Ancho completo en dispositivos móviles */
-        max-width: 95%;
         border-radius: 0;
         /* Sin bordes redondeados */
         box-shadow: none;

@@ -74,6 +74,45 @@ body {
     width: 100%;
     flex-wrap: wrap;
     /* Permite que los botones se envuelvan */
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    /* Margen superior */
+}
+
+/* Estilos para el botón */
+.boton {
+    margin-top: 5%;
+    margin-bottom: 12px;
+    position: relative;
+    display: block;
+    padding: 10px 30px;
+    font-size: 1.5em;
+    background: transparent;
+    border: 2px solid var(--crl);
+    font-weight: 500;
+    border-radius: 40px;
+    cursor: pointer;
+    color: var(--crl);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: 0.8s;
+    overflow: hidden;
+}
+
+.boton:hover {
+    background: var(--crl);
+    box-shadow: 0 0 25px var(--crl), 0 0 100px var(--crl), 0 0 150px var(--crl);
+
+}
+@media screen and (max-width: 600px) {
+    
+/* Contenedor de botones */
+.boton-container {
+    width: 100%;
+    flex-wrap: wrap;
+    /* Permite que los botones se envuelvan */
     margin-top: 20px;
     /* Margen superior */
 }
@@ -99,13 +138,8 @@ body {
     transition: 0.8s;
     overflow: hidden;
 }
-
-.boton:hover {
-    background: var(--crl);
-    box-shadow: 0 0 25px var(--crl), 0 0 100px var(--crl), 0 0 150px var(--crl);
-
+    
 }
-
 .boton span {
     display: inline-block;
     transition: transform 0.5s;

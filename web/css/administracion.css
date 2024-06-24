@@ -43,6 +43,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
+    cursor: pointer;
     color: #ba55d3; /* Color del texto morado claro al pasar el ratón */
 }
 

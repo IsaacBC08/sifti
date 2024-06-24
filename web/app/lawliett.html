@@ -2,22 +2,29 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lawliett V0.05</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Añade esta línea -->
-    <link rel="stylesheet" href="../css/law.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/law.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    
 </head>
 <body>
     <div class="chat-container">
         <div class="chat-header">Habla con Lawliett</div>
         <div class="chat-messages" id="responseOutput"></div>
         <form id="commandForm" class="chat-form">
-            <button type="button" class="boton" style="--crl:#ff4b4b" onclick="window.history.back()" style="margin-right: 10px !important;"><span>&#8630;</span></button>
-            <input type="text" id="commandInput" name="command" required placeholder="Que le pedirás a Lawliett?">
-            <button type="submit" class="boton" style="--crl:#01dbc2"><span>&#8593;</span></button>
+            <button type="button" class="boton back-button" onclick="window.history.back()">
+                <i class="fa fa-arrow-left"></i>
+            </button>
+            <input type="text" id="commandInput" name="command" required placeholder="¿Qué le pedirás a Lawliett?">
+            <button type="submit" class="boton send-button">
+                <i class="fa fa-paper-plane"></i>
+            </button>
         </form>
     </div>
     <script src="../js/law.js"></script>
-    <script src="../js/hover.js"></script>
 </body>
 </html>

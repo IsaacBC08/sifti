@@ -1,5 +1,6 @@
 :root {
     --font-color: #01dbc2;
+    --border-color: #fff;
     --color-light: #1b2633;
     --color-medium: #1e2a37;
     --color-dark: #11151d;
@@ -41,10 +42,11 @@ header {
     font-weight: 600;
     border-bottom: 2px solid transparent;
     transition: all .55s ease;
+    cursor: pointer;
 }
 
 .nav-items a:hover {
-    border-bottom: 2px solid var(--font-color);
+    border-bottom: 2px solid var(--border-color);
 }
 
 .logo {
@@ -109,7 +111,7 @@ header {
     border: 1px solid transparent;
     padding: 12px 30px;
     line-height: 1.4;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 500;
     border-radius: 30px;
     text-transform: uppercase;
@@ -118,13 +120,14 @@ header {
 
 .sifti-text a:hover {
     background: transparent;
-    border: 1px solid var(--font-color);
+    border: 1px solid var(--border-color);
     transform: translateX(8px);
 }
 
 .sifti-text a i {
-    vertical-align: middle;
-    margin-right: 5px;
+    vertical-align: top;
+    margin-left: 5px;
+    font-size: 24px;
 }
 
 .sifti-img img {

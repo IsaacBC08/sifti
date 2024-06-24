@@ -1,8 +1,8 @@
 :root {
-    --font-color: #ffffff;
-    --color-light: #4d9559;
-    --color-medium: #38703d;
-    --color-dark: #133917;
+    --font-color: #01dbc2;
+    --color-light: #1b2633;
+    --color-medium: #1e2a37;
+    --color-dark: #11151d;
     --color-background-gradient: linear-gradient(249.59deg, var(--color-light) 0%, var(--color-medium) 28.53%, var(--color-dark) 75.52%);
 }
 
@@ -14,7 +14,9 @@
     list-style: none;
     text-decoration: none;
 }
-
+::-webkit-scrollbar {
+    width: 0;
+}
 header {
     position: fixed;
     right: 0;
@@ -258,7 +260,7 @@ section {
         top: 100%;
         right: -100%;
         width: 300px;
-        height: 80vh;
+        height: 40vh;
         background: var(--color-light);
         display: flex;
         align-items: center;

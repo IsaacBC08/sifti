@@ -1,172 +1,58 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJWJKSMZ3W"></script>
-    <title>SIFTI - Inicio</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/inicio.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <!-- Enlaces CSS -->
+    <link rel="stylesheet" href="./css/inicio.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-    <!-- Splash Screen -->
-    <div id="splash-screen">
-        <div class="load-container">
-            <div class="logo-container">
-                <img src="./img/logo-sifti.png" alt="Logo de SIFTI" class="animate__animated animate__zoomInDown">
-                <br>
-            </div>
-            <div class="wavy">
-                <span style="--i:1;">C</span>
-                <span style="--i:2;">a</span>
-                <span style="--i:3;">r</span>
-                <span style="--i:4;">g</span>
-                <span style="--i:5;">a</span>
-                <span style="--i:6;">n</span>
-                <span style="--i:7;">d</span>
-                <span style="--i:8;">o</span>
-                <span style="--i:9;">.</span>
-                <span style="--i:10">.</span>
-                <span style="--i:11">.</span>
-            </div>
+    <header>
+        <a href="#" class="logo">Sifti</a>
+        <ul class="nav-items">
+            <li><a href="#">Anuncios</a></li>
+            <li><a href="#">Estudiantes</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Profesores</a></li>
+            <li><a href="#">Reportes</a></li>
+            <li><a href="#"><i class="ri-admin-fill"> </i>Host</i></a></li>
+        </ul>
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+    <section class="sifti">
+        <div class="sifti-text">
+            <h5>Bienvenido a sifti</h5>
+            <h4>textooooooo</h4>
+            <h1>Sifti</h1>
+            <p>Sifti es la mejor plataforma para obtener información sobre el CTP de Pavas</p>
+            <a href="#" class="ctaa">Lawliett <i class="ri-message-2-fill"></i></i></a>
         </div>
+        <div class="sifti-img">
+            <img src="./img/logo-sifti.png" alt="">
+        </div>
+    </section>
+    <div class="icons">
+        <a href=""><i class="ri-instagram-line"></i></a>
+        <a href=""><i class="ri-github-fill"></i></a>
+        <a href=""><i class="ri-user-line"></i></a>
+    </div>
+    <div class="scroll-down">
+        <a href=""><i class="ri-arrow-down-s-fill"></i></a>
     </div>
 
-
-    <div id="progress-bar"></div>
-    <div id="scrool-path"></div>
-
-    <div class="main-container" id="main-content">
-
-        <!-- Contenido principal -->
-        <div class="contenido-principal">
-            <!-- Animación de bienvenida -->
-            <div class="welcome-animation">
-                <h1 class="titulo-animado">Bienvenido a SIFTI</h1>
-                <div class="typing-animation">
-                    <p class="typing-text">Plataforma diseñada para estudiantes y profesores del CTP de Pavas.</p>
-                </div>
-            </div>
-
-            <!-- Contenedor para los botones -->
-            <div class="boton-container">
-                <button class="boton" onclick="window.location.href='./app/estudiantes'"
-                    style="--crl:#01dbc2">Estudiantes</button>
-                <button class="boton" onclick="window.location.href='./app/profes'"
-                    style="--crl:#01dbc2">Profesores</button>
-                <button class="boton" onclick="window.location.href='./app/menu'" style="--crl:#01dbc2">Comedor</button>
-                <button class="boton" onclick="window.location.href='./app/anuncios'"
-                    style="--crl:#01dbc2">Anuncios</button>
-                <button class="boton" onclick="window.location.href='./app/reportes'"
-                    style="--crl:#01dbc2">Reportes</button>
-                <button class="boton" style="--crl:#01dbc2" onclick="window.location.href='./app/lawliett'">Lawliett</button>
-            </div>
-        </div>
-        <h2 class="titulo">Sección de noticias y eventos</h2>
-        <div class="contenedor-noticias">
-            <div class="slider">
-                <div class="card">
-                    <figure>
-                        <img src="" alt="Imagen 1" id="img-1">
-                    </figure>
-                    <div class="contenido">
-                        <h3 id="titulo-1"></h3>
-                        <p id="contenido-1"></p>
-                        <a href="#">Leer más</a><br>
-                        <span id="fecha-1" class="fecha"></span><span id="tipo-1"></span>
-                    </div>
-                </div>
-                <div class="card">
-                    <figure>
-                        <img src="" alt="Imagen 2" id="img-2">
-                    </figure>
-                    <div class="contenido">
-                        <h3 id="titulo-2"></h3>
-                        <p id="contenido-2"></p>
-                        <a href="#">Leer más</a><br>
-                        <span id="fecha-2" class="fecha"></span><span id="tipo-2"></span>
-                    </div>
-                </div>
-                <div class="card">
-                    <figure>
-                        <img src="" alt="Imagen 3" id="img-3">
-                    </figure>
-                    <div class="contenido">
-                        <h3 id="titulo-3"></h3>
-                        <p id="contenido-3"></p>
-                        <a href="#">Leer más</a><br>
-                        <span id="fecha-3" class="fecha"></span><span id="tipo-3"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Sección sobre SIFTI -->
-        <div class="seccion sobre">
-            <h2>Sobre SIFTI</h2>
-            <p>Plataforma diseñada para facilitar la gestión y comunicación entre estudiantes y profesores del CTP de
-                Pavas. Incluye funcionalidades como gestión de anuncios, horarios, menú del comedor, calendario de
-                eventos y generación de reportes.</p>
-        </div>
-
-        
-        <br>
-        <!-- Imagen del código QR -->
-        <img src="./img/codigo_qr.png" class="img_qr">
-        <div class="boton-container">
-            <button class="boton" style="--crl:#DB0174;" onclick="window.location.href='./host'">Administración</button>
-        </div>
-    </div>
-
-    <!-- Pie de Página -->
-    <footer class="footer">
-        <div class="footer-container">
-            <p>&copy; 2024 SIFTI. Todos los derechos reservados.</p>
-            <p><a href="" id="politica-link">Política de Privacidad</a></p>
-        </div>
-    </footer>
-
-    <!-- Ventana Emergente de Política de Privacidad -->
-    <div class="modal" id="politica-modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h1 class="h1-politica">Política de Privacidad</h1>
-            <p class="p-politica">Bienvenido a <strong>SIFTI</strong>, la plataforma diseñada para facilitar la gestión
-                y comunicación entre estudiantes y profesores del CTP de Pavas. Al utilizar nuestros servicios,
-                entendemos y aceptamos que se recopilen y almacenen ciertos datos personales y de uso para mejorar la
-                experiencia de usuario y garantizar el funcionamiento adecuado de la plataforma.</p>
-            <h2 class="h2-politica">Recopilación y Uso de Información</h2>
-            <p>Cuando accedes a <strong>SIFTI</strong>, automáticamente recopilamos cierta información técnica como
-                direcciones IP, tipo de navegador, idioma preferido, páginas visitadas y la fecha y hora de cada
-                solicitud. Estos datos nos ayudan a diagnosticar problemas técnicos, administrar la plataforma y mejorar
-                nuestros servicios.</p>
-            <h2 class="h2-politica">Uso de Direcciones IP</h2>
-            <p>Las direcciones IP son utilizadas para identificar y diagnosticar problemas técnicos en nuestros
-                servidores y para administrar la plataforma. También podemos utilizarlas para recopilar información
-                demográfica general para mejorar nuestros servicios y personalizar la experiencia del usuario.</p>
-            <h2 class="h2-politica">Seguridad de la Información</h2>
-            <p>Tomamos medidas razonables para proteger la información personal recopilada contra acceso no autorizado,
-                uso indebido o divulgación. Sin embargo, ningún método de transmisión por Internet o almacenamiento
-                electrónico es completamente seguro, por lo que no podemos garantizar su seguridad absoluta.</p>
-            <h2 class="h2-politica">Consentimiento</h2>
-            <p>Al utilizar nuestros servicios, aceptas expresamente la recopilación, uso y almacenamiento de tu
-                información personal según se describe en esta política de privacidad.</p>
-            <h2 class="h2-politica">Actualizaciones</h2>
-            <p>Esta política de privacidad puede ser actualizada periódicamente y todas las modificaciones serán
-                efectivas al ser publicadas en esta página. Te recomendamos revisar esta política regularmente para
-                estar informado sobre cómo protegemos tu información.</p>
-            <p>Fecha de última actualización: <strong>08-06-2024</strong>.</p>
-        </div>
-    </div>
-
-    <script src="./js/home.js"></script>
-    <script src="./js/hover.js"></script>
-
+    <!-- JavaScript Files -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="js/home.js"></script>
 </body>
 
 </html>

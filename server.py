@@ -9,7 +9,7 @@ from model.Lawliett import Lawliett
 from tools.convert_img import convert_to_webp
 
 # Configuración del puerto y credenciales de autenticación
-PORT = 8081
+PORT = 8080
 PASSWORD = "sifti4321"
 USERNAME = "Team Sifti"  # Nombre de usuario temporal
 

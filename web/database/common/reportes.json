@@ -1,18 +1,18 @@
 {
     "report-1": {
+        "nombre": "05-06-24",
+        "categoria": "comentario",
+        "descripcion": "asda"
+    },
+    "report-2": {
+        "nombre": "Isaac",
+        "categoria": "pregunta",
+        "descripcion": "Que hay de nuevo viejo\u00a1"
+    },
+    "report-3": {
         "nombre": "Newton",
         "categoria": "sugerencia",
         "descripcion": "M\u00e1s paga para el programador"
-    },
-    "report-2": {
-        "nombre": "",
-        "categoria": "",
-        "descripcion": ""
-    },
-    "report-3": {
-        "nombre": "",
-        "categoria": "",
-        "descripcion": ""
     },
     "report-4": {
         "nombre": "",

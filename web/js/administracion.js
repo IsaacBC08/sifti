@@ -1,46 +1,17 @@
-document.addEventListener("DOMContentLoaded", function() {
-    
-    // Obtener referencias a los elementos del menú
-    const menuLink = document.getElementById('menu-link');
-    const announcementLink = document.getElementById('announcement-link');
-    const reportLink = document.getElementById('reports-link');
-    const newsLink = document.getElementById('news-link')
-    
-    // Obtener referencias a las secciones correspondientes
-    const menuSection = document.getElementById('menu-section');
-    const announcementSection = document.getElementById('announcement-section');
-    const reportSection = document.getElementById('read_reports-section');
-    const newsSection = document.getElementById('news-section')    
-
-    // Listener para mostrar la sección del menú al hacer clic en 'Menú'
-    menuLink.addEventListener('click', function() {
-        menuSection.style.display = 'block';
-        announcementSection.style.display = 'none';
-        reportSection.style.display = 'none';
+function showSection(sectionId) {
+    // Ocultar todas las secciones
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.style.display = 'none';
     });
 
-    // Listener para mostrar la sección de anuncios al hacer clic en 'Anuncios'
-    announcementLink.addEventListener('click', function() {
-        menuSection.style.display = 'none';
-        announcementSection.style.display = 'block';
-        reportSection.style.display = 'none';
-        newsSection.style.display = 'none';
-    });
-
-    // Listener para mostrar la sección de reportes al hacer clic en 'Reportes'
-    reportLink.addEventListener('click', function() {
-        menuSection.style.display = 'none';
-        announcementSection.style.display = 'none';
-        reportSection.style.display = 'block';
-        newsSection.style.display = 'none';
-    });
-    newsLink.addEventListener('click', function(){
-        menuSection.style.display = 'none';
-        announcementSection.style.display = 'none';
-        reportSection.style.display = 'none';
-        newsSection.style.display = 'block';
-    })
-});
+    // Mostrar la sección seleccionada
+    const selectedSection = document.getElementById(sectionId);
+    if (selectedSection.id == "leer-reportes"){
+        cargar_reportes()
+    }
+    selectedSection.style.display = 'block';
+}
 
 function guardar_menu(event) {
     event.preventDefault();  // Evitar que el formulario se envíe y recargue la página
@@ -158,7 +129,7 @@ function subir_anuncio() {
 
 function cargar_reportes() { 
     const timestamp = new Date().getTime();  // Obtener una marca de tiempo única
-    const url = `database/reportes.json?timestamp=${timestamp}`;  // URL del archivo JSON
+    const url = `database/common/reportes.json?timestamp=${timestamp}`;  // URL del archivo JSON
 
     // Hacer una solicitud fetch para obtener los datos del archivo JSON
     fetch(url)
@@ -176,28 +147,25 @@ function cargar_reportes() {
 }
 
 function upload_image() {
-    document.getElementById('uploadForm').addEventListener('click', function(event) {
-        event.preventDefault();
-        var root = document.getElementById('root')
-        var formData = new FormData(this);
+    const uploadForm = document.getElementById('uploadForm');
+    const formData = new FormData(uploadForm);
 
-        fetch('/upload_image', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                var img = document.createElement('img');
-                img.src = data.file_path;
-                root.textContent = data.file_path;
-                document.getElementById('imageContainer').appendChild(img);
-            } else {
-                alert(data.message);
-            }
-        })
-        .catch(error => console.error('Error:', error));
-    });
+    fetch('/upload_image', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            var img = document.createElement('img');
+            img.src = data.file_path;
+            document.getElementById('root').textContent = data.file_path;
+            document.getElementById('imageContainer').appendChild(img);
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(error => console.error('Error:', error));
 }
 
 function publicar_destacada() {
@@ -231,3 +199,10 @@ function publicar_destacada() {
         alert('Error al publicar la noticia');
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const imageInput = document.querySelector('input[type="file"][name="image"]');
+    if (imageInput) {
+        imageInput.addEventListener('change', upload_image);
+    }
+});

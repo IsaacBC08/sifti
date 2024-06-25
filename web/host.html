@@ -2,178 +2,207 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador</title>
-    <link rel="stylesheet" href="../css/administracion.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin Dashboard</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+	<link rel="stylesheet" href="./css/administracion.css">
 </head>
 
 <body>
-    <header>
-        <h1>Panel de Administración</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a onclick="window.history.back()">&#9204;Inicio</a></li>
-            <hr>
-            <li><a id="menu-link">Administrar Menú</a></li>
-            <hr>
-            <li><a id="announcement-link">Publicar Anuncio</a></li>
-            <hr>
-            <li><a id="news-link">Publicar Destacada</a></li>
-            <hr>
-            <li><a id="reports-link" onclick="cargar_reportes()">Leer Reportes</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section id="menu-section">
-            <h2>Administrar Menú</h2>
-            <div class="container">
-                <h1>Editar Menú</h1>
+	<div class="sidebar">
+		<div class="sidebar-header">
+			<h2>Admin Dashboard</h2>
+		</div>
+		<ul class="sidebar-menu">
+			<li><a href="./"><i class="fas fa-home"></i> Volver al Inicio</a></li>
 
-                <form id="menuForm">
-                    <label for="Lunes">Lunes:</label>
-                    <input type="text" id="lunes" name="Lunes" placeholder=""><br><br>
+			<li><a href="#admin-menu" onclick="showSection('admin-menu')"><i class="fas fa-bars"></i> Administrar
+					Menú</a></li>
+			<li><a href="#publicar-anuncio" onclick="showSection('publicar-anuncio')"><i class="fas fa-bullhorn"></i>
+					Publicar Anuncio</a></li>
+			<li><a href="#publicar-destacada" onclick="showSection('publicar-destacada')"><i class="fas fa-star"></i>
+					Publicar Destacada</a></li>
+			<li><a href="#leer-reportes" onclick="showSection('leer-reportes')"><i class="fas fa-file-alt"></i> Leer
+					Reportes</a></li>
+		</ul>
+	</div>
+	<div class="main-content">
+		<section id="admin-menu" class="section" style="display: none;">
+			<h3>Administrar Menú</h3>
+			<form id="menuForm">
+				<div class="form-group">
+					<label for="lunes">Lunes:</label>
+					<input type="text" id="lunes" name="Lunes" placeholder="">
+				</div>
+				<div class="form-group">
+					<label for="martes">Martes:</label>
+					<input type="text" id="martes" name="Martes" placeholder="">
+				</div>
+				<div class="form-group">
+					<label for="miercoles">Miércoles:</label>
+					<input type="text" id="miercoles" name="Miercoles" placeholder="">
+				</div>
+				<div class="form-group">
+					<label for="jueves">Jueves:</label>
+					<input type="text" id="jueves" name="Jueves" placeholder="">
+				</div>
+				<div class="form-group">
+					<label for="viernes">Viernes:</label>
+					<input type="text" id="viernes" name="Viernes" placeholder="">
+				</div>
+				<div class="form-group">
+					<button type="button" class="action-button" onclick="guardar_menu(event)">Guardar Cambios</button>
+				</div>
+			</form>
+		</section>
+		<section id="publicar-anuncio" class="section" style="display: none;">
+			<h3>Publicar Anuncio</h3>
+			<form action="" method="POST">
+				<div class="form-group">
+					<label for="fecha">Fecha:</label>
+					<input type="text" id="fecha" name="fecha" required>
+				</div>
+				<div class="form-group">
+					<label for="asunto">Asunto:</label>
+					<input type="text" id="asunto" name="asunto" required>
+				</div>
+				<div class="form-group">
+					<label for="contenido">Contenido:</label>
+					<textarea id="contenido" name="contenido" required></textarea>
+				</div>
+				<div class="form-group">
+					<label for="afectados">Afectados: </label>
+					<input type="text" id="afectados" name="afectados" required>
+				</div>
+				<div class="form-group">
+					<button type="button" class="action-button" onclick="subir_anuncio()">Publicar</button>
+				</div>
+			</form>
+		</section>
+		<section id="publicar-destacada" class="section" style="display: none;">
+			<h3>Publicar Destacada</h3>
+			<div class="container">
+				<h1>Subir Imagen</h1>
+				<form id="uploadForm" enctype="multipart/form-data" method="POST" action="">
+					<label for="imageInput" class="custom-file-upload">
+						<span><i class="fas fa-cloud-upload-alt"></i> Subir Imagen</span>
+						<input type="file" name="image" accept="image/*" id="imageInput" required class="input-file">
+						<br>
+					</label>
+					<span id="root" style="display: none;"></span>
+					<br>
+				</form>
+				<div id="imageContainer">
+					<img src="" alt="Imagen subida" id="uploadedImage"
+						style="display: none; max-width: 100%; border-radius: 8px;">
+				</div>
+				<form action="#" method="POST" id="datos">
+					<div class="form-group">
+						<label for="destacada-titulo">Titular:</label>
+						<input type="text" id="destacada-titulo" name="destacada" required>
+					</div>
+					<div class="form-group">
+						<label for="destacada-contenido">Contenido:</label>
+						<textarea id="destacada-contenido" name="destacada-contenido" required></textarea>
+					</div>
+					<div class="form-group">
+						<label for="tipo">Tipo</label>
+						<select name="type" id="tipo" class="custom-select">
+							<option value="default" selected disabled hidden><i class="fas fa-ellipsis-h"></i>
+								Seleccione una opción...</option>
+							<option value="evento"><i class="fas fa-calendar-alt"></i>Evento</option>
+							<option value="noticia"><i class="far fa-newspaper"></i> Noticia</option>
+						</select>
 
-                    <label for="Martes">Martes:</label>
-                    <input type="text" id="martes" name="Martes" placeholder=""><br><br>
+					</div>
+					<div class="form-group">
+						<button type="button" class="action-button" onclick="publicar_destacada()">Publicar</button>
+					</div>
+				</form>
+			</div>
+		</section>
+		<section id="leer-reportes" class="section" style="display: none;">
+			<h3>Leer Reportes</h3>
+			<div class="report-list">
+				<div class="report-list">
+					<div class="container-report">
+						<div class="report-card">
+							<h1 id="nombre-1" class="nombre"></h1>
+							<h3 id="categoria-1" class="categoria"></h3>
+							<p id="descripcion-1" class="contenido"></p>
+						</div>
+					</div>
+					<div class="container-report">
+						<div class="report-card">
+							<h1 id="nombre-2" class="nombre"></h1>
+							<h3 id="categoria-2" class="categoria"></h3>
+							<p id="descripcion-2" class="contenido"></p>
+						</div>
+					</div>
+					<div class="container-report">
+						<div class="report-card">
+							<h1 id="nombre-3" class="nombre"></h1>
+							<h3 id="categoria-3" class="categoria"></h3>
+							<p id="descripcion-3" class="contenido"></p>
+						</div>
+					</div>
+					<div class="container-report">
+						<div class="report-card">
+							<h1 id="nombre-4" class="nombre"></h1>
+							<h3 id="categoria-4" class="categoria"></h3>
+							<p id="descripcion-4" class="contenido"></p>
+						</div>
+					</div>
+					<div class="container-report">
+						<div class="report-card">
+							<h1 id="nombre-5" class="nombre"></h1>
+							<h3 id="categoria-5" class="categoria"></h3>
+							<p id="descripcion-5" class="contenido"></p>
+						</div>
+					</div>
+					<div class="container-report">
+						<div class="report-card">
+							<h1 id="nombre-6" class="nombre"></h1>
+							<h3 id="categoria-6" class="categoria"></h3>
+							<p id="descripcion-6" class="contenido"></p>
+						</div>
+					</div>
+					<div class="container-report">
+						<div class="report-card">
+							<h1 id="nombre-7" class="nombre"></h1>
+							<h3 id="categoria-7" class="categoria"></h3>
+							<p id="descripcion-7" class="contenido"></p>
+						</div>
+					</div>
+					<div class="container-report">
+						<div class="report-card">
+							<h1 id="nombre-8" class="nombre"></h1>
+							<h3 id="categoria-8" class="categoria"></h3>
+							<p id="descripcion-8" class="contenido"></p>
+						</div>
+					</div>
+					<div class="container-report">
+						<div class="report-card">
+							<h1 id="nombre-9" class="nombre"></h1>
+							<h3 id="categoria-9" class="categoria"></h3>
+							<p id="descripcion-9" class="contenido"></p>
+						</div>
+					</div>
+					<div class="container-report">
+						<div class="report-card">
+							<h1 id="nombre-10" class="nombre"></h1>
+							<h3 id="categoria-10" class="categoria"></h3>
+							<p id="descripcion-10" class="contenido"></p>
+						</div>
+					</div>
+				</div>
+		</section>
 
-                    <label for="Miercoles">Miércoles:</label>
-                    <input type="text" id="miercoles" name="Miercoles" placeholder=""><br><br>
-
-                    <label for="Jueves">Jueves:</label>
-                    <input type="text" id="jueves" name="Jueves" placeholder=""><br><br>
-
-                    <label for="Viernes">Viernes:</label>
-                    <input type="text" id="viernes" name="Viernes" placeholder=""><br><br>
-
-                    <div class="button-container">
-                        <button type="button" class="boton" id="" onclick="guardar_menu(event)">Guardar Cambios</button>
-                    </div>
-                </form>
-            </div>
-        </section>
-        <section id="announcement-section" style="display: none;">
-            <h2>Publicar un Anuncio</h2>
-            <!-- Contenido para publicar un anuncio -->
-            <div class="container">
-                <h2>Anuncios de último momento</h2>
-                <form action="" method="POST">
-                    <div class="form-group">
-                        <label for="fecha">Fecha:</label>
-                        <input type="text" id="fecha" name="fecha" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="asunto">Asunto:</label>
-                        <input type="text" id="asunto" name="asunto" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contenido">Contenido:</label>
-                        <textarea id="contenido" name="contenido" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="afectados">Afectados: </label>
-                        <input type="text" id="afectados" name="afectados" required>
-                    </div>
-                    <div class="form-group">
-                        <button type="button" class="boton" onclick="subir_anuncio()">Publicar</button>
-                    </div>
-                </form>
-            </div>
-        </section>
-        <section id="news-section" style="display: none;">
-            <h2>Publicar una Destacada</h2>
-            <!-- Contenido para publicar una noticia -->
-            <div class="container">
-                <h1>Subir Imagen</h1>
-                <form id="uploadForm" enctype="multipart/form-data" method="POST" action="">
-                    <input type="file" name="image" accept="image/*" required class="input-file"><br>
-                    <button type="button" onclick="upload_image()" class="boton">Subir Imagen</button><br>
-                    <span id="root" style="display: none;"></span>
-                </form>
-                <div id="imageContainer">
-                    <img src="" alt="Imagen subida" id="uploadedImage" style="display: none; max-width: 100%; border-radius: 8px;">
-                </div>
-                <form action="#" method="POST" id="datos">
-                    <div class="form-group">
-                        <label for="destacada">Titular:</label>
-                        <input type="text" id="destacada-titulo" name="destacada" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="destacada">Contenido:</label>
-                        <textarea id="destacada-contenido" name="destacada-contenido" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="noticia-tipo">Tipo</label>
-                        <select name="type" id="tipo">
-                            <option value="default">...</option>
-                            <option value="evento">Evento</option>
-                            <option value="noticia">Noticia</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <button type="button" class="boton" onclick="publicar_destacada()">Publicar</button>
-                    </div>
-                </form>
-            </div>
-        </section>
-        <section id="read_reports-section" style="display: none;">
-            <h2>Reportes de la última semana</h2>
-            <!-- reportes -->
-            <div class="container-report">
-                <h1 id="nombre-1" class="nombre"></h1>
-                <h3 id="categoria-1" class="categoria"></h3>
-                <p id="descripcion-1" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-2" class="nombre"></h1>
-                <h3 id="categoria-2" class="categoria"></h3>
-                <p id="descripcion-2" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-3" class="nombre"></h1>
-                <h3 id="categoria-3" class="categoria"></h3>
-                <p id="descripcion-3" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-4" class="nombre"></h1>
-                <h3 id="categoria-4" class="categoria"></h3>
-                <p id="descripcion-4" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-5" class="nombre"></h1>
-                <h3 id="categoria-5" class="categoria"></h3>
-                <p id="descripcion-5" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-6" class="nombre"></h1>
-                <h3 id="categoria-6" class="categoria"></h3>
-                <p id="descripcion-6" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-7" class="nombre"></h1>
-                <h3 id="categoria-7" class="categoria"></h3>
-                <p id="descripcion-7" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-8" class="nombre"></h1>
-                <h3 id="categoria-8" class="categoria"></h3>
-                <p id="descripcion-8" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-9" class="nombre"></h1>
-                <h3 id="categoria-9" class="categoria"></h3>
-                <p id="descripcion-9" class="contenido"></p>
-            </div>
-            <div class="container-report">
-                <h1 id="nombre-10" class="nombre"></h1>
-                <h3 id="categoria-10" class="categoria"></h3>
-                <p id="descripcion-10" class="contenido"></p>
-            </div>
-        </section>
-    </main>
-    <script src="./js/administracion.js"></script>
-
+	</div>
+	<script src="./js/administracion.js"></script>
 </body>
 
 </html>

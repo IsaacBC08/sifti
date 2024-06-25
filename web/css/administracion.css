@@ -1,189 +1,225 @@
-/* css/administracion.css */
+:root {
+    --color-light: #1b2633;
+    --color-medium: #1e2a37;
+    --color-dark: #11151d;
+    --primary-color: #01dbc2;
+    --secondary-color: #333;
+    --background-color: linear-gradient(249.59deg, var(--color-light) 0%, var(--color-medium) 28.53%, var(--color-dark) 75.52%);
+    --font-color: #fff;
+    --content-background-color: #37475a;
+    --input-border-color: #ccc;
+    --input-background-color: #1b2633;
+    --input-focus-shadow-color: rgba(74, 20, 140, 0.2);
+    --hover-background-color: #20f7de;
+    --report-item-border-color: #eee;
+    --report-item-background-color: #f9f9f9;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
 
-/* Estilos generales del cuerpo de la página */
 body {
-    font-family: Arial, sans-serif; /* Fuente principal */
-    background-color: #f5f5f5; /* Color de fondo */
-    margin: 0;
-    padding: 0;
-    text-align: center; /* Alinear texto al centro */
-}
-
-/* Estilos del encabezado */
-header {
-    background-color: #8a2be2; /* Color de fondo morado */
-    color: white; /* Color del texto */
-    padding: 1rem;
-    text-align: center;
-}
-
-/* Estilos de la barra de navegación */
-nav {
-    background-color: #dcdcdc; /* Color de fondo gris claro */
-    padding: 1rem;
     display: flex;
-    justify-content: center; /* Centrar elementos */
-}
-
-nav ul {
-    list-style: none; /* Quitar viñetas de la lista */
-    padding: 0;
     margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--background-color);
+    color: var(--font-color);
 }
 
-nav ul li {
-    display: inline; /* Mostrar elementos en línea */
-    margin: 0 1rem; /* Margen entre elementos */
-}
-
-nav ul li a {
-    color: #8a2be2; /* Color del texto morado */
-    text-decoration: none; /* Quitar subrayado de los enlaces */
-    font-weight: bold; /* Texto en negrita */
-}
-
-nav ul li a:hover {
-    cursor: pointer;
-    color: #ba55d3; /* Color del texto morado claro al pasar el ratón */
-}
-
-/* Estilos del contenido principal */
-main {
-    padding: 2rem; /* Relleno interior */
-}
-
-/* Estilos de sección */
-section {
-    background-color: #ffffff; /* Color de fondo blanco */
-    padding: 1rem;
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    margin-bottom: 2rem; /* Margen inferior */
-}
-
-/* Estilos del título de sección */
-h2 {
-    color: #8a2be2; /* Color morado */
-}
-
-/* Estilos del contenedor */
-.container {
-    background-color: #f0f0ff; /* Color de fondo lila claro */
-    padding: 2rem;
-    border-radius: 8px; /* Bordes redondeados */
-}
-
-/* Estilos del formulario */
-form {
+.sidebar {
+    width: 250px;
+    background: var(--secondary-color);
+    color: var(--font-color);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrar elementos del formulario */
+    min-height: 100vh;
 }
 
-label {
-    margin-top: 1rem; /* Margen superior */
-    color: #8a2be2; /* Color morado */
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    background: var(--secondary-color);
 }
 
-input[type="text"],
-textarea {
-    width: 100%; /* Ancho completo */
-    padding: 0.5rem; /* Relleno */
-    margin-top: 0.5rem; /* Margen superior */
-    border: 1px solid #ccc; /* Borde gris */
-    border-radius: 4px; /* Bordes redondeados */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
 }
 
-textarea {
-    height: 100px; /* Altura del área de texto */
+.sidebar-menu li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Estilos del contenedor de botones */
-.button-container {
-    display: flex;
-    justify-content: center; /* Centrar botones */
-    margin-top: 1.5rem; /* Margen superior */
+.sidebar-menu a {
+    display: block;
+    color: var(--font-color);
+    text-decoration: none;
+    padding: 15px;
+    transition: background 0.3s ease;
 }
 
-/* Estilos del botón */
-.boton {
-    background-color: #f67091; /* Color de fondo morado */
-    color: white; /* Color del texto */
-    padding: 0.5rem 1rem; /* Relleno interior */
-    border: none; /* Quitar borde */
-    border-radius: 4px; /* Bordes redondeados */
-    cursor: pointer; /* Cambiar cursor al pasar el ratón */
-    margin: 0 0.5rem; /* Margen entre botones */
-    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Transición para fondo, sombra y transformación */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+.sidebar-menu a:hover {
+    background: var(--primary-color);
 }
 
-/* Estilo al pasar el ratón */
-.boton:hover {
-    background-color: #ba55d3; /* Color de fondo morado claro al pasar el ratón */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
-    transform: translateY(-2px); /* Levantar botón ligeramente */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
 }
 
-/* Estilo al hacer clic */
-.boton:active {
-    background-color: #7a1dc0; /* Color de fondo más oscuro al hacer clic */
-    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1); /* Sombra más suave */
-    transform: translateY(0); /* Revertir levantamiento */
+.section {
+    background: var(--content-background-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
 }
 
-/* Estilos adicionales */
-.boton:focus {
-    outline: none; /* Quitar el borde de enfoque */
-    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.5); /* Añadir sombra de enfoque */
+.section h3 {
+    margin-top: 0;
+    color: var(--primary-color);
 }
 
-.boton.disabled {
-    background-color: #cccccc; /* Color de fondo gris para estado deshabilitado */
-    cursor: not-allowed; /* Cambiar cursor a no permitido */
-    box-shadow: none; /* Quitar sombra */
+.action-button {
+    background: var(--primary-color);
+    color: var(--font-color);
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-/* Estilos para grupo de formularios */
+.action-button:hover {
+    background: var(--hover-background-color);
+}
+
 .form-group {
-    margin-bottom: 1rem; /* Margen inferior */
-    width: 100%; /* Ancho completo */
+    margin-bottom: 20px;
 }
 
-/* Estilos para nombre */
-.nombre {
-    font-weight: bold; /* Texto en negrita */
-    color: #4a4a4a; /* Color gris oscuro */
-    text-align: center; /* Alinear texto al centro */
-    font-size: 2rem; /* Tamaño de fuente */
+.form-group label {
+    font-weight: bold;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 5px;
 }
 
-/* Estilos para contenedor de reporte */
+.form-group input,
+.form-group textarea {
+    color: var(--font-color);
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    background: var(--input-background-color);
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    box-shadow: 0 0 10px var(--input-focus-shadow-color);
+}
+
+.report-list .report-item {
+    background: var(--report-item-background-color);
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid var(--report-item-border-color);
+    border-radius: 5px;
+}
+
+.report-list .report-item h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+.custom-file-upload {
+    display: inline-block;
+    position: relative;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 4px;
+    overflow: hidden;
+    color: #333;
+    text-align: center;
+    margin-bottom: 2%;
+    width: 22%;
+}
+
+.custom-file-upload span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.custom-file-upload input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 20px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Estilos adicionales para el icono usando FontAwesome */
+.custom-file-upload i {
+    margin-right: 5px;
+}
+/* Estilos para el select personalizado con iconos */
+
+/* Estilo para el select personalizado */
+.custom-select {
+    width: 25%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    appearance: none; /* Oculta la flecha nativa del select */
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z' fill='%23222'/%3E%3C/svg%3E"); /* Icono de flecha personalizado */
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+}
+
+/* Estilo para cada opción del select */
+.custom-select option {
+    padding: 10px;
+}
+/* Estilos para los contenedores de los reportes */
 .container-report {
-    background-color: #f2f2f2; /* Color de fondo gris claro */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 20px; /* Relleno */
-    margin-bottom: 20px; /* Margen inferior */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+
+    margin-bottom: 20px; /* Espacio entre cada tarjeta */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: var(--color-light);
+    color: var(--primary-color);
 }
 
-/* Estilos para categoría */
-.categoria {
-    text-align: left; /* Alinear texto a la izquierda */
-    font-weight: bold; /* Texto en negrita */
-    font-size: 1.2rem; /* Tamaño de fuente */
-    color: #ff6a4d; /* Color naranja */
-    margin-bottom: 10px; /* Margen inferior */
+/* Estilos para las tarjetas de reporte */
+.report-card {
+    padding: 10px;
 }
 
-/* Estilos para descripción */
-.descripcion {
-    text-align: left; /* Justificar texto */
-    font-size: 1.1rem; /* Tamaño de fuente */
-    color: #333; /* Color gris oscuro */
-    line-height: 1.6; /* Interlineado */
+.report-card h1 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 10px;
 }
-.input-file {
-    margin-top: 10% !important;
-    margin-bottom: 10% !important;
+
+.report-card h3 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.report-card p {
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: bold;
 }

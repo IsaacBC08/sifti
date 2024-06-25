@@ -3,35 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Reporte de Errores</title>
+    <title>Formulario de Reportes</title>
     <link rel="stylesheet" href="../css/reportes.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
 </head>
 <body>
 
 <div class="container">
-    <h2>Formulario de Reporte de Errores</h2>
+    <h2>Formulario de Reportes</h2>
     <form action="" method="POST">
         <div class="form-group">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
         </div>
         <div class="form-group">
-            <label for="categoria">Categoría del Error:</label>
+            <label for="categoria">Categoría:</label>
             <select id="categoria" name="categoria" required>
                 <option value="error">Error</option>
                 <option value="mejora">Mejora</option>
                 <option value="pregunta">Pregunta</option>
-				<option value="comentario">Comentario</option>
-                <option value="sugerencia">sugerencia</option>
-				<option value="otro">Otro</option>
+                <option value="comentario">Comentario</option>
+                <option value="sugerencia">Sugerencia</option>
+                <option value="otro">Otro</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="descripcion">Descripción del Error:</label>
+            <label for="descripcion">Descripción</label>
             <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
         </div>
-        <button type="button" class="boton" onclick="enviar_reporte()">Enviar Reporte</button>
+        <button type="button" class="boton" onclick="enviar_reporte()">Enviar <i class="ri-mail-send-fill" id="send"></i></button>
         <br>
         <button type="button" class="boton" onclick="window.history.back()">Volver</button>
     </form>

@@ -2,6 +2,7 @@ import json
 import joblib
 import re
 from datetime import datetime
+import random
 
 # Función para cargar el horario desde el archivo JSON
 def cargar_horario(archivo):
@@ -9,7 +10,8 @@ def cargar_horario(archivo):
         return json.load(f)
 
 # Cargar el modelo de predicción de intenciones
-modelo_intenciones = joblib.load('model/lawliett.pkl')
+intencion_comando = joblib.load('model/intencion.pkl')
+analisis_comando = joblib.load('model/analisis.pkl')
 
 # Función para evaluar el intervalo basado en la hora actual
 def evaluar_intervalo(hora_actual):
@@ -56,7 +58,11 @@ def evaluar_intervalo(hora_actual):
 
 # Función para clasificar la intención del comando
 def clasificar_intencion(comando):
-    return modelo_intenciones.predict([comando])[0]
+    return intencion_comando.predict([comando])[0]
+
+# Función para que analice el comando
+def clasificar_palabras(palabra):
+    return analisis_comando.predict([palabra])[0]
 
 # Función para obtener la clase según la sección, día e índice
 def obtener_clase(horario, seccion, dia, indice):
@@ -67,74 +73,92 @@ def obtener_clase(horario, seccion, dia, indice):
     except IndexError:
         return f"No hay clase en la posición {indice} para la sección {seccion} el día {dia}."
 
-# Función para procesar el comando del usuario
-def procesar_comando(comando, horario):
-    try:
-        # Extraer sección, día e hora del comando
-        seccion_match = re.search(r'sección\s*([0-9A-Za-z-]+)', comando)
-        dia_match = re.search(r'día\s*([a-zA-Z]+)', comando)
-        hora_match = re.search(r'a las\s*(\d+:\d+)', comando)
-        if seccion_match: 
-            if dia_match and hora_match:
-                seccion = seccion_match.group(1)
-                dia = dia_match.group(1).capitalize()  # Convertir a mayúscula la primera letra
-                hora = hora_match.group(1)
-                
-                # Evaluar el intervalo de hora
-                indice = evaluar_intervalo(hora)
-                
-                if indice is not None:
-                    clase = obtener_clase(horario, seccion, dia, indice)
-                    return f"La sección {seccion} ahorita mismo está en: {clase}"
-                else:
-                    return "No estámos en horario lectivo jaja!"
-            
-            elif dia_match and not hora_match:
-                seccion = seccion_match.group(1)
-                dia = dia_match.group(1).capitalize()  # Convertir a mayúscula la primera letra
-                hora =  datetime.now().strftime("%H:%M")
-                
-                # Evaluar el intervalo de hora
-                indice = evaluar_intervalo(hora)
-                
-                if indice is not None:
-                    clase = obtener_clase(horario, seccion, dia, indice)
-                    return f"No se digitaron espeficicaciones sobre la hora, se usará la hora actual como referencia, la sección {seccion} está en: {clase}"
-                else:
-                    return "No estámos en horario lectivo jaja!"
-            elif not dia_match and hora_match:
-                        seccion = seccion_match.group(1)
-                        dia_ingles = datetime.now().strftime("%A")  # Obtener el nombre del día actual en formato completo
-                        dia = dia_ingles.replace("Mondey", "Lunes").replace("Tuesday", "Martes").replace("Wednesday", "Miércoles").replace("Thursday", "Jueves").replace("Friday", "Viernes").replace("Saturday", "Sábado").replace("Sunday", "Domingo")
-                        hora = hora_match.group(1)
-                        
-                        # Evaluar el intervalo de hora
-                        indice = evaluar_intervalo(hora)
-                        
-                        if indice is not None:
-                            clase = obtener_clase(horario, seccion, dia, indice)
-                            return f"No se digitaron espeficicaciones sobre el día, por lo que se utilizará hoy {dia} como referencia, la sección {seccion} está en: {clase}"
-                        else:
-                            return "Error: No estámos en horario lectivo"
-            elif not dia_match and not hora_match:
-                        seccion = seccion_match.group(1)
-                        dia = datetime.now().strftime("%A").replace("Mondey", "Lunes").replace("Tuesday", "Martes").replace("Wednesday", "Miércoles").replace("Thursday", "Jueves").replace("Friday", "Viernes").replace("Saturday", "Sábado").replace("Sunday", "Domingo")  # Obtener el nombre del día actual en formato completo
-                        hora = datetime.now().strftime("%H:%M")
-                        # Evaluar el intervalo de hora
-                        indice = evaluar_intervalo(hora)
-                        
-                        if indice is not None:
-                            clase = obtener_clase(horario, seccion, dia, indice)
-                            return f"No se ha digitado especificaciones sobre día u hora, por lo que se usaron los datos de tiempo real, la sección: {seccion} está en: {clase}"
-                        else:
-                            return "Error: La hora proporcionada no coincide con ningún intervalo conocido."
-        else:
-            return "No hay una sección especifícada, ingresa una en el formato {grado-numero-subgrupo} ej: 10-3-A"
-    except Exception as e:
-        return f"Error al procesar el comando: {e}"
+def limpiar_palabra(palabra):
+    # Eliminar símbolos no deseados
+    return re.sub(r'[?!¡¿]', '', palabra)
 
+# Función para consultar el horario 
+def consultar_horario(comando, horario):
+    try:
+        dia_match = ""
+        hora_match = ""
+        seccion_match = ""
+
+        palabras = comando.split()
+        for palabra in palabras:
+            palabra_limpia = limpiar_palabra(palabra)
+            categoria = clasificar_palabras(palabra_limpia)
+            if categoria == "Día":
+                dia_match = palabra_limpia
+            elif categoria == "Hora":
+                hora_match = palabra_limpia
+            elif categoria == "Sección":
+                seccion_match = palabra_limpia
+
+        if seccion_match:
+            if dia_match and hora_match:
+                dia = dia_match.capitalize()
+                hora = hora_match
+                indice = evaluar_intervalo(hora)
+
+                if indice is not None:
+                    clase = obtener_clase(horario, seccion_match, dia, indice)
+                    return f"Según lo que pediste, la {seccion_match} está en: {clase}"
+                else:
+                    return "No estamos en horario lectivo en este momento."
+
+            elif dia_match and not hora_match:
+                dia = dia_match.capitalize()
+                hora = datetime.now().strftime("%H:%M")
+                indice = evaluar_intervalo(hora)
+
+                if indice is not None:
+                    clase = obtener_clase(horario, seccion_match, dia, indice)
+                    return (f"No se especificó la hora, así que usé la hora actual. "
+                            f"La sección {seccion_match} está en: {clase}")
+                else:
+                    return "No estamos en horario lectivo en este momento."
+
+            elif not dia_match and hora_match:
+                dia = datetime.now().strftime("%A")
+                dia = dia.replace("Monday", "Lunes").replace("Tuesday", "Martes").replace("Wednesday", "Miércoles")
+                dia = dia.replace("Thursday", "Jueves").replace("Friday", "Viernes").replace("Saturday", "Sábado").replace("Sunday", "Domingo")
+                hora = hora_match
+                indice = evaluar_intervalo(hora)
+
+                if indice is not None:
+                    clase = obtener_clase(horario, seccion_match, dia, indice)
+                    return (f"No se especificó el día, así que usé hoy ({dia}) como referencia. "
+                            f"La sección {seccion_match} está en: {clase}")
+                else:
+                    return "No estamos en horario lectivo en este momento."
+
+            elif not dia_match and not hora_match:
+                dia = datetime.now().strftime("%A")
+                dia = dia.replace("Monday", "Lunes").replace("Tuesday", "Martes").replace("Wednesday", "Miércoles")
+                dia = dia.replace("Thursday", "Jueves").replace("Friday", "Viernes").replace("Saturday", "Sábado").replace("Sunday", "Domingo")
+                hora = datetime.now().strftime("%H:%M")
+                indice = evaluar_intervalo(hora)
+
+                if indice is not None:
+                    clase = obtener_clase(horario, seccion_match, dia, indice)
+                    return (f"No se especificaron día ni hora, así que usé los datos actuales. "
+                            f"La sección {seccion_match} está en: {clase}")
+                else:
+                    responses = [
+                        "Ups, no pude entender esa hora. ¿Puedes intentarlo de nuevo, por favor?",
+                        "No estoy seguro de la hora que proporcionaste. ¿Puedes intentarlo otra vez?",
+                        "Parece que la hora no está en un formato que entienda. ¿Podrías revisarlo e intentarlo de nuevo?",
+                        "Lo siento, no reconozco esa hora. ¿Podrías intentar de nuevo con un formato diferente?"
+                    ]
+                    return random.choice(responses)
+        else:
+            return "No se especificó una sección. Ingresa una en el formato {grado-numero-subgrupo}, por ejemplo: 10-3-A."
+    except Exception as e:
+        return f"Hubo un error al procesar el comando: {e}"
 # Cargar el horario desde el archivo JSON
 horario = cargar_horario("model/data/horarios.json")
+
 def Lawliett(command): 
     # Pedir el comando del usuario
     comando_usuario = command
@@ -144,7 +168,7 @@ def Lawliett(command):
 
     # Procesar el comando según la intención
     if intencion == "consulta_de_horario":
-        clase = procesar_comando(comando_usuario, horario)
+        clase = consultar_horario(comando_usuario, horario)
         return clase
     else:
         print(f"Intención: {intencion}")

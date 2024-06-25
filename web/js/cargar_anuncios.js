@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const timestamp = new Date().getTime();
-    const url = `../db/anuncios.json?uniqueParam=${timestamp}`;
+    const url = `/database/common/anuncios.json?uniqueParam=${timestamp}`;
 
     fetch(url)
         .then(response => response.json())

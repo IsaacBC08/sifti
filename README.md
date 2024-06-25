@@ -6,8 +6,6 @@ Este servidor implementa una aplicación web básica utilizando el módulo `http
 
 El servidor está configurado para escuchar en el puerto **8081** y requiere autenticación básica para ciertas rutas mediante un nombre de usuario y contraseña:
 
-- **Usuario**: `Team Sifti`
-- **Contraseña**: `sifti4321`
 
 ## Archivos y Directorios
 

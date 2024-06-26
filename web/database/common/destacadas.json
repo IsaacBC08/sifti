@@ -3,21 +3,21 @@
         "fecha": "2024-06-23",
         "titular": "Don Quijote",
         "contenido": "De la mancha",
-        "tipo": "noticia",
+        "tipo": "Noticia",
         "ruta": "/uploads/collage2.webp"
     },
     "destacada-2": {
         "fecha": "2024-06-23",
         "titular": "Lenguajes de Sifti",
         "contenido": "Lenguajes de Sifti",
-        "tipo": "evento",
-        "ruta": ""
+        "tipo": "Evento",
+        "ruta": "/uploads/Capture001.webp"
     },
     "destacada-3": {
         "fecha": "2024-06-22",
         "titular": "Webp converter attempt",
         "contenido": "prueba del convertidor de imagenes",
-        "tipo": "noticia",
+        "tipo": "Noticia",
         "ruta": "/uploads/Capture001.webp"
     }
 }

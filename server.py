@@ -10,7 +10,7 @@ from tools.convert_img import convert_to_webp
 
 # Configuración del puerto y credenciales de autenticación
 PORT = 8080
-PASSWORD = "sifti4321"
+PASSWORD = "undefined20240Sifti"
 USERNAME = "Team Sifti"  # Nombre de usuario temporal
 
 # Rutas a los directorios y archivos estáticos
@@ -21,7 +21,7 @@ DATABASE_DIR = os.path.join(STATIC_DIR, 'database')
 ANUNCIOS_JSON_FILE = os.path.join(DATABASE_DIR, 'common/anuncios.json')
 MENU_JSON_FILE = os.path.join(DATABASE_DIR, 'common/menu.json')
 REPORTES_JSON_FILE = os.path.join(DATABASE_DIR, 'common/reportes.json')
-DESTACADA_JSON_FILE = os.path.join(DATABASE_DIR, 'common/noticias.json')
+DESTACADA_JSON_FILE = os.path.join(DATABASE_DIR, 'common/destacadas.json')
 
 # Asegúrate de que el nuevo directorio de imágenes existe
 os.makedirs(UPLOADS_DIR, exist_ok=True)

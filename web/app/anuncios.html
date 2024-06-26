@@ -1,79 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avisos Importantes</title>
-    <link rel="stylesheet" href="../css/anuncios.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrusel de Cartas</title>
+  <link rel="stylesheet" href="../css/anuncios.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
+
 <body>
-    <header class="header">
-        <div class="header-inner">
-            <h1 class="header-title">Avisos Importantes</h1>
+  <div class="carousel-container">
+    <button class="carousel-button prev">◀</button>
+    <div class="carousel">
+      <div class="card">
+        <img src="" alt="Encabezado 1" id="img-1">
+        <div class="card-content">
+          <h2 id="titular-1"></h2>
+          <p id="contenido-1"></p><br><br>
+          <div class="date-type-container">
+            <span class="date-type fecha" id="fecha-1"></span>
+            <span class="date-type tipo" id="tipo-1"></span>
+          </div>
         </div>
-    </header>
+      </div>
+      <div class="card">
+        <img src="" alt="Encabezado 2" id="img-2">
+        <div class="card-content">
+          <h2 id="titular-2"></h2>
+          <p id="contenido-2"></p><br><br>
+          <div class="date-type-container">
+            <span class="date-type fecha" id="fecha-2"></span>
+            <span class="date-type tipo" id="tipo-2"></span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="" alt="Encabezado 3" id="img-3">
+        <div class="card-content">
+          <h2 id="titular-3"></h2>
+          <p id="contenido-3"></p><br><br>
+          <div class="date-type-container">
+            <span class="date-type fecha" id="fecha-3"></span>
+            <span class="date-type tipo" id="tipo-3"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-button next">▶</button>
+    <a href="../"><i class="fas fa-home"></i> Volver al Inicio</a>
+  </div>
 
-    <main class="main">
-        <section class="announcement">
-            <div class="announcement-header">
-                <h2 class="announcement-title" id="asunto-1">Aviso 1</h2>
-                <p class="announcement-date">Publicado el <span id="fecha-1"></span></p>
-            </div>
-            <div class="announcement-content">
-                <p id="contenido-1" class="content hidden"></p>
-                <p class="affected"><span class="bold-text">Afectados: </span><span id="afectados-1"></span></p>
-            </div>
-            <div class="announcement-footer">
-                <button class="expand-button" onclick="toggleContent('contenido-1', this)">Mostrar más</button>
-            </div>
-        </section>
-
-        <section class="announcement">
-            <div class="announcement-header">
-                <h2 class="announcement-title" id="asunto-2">Aviso 2</h2>
-                <p class="announcement-date">Publicado el <span id="fecha-2"></span></p>
-            </div>
-            <div class="announcement-content">
-                <p id="contenido-2" class="content hidden"></p>
-                <p class="affected"><span class="bold-text">Afectados: </span><span id="afectados-2"></span></p>
-            </div>
-            <div class="announcement-footer">
-                <button class="expand-button" onclick="toggleContent('contenido-2', this)">Mostrar más</button>
-            </div>
-        </section>
-
-        <section class="announcement">
-            <div class="announcement-header">
-                <h2 class="announcement-title" id="asunto-3">Aviso 3</h2>
-                <p class="announcement-date">Publicado el <span id="fecha-3"></span></p>
-            </div>
-            <div class="announcement-content">
-                <p id="contenido-3" class="content hidden"></p>
-                <p class="affected"><span class="bold-text">Afectados: </span><span id="afectados-3"></span></p>
-            </div>
-            <div class="announcement-footer">
-                <button class="expand-button" onclick="toggleContent('contenido-3', this)">Mostrar más</button>
-            </div>
-        </section>
-        <section class="announcement">
-            <div class="announcement-header">
-                <h2 class="announcement-title" id="asunto-4">Aviso 4</h2>
-                <p class="announcement-date">Publicado el <span id="fecha-4"></span></p>
-            </div>
-            <div class="announcement-content">
-                <p id="contenido-4" class="content hidden"></p>
-                <p class="affected"><span class="bold-text">Afectados: </span><span id="afectados-4"></span></p>
-            </div>
-            <div class="announcement-footer">
-                <button class="expand-button" onclick="toggleContent('contenido-4', this)">Mostrar más</button>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <button onclick="window.history.back()" class="back-button">← Volver atrás</button>
-    </footer>
-
-    <script src="../js/cargar_anuncios.js"></script>
+  <script src="../js/cargar_anuncios.js"></script>
 </body>
+
 </html>

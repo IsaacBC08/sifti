@@ -1,137 +1,136 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+:root {
+  --primary-color: #20f7de;
+  --secondary-color: #11151d;
+  --text-color: #333;
+  --color-light: #1b2633;
+  --color-medium: #1e2a37;
+  --color-dark: #11151d;
+  --background-color: linear-gradient(249.59deg, var(--color-light) 0%, var(--color-medium) 28.53%, var(--color-dark) 75.52%);
+}
 
-/* Estilos generales */
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    line-height: 1.6;
+  font-family: Arial, sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+.carousel-container {
+  margin-top: 3%;
+  position: relative;
+  width: 60%; /* Including margins for better centering */
+  overflow: hidden;
 }
 
-/* Estilos del encabezado */
-.header {
-    background-color: #1a2980;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
-.header-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+.card {
+  flex: 0 0 100%; /* Make each card take up 100% of the container width */
+  background: var(--background-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-height: 400px;
 }
 
-.header-title {
-    font-size: 2.5rem;
-    margin: 0;
+.card img {
+  margin-left: 5%;
+  width: 90%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 6px;
 }
 
-/* Estilos del contenido principal */
-.main {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 30px;
-    padding: 20px;
+.card-content {
+  padding: 15px;
 }
 
-.announcement {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 100%;
-    max-width: 400px;
-    transition: transform 0.3s ease;
+.card-content h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.5em;
+  text-align: center; /* Center-align text within the card content */
+  color: #fff; /* White text color */
 }
 
-.announcement:hover {
-    transform: translateY(-5px);
+.card-content p {
+  text-align: justify; /* Center-align text within the card content */
+  margin: 5px 0;
+  color: #fff; /* White text color */
 }
 
-.announcement-header {
-    padding: 20px;
-    background-color: #1a2980;
-    color: #fff;
+.date-type-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  color: var(--secondary-color);
 }
 
-.announcement-title {
-    font-size: 1.8rem;
-    margin: 0;
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--background-color);
+  padding: 10px;
+  cursor: pointer;
+  z-index: 100;
 }
 
-.announcement-date {
-    margin-top: 5px;
-    font-size: 0.9rem;
+.prev {
+  left: 10px;
 }
 
-.announcement-content {
-    padding: 20px;
+.next {
+  right: 10px;
 }
 
-.content {
-    margin-bottom: 20px;
+.carousel-button:hover {
+  background-color: var(--secondary-color);
+}
+.date-type-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  color: var(--secondary-color);
 }
 
-.affected {
-    font-weight: bold;
+.fecha {
+  align-self: flex-end;
+  font-weight: bold;
+  font-size: 14px;
+  color: #61665e;
 }
 
-.announcement-footer {
-    padding: 20px;
-    text-align: center;
+.tipo {
+  align-self: flex-start;
+  font-weight: bold;
+  font-size: 14px;
+  color:  #f7bf11;
 }
-
-.expand-button {
-    background-color: #26d0ce;
-    color: #fff;
-    border: none;
-    padding: 12px 30px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background-color 0.3s;
+.evento {
+  color: #8fbe39 !important;
 }
-
-.expand-button:hover {
-    background-color: #1a2980;
-}
-
-/* Estilos del pie de página */
-.footer {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-}
-
-.back-button {
-    background-color: #1a2980;
-    color: #fff;
-    border: none;
-    padding: 12px 30px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-}
-
-.back-button:hover {
-    background-color: #26d0ce;
-}
-.hidden{
-    display: none;
+a {
+  text-align: center;
+  display: block;
+  color: #20f7de;
+  background: #11151d;
+  border: 1px solid transparent;
+  padding: 12px 30px;
+  line-height: 1.4;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 30px;
+  text-transform: uppercase;
+  transition: all .55s ease;
+  margin-top: 4%;
 }

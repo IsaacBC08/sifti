@@ -1,53 +1,70 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const timestamp = new Date().getTime();
-    const url = `/database/common/anuncios.json?uniqueParam=${timestamp}`;
+function actualizarElemento(elemento, valor) {
+  if (elemento) {
+      elemento.textContent = valor || '';
+  }
+}
 
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            // Verificar que los anuncios existan en el JSON
-            if (data) {
-                Object.keys(data).forEach(key => {
-                    const anuncio = data[key];
-                    // Parsear el número del anuncio desde la clave
-                    const numAviso = parseInt(key.split("-")[1]);
-                    
-                    // Obtener elementos del DOM
-                    const fechaElement = document.getElementById(`fecha-${numAviso}`);
-                    const asuntoElement = document.getElementById(`asunto-${numAviso}`);
-                    const contenidoElement = document.getElementById(`contenido-${numAviso}`);
-                    const afectadosElement = document.getElementById(`afectados-${numAviso}`);
+document.addEventListener('DOMContentLoaded', function() {
+  cargar_anuncios();
 
-                    // Verificar si los elementos existen antes de actualizar
-                    if (fechaElement && asuntoElement && contenidoElement && afectadosElement) {
-                        fechaElement.textContent = anuncio.fecha || '';
-                        asuntoElement.textContent = anuncio.asunto || '';
-                        contenidoElement.textContent = anuncio.contenido || '';
-                        afectadosElement.textContent = anuncio.afectados || '';
+  const prevButton = document.querySelector('.prev');
+  const nextButton = document.querySelector('.next');
+  const carousel = document.querySelector('.carousel');
+  let currentIndex = 0;
 
-                        // Agregar clases según el contenido visible o no
-                        if (anuncio.contenido) {
-                            contenidoElement.classList.add('visible');
-                        }
-                    } else {
-                        console.error(`Elementos de aviso-${numAviso} no encontrados en el DOM.`);
-                    }
-                });
-            } else {
-                console.error('No se encontraron anuncios válidos en el archivo JSON.');
-            }
-        })
-        .catch(error => {
-            console.error('Error al cargar los anuncios:', error);
-        });
+  prevButton.addEventListener('click', () => {
+      if (currentIndex > 0) {
+          currentIndex--;
+      } else {
+          currentIndex = carousel.children.length - 1;
+      }
+      updateCarousel();
+  });
+
+  nextButton.addEventListener('click', () => {
+      if (currentIndex < carousel.children.length - 1) {
+          currentIndex++;
+      } else {
+          currentIndex = 0;
+      }
+      updateCarousel();
+  });
+
+  function updateCarousel() {
+      const cardWidth = carousel.children[0].clientWidth;
+      const cardMargin = 1;
+      const offset = -currentIndex * (cardWidth + cardMargin * 2) + cardMargin; // Adjust offset to include margins
+      carousel.style.transform = `translateX(${offset}px)`;
+  }
 });
-function toggleContent(contenido, button) {
-    const content = document.getElementById(contenido);
-    if (content.classList.contains('hidden')) {
-        content.classList.remove('hidden');
-        button.textContent = 'Leer menos';
-    } else {
-        content.classList.add('hidden');
-        button.textContent = 'Leer más';
-    }
+
+function cargar_anuncios() {
+  const timestamp = new Date().getTime();
+  const url1 = `/database/common/anuncios.json?uniqueParam=${timestamp}`;
+  const url2 = `/database/common/destacadas.json?uniqueParam=${timestamp}`;
+
+  fetch(url2).then(response => response.json()).then(data => {
+      if (data) {
+          Object.keys(data).forEach(key => {
+              const destacada = data[key];
+              const numAviso = parseInt(key.split("-")[1]);
+
+              const titular = document.getElementById(`titular-${numAviso}`);
+              const contenido = document.getElementById(`contenido-${numAviso}`);
+              const fecha = document.getElementById(`fecha-${numAviso}`)
+              const tipo = document.getElementById(`tipo-${numAviso}`)
+              const img = document.getElementById(`img-${numAviso}`);
+              if (titular && contenido && img) {
+                  actualizarElemento(titular, destacada.titular);
+                  actualizarElemento(contenido, destacada.contenido);
+                  actualizarElemento(fecha, destacada.fecha)
+                  actualizarElemento(tipo, destacada.tipo)
+                  if (destacada.tipo == "Evento"){
+                    tipo.classList.add("evento")
+                  }
+                  img.src = destacada.ruta;
+              }
+          });
+      }
+  });
 }
